@@ -52,3 +52,7 @@ public class Client {
 ````
 
 I'm too lazy to do that. It's better for me if someone can automatic lookup it for me, like Spring do with annotation @Autowired. If you also lazy like me, let's do it.
+
+### How to inject a SessionBean into a ADF ManangedBean
+See here: http://codeplay.net/2010/09/14/inject-ejb-to-adf-managed-bean/
+
