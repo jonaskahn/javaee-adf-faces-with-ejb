@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" 
+                  xmlns:f="http://java.sun.com/jsf/core" xmlns="http://www.w3.org/1999/xhtml">
+  <af:componentDef var="attrs"
+                   componentVar="comp" definition="public">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <description/>
+        <display-name>contentBody</display-name>
+        <facet>
+          <facet-name>startFacet</facet-name>
+        </facet>
+        <facet>
+          <facet-name>content</facet-name>
+        </facet>
+        <facet>
+          <facet-name>endFacet</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>brandingMaxWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>startWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>endWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>minWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <component-extension>
+          <component-tag-namespace>component</component-tag-namespace>
+          <component-taglib-uri>/componentLib1</component-taglib-uri>
+        </component-extension>
+      </component>
+    </af:xmlContent>
+    <af:panelGridLayout id="mainCont"
+                        styleClass="tablet-first-content-container #{(attrs.brandingMaxWidth == '1440px') ? 'BrandingMaxWidth-1440' : 
+                                       (attrs.brandingMaxWidth == '1280px') ? 'BrandingMaxWidth-1280' :
+                                           (attrs.brandingMaxWidth == '1024px') ? 'BrandingMaxWidth-1024' : 'BrandingMaxWidth'}"
+                        dimensionsFrom="children" inlineStyle="min-width: #{attrs.minWidth}">
+      <af:gridRow marginTop="10px" height="auto" marginBottom="10px" id="pt_gr1">
+        <af:gridCell marginStart="20px" width="#{attrs.startWidth}" id="pt_gc1" halign="stretch">
+          <af:facetRef facetName="startFacet"/>
+        </af:gridCell>
+        <af:gridCell marginStart="0px" width="100%" id="pt_gc2" halign="stretch">
+          <af:facetRef facetName="content"/>
+        </af:gridCell>
+        <af:gridCell marginStart="0px" width="#{attrs.endWidth}" marginEnd="20px" id="pt_gc3" halign="stretch">
+          <af:facetRef facetName="endFacet"/>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
+  </af:componentDef>
+</jsp:root>

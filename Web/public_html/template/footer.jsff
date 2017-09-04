@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" 
+                    xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core">
+  <af:componentDef  var="attrs"
+                   componentVar="comp" definition="public">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <description/>
+        <display-name>footer</display-name>
+        <facet>
+          <facet-name>footerBar</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>brandingMaxWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>showFooter</attribute-name>
+          <attribute-class>boolean</attribute-class>
+        </attribute>
+        <component-extension>
+          <component-tag-namespace>component</component-tag-namespace>
+          <component-taglib-uri>/componentLib1</component-taglib-uri>
+        </component-extension>
+      </component>
+    </af:xmlContent>
+    <af:panelGroupLayout layout="vertical" valign="middle" id="footPgl"
+                         styleClass="AFFooterBar #{attrs.showAppNavbar ? 'AFBrandingBarTall' : ''}" halign="center"
+                         clientComponent="true" rendered="#{attrs.showFooter}">
+      <af:panelGridLayout id="pt_pgl4"
+                          styleClass="#{attrs.brandingMaxWidth == '1440px' ? 'BrandingMaxWidth-1440' :(attrs.brandingMaxWidth == '1280px') ? 'BrandingMaxWidth-1280' :(attrs.brandingMaxWidth == '1024px') ? 'BrandingMaxWidth-1024' : 'BrandingMaxWidth'}">
+        <af:gridRow marginTop="5px" height="auto" id="pt_gr5">
+          <af:gridCell marginStart="20px" width="100%" marginEnd="20px" id="pt_gc6" halign="start">
+            <af:facetRef facetName="footerBar"/>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:panelGroupLayout>
+  </af:componentDef>
+</jsp:root>

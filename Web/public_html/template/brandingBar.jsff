@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns="http://www.w3.org/1999/xhtml"
+                   xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:componentDef var="attrs" componentVar="comp">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component" clientComponent="true">
+        <description>Dynamic declarative component for the global tools, global menu bar, breadcrumbs, and demo finder.</description>
+        <facet>
+          <description>
+            <![CDATA[Content for Global navigation bar.]]>
+          </description>
+          <facet-name>globalNavbar</facet-name>
+        </facet>
+        <facet>
+          <description>
+            <![CDATA[Content for Application Navigation bar.]]>
+          </description>
+          <facet-name>appNavbar</facet-name>
+        </facet>
+        <facet>
+          <description>
+            <![CDATA[Content for Application title.]]>
+          </description>
+          <facet-name>brandingTitle</facet-name>
+        </facet>
+        <facet>
+          <description>
+            <![CDATA[Content for Status bar.]]>
+          </description>
+          <facet-name>statusBar</facet-name>
+        </facet>
+        <attribute>
+          <description>Whether to show the application Navigation Bar. If it is not present, the logo will be smaller
+                       and the branding area will shrink in size.</description>
+          <attribute-name>showAppNavbar</attribute-name>
+          <attribute-class>boolean</attribute-class>
+          <default-value>true</default-value>
+        </attribute>
+        <attribute>
+          <description>Whether to show the status indicator next to the global navigation links.</description>
+          <attribute-name>showStatusIndicator</attribute-name>
+          <attribute-class>boolean</attribute-class>
+          <default-value>false</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>logoImagePath</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>logoStyleClass</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>logoShortDesc</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>brandingMaxWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>logoSmallImagePath</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+        </attribute>
+        <component-extension>
+          <component-tag-namespace>component</component-tag-namespace>
+          <component-taglib-uri>/webapp/branding</component-taglib-uri>
+        </component-extension>
+      </component>
+    </af:xmlContent>
+    <af:resource type="css" source="/styles/brandingBar.css"/>
+    <af:resource type="javascript" source="/jsLibs/brandingBar.js"/>
+    <af:resource type="javascript">
+      window["_myBrandingBar"] = new MyBrandingBar("_afrBrandingContainer", "AFBrandingBarCompact");
+    </af:resource>
+    <af:panelGroupLayout layout="vertical" id="_afrBrandingContainer" halign="center"
+                         styleClass="AFBrandingBar #{attrs.showAppNavbar ? 'AFBrandingBarTall' : 'AFBrandingBarCompact'}"
+                         clientComponent="true">
+      <af:panelGridLayout id="branding"
+                          styleClass="#{attrs.brandingMaxWidth == '1440px' ? 'BrandingMaxWidth-1440' : 
+                                       (attrs.brandingMaxWidth == '1280px') ? 'BrandingMaxWidth-1280' :
+                                           (attrs.brandingMaxWidth == '1024px') ? 'BrandingMaxWidth-1024' : 'BrandingMaxWidth'}"
+                          dimensionsFrom="auto" clientComponent="true">
+        <af:gridRow marginTop="0px" height="34px" id="pt_gr2">
+          <af:gridCell marginStart="20px" marginEnd="0px" width="auto" id="pt_gc4" halign="start" rowSpan="2">
+            <af:panelGroupLayout id="logo" layout="horizontal" styleClass="AFBrandingLogoTitleContainer">
+              <af:link id="logoLink" icon="#{attrs.logoImagePath }" action="index" shortDesc="#{attrs.logoShortDesc}"
+                       styleClass="#{attrs.logoStyleClass? attrs.logoStyleClass: '' } AFBrandingLogo"
+                       rendered="#{attrs.logoImagePath != null}"/>
+              <af:link id="logoLinkAlt" action="index" shortDesc="#{attrs.logoShortDesc}"
+                       styleClass="AFBrandingBarLogoLarge AFBrandingLogo" rendered="#{attrs.logoImagePath == null}"/>
+              <af:link id="logoLinkSm" icon="#{attrs.logoSmallImagePath}" action="index"
+                       shortDesc="#{attrs.logoShortDesc}" visible="false"
+                       styleClass="#{attrs.logoStyleClass? attrs.logoStyleClass: '' } AFBrandingLogo"
+                       rendered="#{attrs.logoSmallImagePath != null}"/>
+              <af:link id="logoLinkAltSm" action="index" shortDesc="#{attrs.logoShortDesc}" visible="false"
+                       styleClass="AFBrandingBarLogo AFBrandingLogo" rendered="#{attrs.logoSmallImagePath == null}"/>
+              <af:panelGroupLayout id="title" layout="horizontal" styleClass="AFBrandingBarTitle">
+                <af:facetRef facetName="brandingTitle"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:gridCell>
+          <af:gridCell marginStart="0px" width="50%" marginEnd="20px" id="pt_gc5" halign="end">
+            <af:panelGroupLayout valign="middle" layout="horizontal" styleClass="AFBrandingBarItem" id="gllink">
+              <af:facetRef facetName="globalNavbar"/>
+              <af:facetRef facetName="statusBar"/>
+              <af:statusIndicator rendered="#{attrs.showStatusIndicator}" styleClass="" id="status"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="pt_gr3" rendered="#{attrs.showAppNavbar}">
+          <af:gridCell marginStart="0px" width="50%" marginEnd="20px" id="pt_gc7" halign="end">
+            <af:panelGroupLayout layout="horizontal" rendered="#{attrs.showAppNavbar}" id="navig"
+                                 styleClass="AFAppNavbarContainer">
+              <af:facetRef facetName="appNavbar"/>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:panelGroupLayout>
+  </af:componentDef>
+</jsp:root>
+
+
