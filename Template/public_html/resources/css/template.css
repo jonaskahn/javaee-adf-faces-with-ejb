@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.navbar {
+    border-radius: 0px!important;
+    
+}
+
+.navbar-inverse {
+    background-color: #00aba9!important;
+    border-color: #00aba9!important;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff!important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff!important;
+}

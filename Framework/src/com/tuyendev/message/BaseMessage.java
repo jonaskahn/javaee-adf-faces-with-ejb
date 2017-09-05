@@ -1,10 +1,11 @@
 package com.tuyendev.message;
 
+import java.io.Serializable;
+
 import java.util.List;
 
+public class BaseMessage implements Serializable {
 
-
-public class BaseMessage {
     private boolean success;
     private String message;
     private String value;
@@ -65,5 +66,4 @@ public class BaseMessage {
     public List getFailedValue() {
         return failedValue;
     }
-
 }

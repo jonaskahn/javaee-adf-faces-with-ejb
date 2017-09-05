@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">test_01</property>
+      <property
+         name="x">128.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>test_01&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">320.79883</property>
+      <property
+         name="page">/pages/testing/test_01.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">test_02</property>
+      <property
+         name="x">218.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>test_02&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">219.79883</property>
+      <property
+         name="page">/pages/testing/test_02.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">test_03</property>
+      <property
+         name="x">503.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>test_03&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">269.79883</property>
+      <property
+         name="page">/pages/testing/test_03.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View5">
+      <property
+         name="activityId">test_04</property>
+      <property
+         name="x">445.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>test_04&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">384.79883</property>
+      <property
+         name="page">/pages/testing/test_04.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+</SDM>

@@ -1,5 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <jpr:project xmlns:jpr="http://xmlns.oracle.com/ide/project">
+   <value n="ADFComponentWizard.LAST_TAG_NS_PREF" v="component"/>
+   <value n="ADFComponentWizard.LAST_TAGLIB_URI_PREF"/>
    <hash n="component-versions">
       <value n="oracle.adfdt.controller.adfc.source.migration.AdfControllerSchemaMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdt.controller.common.migrator.ProjectMigrator" v="11.1.1.1.0"/>
@@ -68,13 +70,20 @@
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="com.tuyendev.binding"/>
+   <value n="defaultPackage" v="com.tuyendev.template"/>
    <hash n="oracle.ide.model.DependencyConfiguration">
       <list n="dependencyList">
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
-               <url n="sourceURL" path="../Service/Service.jpr"/>
+               <url n="sourceURL" path="../BundleResources/BundleResources.jpr"/>
+            </hash>
+            <value n="recognizerId" v="oracle.jdeveloper.library"/>
+         </hash>
+         <hash>
+            <hash n="dependable">
+               <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
+               <url n="sourceURL" path="../Framework/Framework.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
@@ -84,6 +93,8 @@
       <list n="technologyScope">
          <string v="ADF_FACES"/>
          <string v="ADFc"/>
+         <string v="HTML"/>
+         <string v="JAVASCRIPT"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -96,7 +107,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ADFFacesWithEJB_Web_webapp">
+         <hash n="ADFFacesWithEJB_Template_webapp">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -107,7 +118,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <value n="enterpriseAppName" v="ADFFacesWithEJB_Web_webapp"/>
+            <value n="enterpriseAppName" v="ADFFacesWithEJB_Template_webapp"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -166,14 +177,18 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/ADFFacesWithEJB_Web_webapp.war"/>
+            <url n="jarURL" path="deploy/ADFFacesWithEJB_Template_webapp.war"/>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="ADFFacesWithEJB_Web_webapp"/>
+            <value n="profileName" v="ADFFacesWithEJB_Template_webapp"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ADFFacesWithEJB_Web_webapp"/>
+         <string v="ADFFacesWithEJB_Template_webapp"/>
       </list>
+   </hash>
+   <hash n="oracle.jdeveloper.model.J2eeSettings">
+      <value n="j2eeWebAppName" v="ADFFacesWithEJB-Template-webapp"/>
+      <value n="j2eeWebContextRoot" v="ADFFacesWithEJB-Template-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
@@ -259,7 +274,71 @@
             <value n="id" v="ADF DVT Faces Databinding MDS Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Cloning-1.9.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Guava-23.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Streamex-0.6.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle Page Templates"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle JEWT"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Objenesis-2.6.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/cloning-1.9.5.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Cloning-1.9.5.jar"/>
+               <value n="id" v="Cloning-1.9.5.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/guava-23.0.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Guava-23.0.jar"/>
+               <value n="id" v="Guava-23.0.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/streamex-0.6.5.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Streamex-0.6.5.jar"/>
+               <value n="id" v="Streamex-0.6.5.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/objenesis-2.6.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Objenesis-2.6.jar"/>
+               <value n="id" v="Objenesis-2.6.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="JSP Runtime"/>
@@ -331,6 +410,30 @@
          </hash>
          <hash>
             <value n="id" v="ADF DVT Faces Databinding MDS Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Cloning-1.9.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Guava-23.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Streamex-0.6.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle Page Templates"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle JEWT"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Objenesis-2.6.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -440,6 +543,16 @@
             <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich/component"/>
             <value n="version" v="11"/>
          </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="ADF Data Visualization"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="name" v="ADF Data Visualization"/>
+            <value n="taglibURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.taglib.xml"/>
+            <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
+            <value n="version" v="1.1"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
@@ -476,6 +589,17 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
             <value n="version" v="11"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="ADF Data Visualization"/>
+               <value n="version" v="1.1"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="ADF Data Visualization"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.tld"/>
+            <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
+            <value n="version" v="1.1"/>
          </hash>
       </list>
    </hash>

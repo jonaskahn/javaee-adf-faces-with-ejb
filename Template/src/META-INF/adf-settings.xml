@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adf-settings xmlns="http://xmlns.oracle.com/adf/settings">
+    <adfc-controller-config xmlns="http://xmlns.oracle.com/adf/controller/config">
+      <?audit suppress oracle.ide.xml.validation-error?>
+      <lifecycle>
+         <phase-listener>
+            <listener-id>pageLoadSetting</listener-id>
+            <class>com.tuyendev.setting.PrePageLoadedSetting</class>
+         </phase-listener>
+      </lifecycle>
+   </adfc-controller-config>
+</adf-settings>
