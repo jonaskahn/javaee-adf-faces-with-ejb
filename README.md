@@ -2,7 +2,7 @@
 
 ### Dependency Injection
 - As far as I know, Dependency Injection is a common technique that was supported by lots of Frameworks nowadays. Right? I guess.
-Yep, when I started working in the new company, started working with ADF Faces, EJB. I really feel a little bit upset cause ADF Faces doesn't support full injection. It means **you can't inject a SessionBean into a ManagedBean**. Someone will tell that isn't necessary. I also agree, but most the time, you need to declare a remote context or a local context before looking up a SessionBean from Weblogic, such as:
+Yep, when I started working in the new company, started working with ADF Faces, EJB. I really felt a little bit upset cause ADF Faces doesn't support full injection. It means **you can't inject a SessionBean into a ManagedBean**. Someone will tell that isn't necessary. I also agree, but most the time, you need to declare a remote context or a local context before looking up a SessionBean from Weblogic, such as:
 
 ````
           Context ctx = null;
