@@ -17,7 +17,7 @@ Yep, when I started working in the new company, started working with ADF Faces, 
 
 ````
 
-It's quite backward and I'm too lazy to do that. It's better for me if someone can automatically look up it for me like Spring do with annotation @Autowired. If you also lazy like me, you can use this solution. Even it doesn't work at all, but I think the idea is really good. Read [here](http://codeplay.net/2010/09/14/inject-ejb-to-adf-managed-bean/). I have modified something to make it better.
+ - It's quite backward and I'm too lazy to do that. It's better for me if someone can automatically look up it for me like Spring do with annotation @Autowired. If you also lazy like me, you can use this solution. Even it doesn't work at all, but I think the idea is really good. Read [here](http://codeplay.net/2010/09/14/inject-ejb-to-adf-managed-bean/). I have modified something to make it better.
 
 ### Multi-languages
  - Reserved
