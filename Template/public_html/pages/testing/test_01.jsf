@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="test_01.jsf" id="d1" inlineStyle="background-color: white !important;">
-        <af:pageTemplate viewId="/template/Home01_AdminLTE.jsf" id="pt1">
+        <af:pageTemplate viewId="/template/Home01_NTT.jsf" id="pt1">
             <f:facet name="main"/>
             <f:facet name="resources"/>
             <f:facet name="extends"/>
