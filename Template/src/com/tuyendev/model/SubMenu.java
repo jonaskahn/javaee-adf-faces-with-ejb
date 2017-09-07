@@ -107,7 +107,7 @@ public class SubMenu implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tuyendev.model.SubMenu[ subMenuId=" + subMenuId + " ]";
+        return "com.tuyendev.model.SubMenu[ subMenuId=" + name + " ]" +"[ menuId = "+ menuId.getName()+" ]";
     }
 
 }

@@ -26,6 +26,7 @@
         <af:resource type="css" source="/resources/css/bootstrap.css"/>
         <af:resource type="css" source="/resources/css/font-awesome.css"/>
         <af:resource type="javascript" source="/resources/js/jquery.js"/>
+        <af:resource type="javascript" source="/resources/js/jquery.cookie.js"/>
         <af:resource type="javascript" source="/resources/js/bootstrap.js"/>
         <af:resource type="javascript" source="/resources/js/template.js"/>
     </af:group>
@@ -44,31 +45,27 @@
                          Studio</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
+                    <af:inputText value="#{appSetting.activeMenu.name}" disabled="true" readOnly="false" visible="false"/>
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Home</a>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-                                <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Page 1-1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Page 1-2</a>
-                                </li>
-                                <li>
-                                    <a href="#">Page 1-3</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
+                        <af:forEach items="#{appSetting.lstMenu}" var="menu">
+                            <li class="dropdown #{menu.styleClass}">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <af:outputText value="#{menu.name}" shortDesc="#{menu.desc}"
+                                                   rendered="#{empty menu.link}"/><af:commandLink value="#{menu.name}"
+                                                                                                  shortDesc="#{menu.desc}"
+                                                                                                  rendered="#{not empty menu.link}"
+                                                                                                  action="#{menu.link}"/><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <af:forEach items="#{menu.subMenuList}" var="subMenu">
+                                        <li id="#{subMenu.subMenuId}" class="#{subMenu.styleClass}">
+                                            <a href="#{subMenu.link}">
+                                                <af:outputText value="#{subMenu.name}"
+                                                               shortDesc="#{subMenu.description}"/></a>
+                                        </li>
+                                    </af:forEach>
+                                </ul>
+                            </li>
+                        </af:forEach>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -81,23 +78,13 @@
         </nav>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Home</a>
+                <af:outputText value="#{appSetting.activeMenu.name} - #{appSetting.activeMenu.description}"/>
             </li>
-            <li>
-                <a href="#">Pictures</a>
-            </li>
-            <li>
-                <a href="#">Summer 15</a>
-            </li>
-            <li>Italy</li>
         </ul>
-        <div class="container">
-            <h3>Collapsible Navbar</h3>
-            <p>
-                In this example, the navigation bar is hidden on small screens and replaced by a button in the top right
-                corner (try to re-size this window).
-                <p>Only when the button is clicked, the navigation bar will be displayed.</p>
-            </p>
-        </div>
+        <af:panelGroupLayout>
+            <af:facetRef facetName="main"/>
+            <af:facetRef facetName="resources"/>
+            <af:facetRef facetName="extends"/>
+        </af:panelGroupLayout>
     </af:form>
 </af:pageTemplateDef>

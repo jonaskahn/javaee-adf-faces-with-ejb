@@ -2,6 +2,8 @@ package com.tuyendev.setting;
 
 import com.google.common.collect.*;
 
+import com.tuyendev.common.Constant;
+import com.tuyendev.common.CookieUtil;
 import com.tuyendev.fw.DataUtil;
 import com.tuyendev.model.*;
 
@@ -15,6 +17,8 @@ import javax.annotation.PostConstruct;
 
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
+import javax.servlet.http.Cookie;
 
 import one.util.streamex.StreamEx;
 
@@ -50,7 +54,6 @@ public class AppSetting implements Serializable {
             menu.setDesc("TEST_01");
             menu.setMenuId(1L);
             menu.setName("TEST_MENU_01");
-            menu.setStyleClass("fa-folder");
 
             menu.setSubMenuList(Lists.newArrayList(sub01, sub02));
             sub01.setMenuId(menu);
@@ -76,17 +79,16 @@ public class AppSetting implements Serializable {
             menu02.setDesc("TEST_02");
             menu02.setMenuId(2L);
             menu02.setName("TEST_MENU_02");
-            menu02.setStyleClass("fa-folder");
 
             menu02.setSubMenuList(Lists.newArrayList(sub03, sub04));
-            sub03.setMenuId(menu);
-            sub04.setMenuId(menu);
+            sub03.setMenuId(menu02);
+            sub04.setMenuId(menu02);
             lstMenu.add(menu02);
 
             // set default active menu
 
-            sub02.getMenuId().setActiveMenu(true);
-            sub02.setActiveSubMenu(true);
+            sub02.getMenuId().setStyleClass("active");
+            sub02.setStyleClass("active-sub-menu");
             activeMenu = sub02;
 
             List<SubMenu> lsSubMenu = Lists.newArrayList();
@@ -112,37 +114,19 @@ public class AppSetting implements Serializable {
     }
 
     public SubMenu getActiveMenu() {
+        Cookie cookie = CookieUtil.getCookie(FacesContext.getCurrentInstance(), Constant.SUB_MENU_ID);
+        if (!DataUtil.isNullObject(cookie)) {
+            String currentMenu = cookie.getValue();
+            SubMenu sub = mapMenu.get(currentMenu);
+            if (!DataUtil.isNullObject(sub) && !Objects.equals(activeMenu, sub)) {
+                activeMenu.getMenuId().setStyleClass("");
+                activeMenu.setStyleClass("");
+
+                sub.getMenuId().setStyleClass("active");
+                sub.setStyleClass("active-sub-menu");
+                activeMenu = sub;
+            }
+        }
         return activeMenu;
-    }
-
-
-    public void doChangeActiveMenu(ActionEvent actionEvent) {
-        SubMenu sub = (SubMenu) actionEvent.getComponent()
-                                           .getAttributes()
-                                           .get("clickedMenu");
-        if (!DataUtil.isNullObject(sub)) {
-            activeMenu.getMenuId().setActiveMenu(false);
-            activeMenu.setActiveSubMenu(false);
-
-            sub.getMenuId().setActiveMenu(true);
-            sub.setActiveSubMenu(true);
-
-            activeMenu = sub;
-        }
-        logger.info("INVOKED");
-    }
-
-    public String doChangePage(String link) {
-        SubMenu sub = mapMenu.get(link);
-        if (!DataUtil.isNullObject(sub)) {
-            activeMenu.getMenuId().setActiveMenu(false);
-            activeMenu.setActiveSubMenu(false);
-
-            sub.getMenuId().setActiveMenu(true);
-            sub.setActiveSubMenu(true);
-
-            activeMenu = sub;
-        }
-        return link;
     }
 }

@@ -25,7 +25,10 @@ body {
     color: #fff !important;
 }
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus {
     background-color: #0D47A1 !important;
 }
 
@@ -69,6 +72,15 @@ li.dropdown > ul.dropdown-menu > li:hover {
 
 li.dropdown > ul.dropdown-menu {
     min-width: 200px !important;
+}
+
+
+li.active-sub-menu {
+    background-color: #1565C0;
+}
+
+li.active-sub-menu > a {
+    color:white!important;
 }
 /*breadcrumb*/
 ul.breadcrumb {
