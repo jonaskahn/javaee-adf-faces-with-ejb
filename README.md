@@ -31,3 +31,8 @@ ______
 ### A Template Function
 - Reserved
 
+______
+### Screenshots
+- *Dashboard* 
+![alt text](https://i.imgur.com/WRbzsFg.png "My Dashboard")
+
