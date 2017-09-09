@@ -15,6 +15,8 @@ import oracle.adf.controller.v2.lifecycle.Lifecycle;
 import oracle.adf.controller.v2.lifecycle.PagePhaseEvent;
 import oracle.adf.controller.v2.lifecycle.PagePhaseListener;
 
+import oracle.adf.share.ADFContext;
+
 import org.apache.myfaces.trinidad.context.RequestContext;
 
 public class PrePageLoadedSetting implements PagePhaseListener {
@@ -27,7 +29,7 @@ public class PrePageLoadedSetting implements PagePhaseListener {
                                    .getViewId()
                                    .replaceAll("/", "");
             CookieUtil.setCookie(fc, Constant.CURRENT_PAGE, currentPage, 60 * 60 * 60); //It will be expired after one hour
-            CookieUtil.setCookie(fc, Constant.SUB_MENU_ID, currentPage, 60 * 60 * 60 * 24); //It will be expired after one day
+            ADFContext.getCurrent().getSessionScope().put(Constant.SUB_MENU_ID, currentPage);
         }
     }
     

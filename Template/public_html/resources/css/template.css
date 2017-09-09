@@ -112,3 +112,17 @@ ul.breadcrumb li a:hover {
 .breadcrumb {
     border-radius: 1px!important;
 }
+.user-body {
+    min-height:160px!important;
+    border-bottom: #1565C0 solid 2px;
+    padding: 10px;
+}
+.user-footer {
+    min-height:40px!important;
+    padding: 10px 10px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+

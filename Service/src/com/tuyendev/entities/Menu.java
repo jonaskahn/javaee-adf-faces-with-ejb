@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,7 +48,7 @@ public class Menu implements Serializable {
     private String description;
     @Column(name = "STYLE_CLASS")
     private String styleClass;
-    @OneToMany(mappedBy = "menuId")
+    @OneToMany(mappedBy = "menuId",fetch=FetchType.EAGER)
     private List<SubMenu> subMenuList;
 
     public Menu() {

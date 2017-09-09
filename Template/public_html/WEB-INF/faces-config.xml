@@ -4,11 +4,12 @@
         <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
         <!--Injector-->
         <el-resolver>com.tuyendev.inject.ELResolverWithInjectEJB</el-resolver>
-        <!-- Key bundle -->
+        <!-- bundle -->
         <resource-bundle>
             <base-name>com.tuyendev.resources.template</base-name>
             <var>template</var>
         </resource-bundle>
+        
         <!--Locale-->
         <locale-config>
             <default-locale>vi</default-locale>

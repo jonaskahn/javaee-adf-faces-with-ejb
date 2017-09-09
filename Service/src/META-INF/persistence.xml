@@ -17,7 +17,6 @@
     <class>com.tuyendev.entities.SubMenu</class>
     <properties>
       <property name="eclipselink.target-server" value="WebLogic_12"/>
-      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/HRDS"/>
       <property name="eclipselink.logging.level" value="SEVERE"/>
       <property name="eclipselink.logging.logger" value="JavaLogger"/>
     </properties>

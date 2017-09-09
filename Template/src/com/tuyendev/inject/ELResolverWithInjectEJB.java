@@ -11,6 +11,7 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Lists;
 
+import com.tuyendev.common.ContextUtil;
 import com.tuyendev.fw.DataUtil;
 
 import java.util.Objects;
@@ -80,6 +81,7 @@ public class ELResolverWithInjectEJB extends MapELResolver {
                 }
             }
         } catch (Exception e) {
+            logger.severe("Can not inject");
             logger.severe(e);
         }
         return bean;
@@ -91,9 +93,10 @@ public class ELResolverWithInjectEJB extends MapELResolver {
         private static Context localCTX = null;
         static {
             try {
-                remoteCTX = getRemoteContext();
-                localCTX = getLocalContext();
+                remoteCTX = ContextUtil.getRemoteContext();
+                localCTX = ContextUtil.getLocalContext();
             } catch (Exception e) {
+                logger.severe("Cannot connet server");
                 logger.severe(e);
             }
         }
@@ -137,16 +140,6 @@ public class ELResolverWithInjectEJB extends MapELResolver {
             }
         }
 
-        @SuppressWarnings("unchecked")
-        public static Context getRemoteContext() throws NamingException {
-            Hashtable env = new Hashtable();
-            env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
-            env.put(Context.PROVIDER_URL, "t3://127.0.0.1:7101");
-            return new InitialContext(env);
-        }
-
-        public static Context getLocalContext() throws Exception {
-            return new InitialContext();
-        }
+        
     }
 }

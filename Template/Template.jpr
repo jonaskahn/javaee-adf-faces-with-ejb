@@ -80,6 +80,13 @@
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
          </hash>
+         <hash>
+            <hash n="dependable">
+               <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
+               <url n="sourceURL" path="../Service/Service.jpr"/>
+            </hash>
+            <value n="recognizerId" v="oracle.jdeveloper.library"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
@@ -96,6 +103,7 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <value n="internalEncoding" v="UTF-8"/>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
@@ -137,13 +145,6 @@
             <url n="jarURL" path="deploy/Template_ADF_Lib.jar"/>
             <hash n="LibraryDependencies">
                <list n="dependencyList">
-                  <hash>
-                     <hash n="dependable">
-                        <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
-                        <url n="sourceURL" path="../BundleResources/BundleResources.jpr"/>
-                     </hash>
-                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
-                  </hash>
                   <hash>
                      <hash n="dependable">
                         <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>

@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="test_01">
-    <page>/pages/testing/test_01.jsf</page>
-  </view>
-  <view id="test_02">
-    <page>/pages/testing/test_02.jsf</page>
-  </view>
-  <view id="test_03">
-    <page>/pages/testing/test_03.jsf</page>
-  </view>
-  <view id="test_04">
-    <page>/pages/testing/test_04.jsf</page>
+  <view id="test_production">
+    <page>/test/untitled1.jsf</page>
   </view>
   <managed-bean id="__1">
     <managed-bean-name>appSetting</managed-bean-name>

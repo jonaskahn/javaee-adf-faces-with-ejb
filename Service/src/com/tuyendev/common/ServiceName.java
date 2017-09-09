@@ -12,7 +12,7 @@ import com.tuyendev.bean.SubMenuFacade;
 
 public class ServiceName {
     
-    public static class EJB_NAME {
+    public final static class EJB_NAME {
         public static final String COUNTRIES_FACADE = "EJB_NAME_COUNTRIES_FACADE";
         public static final String DEPARTMENTS_FACADE = "EJB_NAME_DEPARTMENTS_FACADE";
         public static final String EMP_DETAILS_VIEW_FACADE = "EJB_NAME_EMPDETAILS_VIEW_FACADE";
@@ -25,7 +25,7 @@ public class ServiceName {
         public static final String SUB_MENU_FACADE = "EJB_NAME_SUB_MENU_FACADE";
     }
 
-    public static class EJB_MAPPED_NAME {
+    public final static class EJB_MAPPED_NAME {
         public static final String COUNTRIES_FACADE = "EJB_MAPPED_NAME_COUNTRIES_FACADE";
         public static final String DEPARTMENTS_FACADE = "EJB_MAPPED_NAME_DEPARTMENTS_FACADE";
         public static final String EMP_DETAILS_VIEW_FACADE = "EJB_MAPPED_NAME_EMPDETAILS_VIEW_FACADE";

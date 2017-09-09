@@ -29,7 +29,9 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="Framework/Framework.jpr"/></hash>
+      <hash><url n="URL" path="Service/Service.jpr"/></hash>
       <hash><url n="URL" path="Template/Template.jpr"/></hash>
+      <hash><url n="URL" path="Web/Web.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
