@@ -10,16 +10,16 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -28,34 +28,32 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "DEPARTMENTS", catalog = "", schema = "C##TUYEN")
+@Table(name = "DEPARTMENTS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Departments.findAll", query = "SELECT d FROM Departments d")
-    , @NamedQuery(name = "Departments.findByDepartmentId", query = "SELECT d FROM Departments d WHERE d.departmentId = :departmentId")
-    , @NamedQuery(name = "Departments.findByDepartmentName", query = "SELECT d FROM Departments d WHERE d.departmentName = :departmentName")})
+    @NamedQuery(name = "Departments.findAll", query = "SELECT d FROM Departments d")})
 public class Departments implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "DEPARTMENT_ID")
+    @GeneratedValue(generator = "DEPARTMENTS_SEQ_GEN", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "DEPARTMENTS_SEQ_GEN", sequenceName = "DEPARTMENTS_SEQ",allocationSize=1)
     private Short departmentId;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
     @Column(name = "DEPARTMENT_NAME")
     private String departmentName;
-    @OneToMany(mappedBy = "departmentId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "departmentId")
     private List<Employees> employeesList;
-    @OneToMany(mappedBy = "departmentId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "departmentId")
     private List<JobHistory> jobHistoryList;
     @JoinColumn(name = "MANAGER_ID", referencedColumnName = "EMPLOYEE_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Employees managerId;
     @JoinColumn(name = "LOCATION_ID", referencedColumnName = "LOCATION_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Locations locationId;
 
     public Departments() {

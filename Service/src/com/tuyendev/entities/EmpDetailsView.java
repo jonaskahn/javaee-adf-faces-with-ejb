@@ -13,8 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -22,36 +20,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "EMP_DETAILS_VIEW", catalog = "", schema = "C##TUYEN")
+@Table(name = "EMP_DETAILS_VIEW")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "EmpDetailsView.findAll", query = "SELECT e FROM EmpDetailsView e")
-    , @NamedQuery(name = "EmpDetailsView.findByEmployeeId", query = "SELECT e FROM EmpDetailsView e WHERE e.employeeId = :employeeId")
-    , @NamedQuery(name = "EmpDetailsView.findByJobId", query = "SELECT e FROM EmpDetailsView e WHERE e.jobId = :jobId")
-    , @NamedQuery(name = "EmpDetailsView.findByManagerId", query = "SELECT e FROM EmpDetailsView e WHERE e.managerId = :managerId")
-    , @NamedQuery(name = "EmpDetailsView.findByDepartmentId", query = "SELECT e FROM EmpDetailsView e WHERE e.departmentId = :departmentId")
-    , @NamedQuery(name = "EmpDetailsView.findByLocationId", query = "SELECT e FROM EmpDetailsView e WHERE e.locationId = :locationId")
-    , @NamedQuery(name = "EmpDetailsView.findByCountryId", query = "SELECT e FROM EmpDetailsView e WHERE e.countryId = :countryId")
-    , @NamedQuery(name = "EmpDetailsView.findByFirstName", query = "SELECT e FROM EmpDetailsView e WHERE e.firstName = :firstName")
-    , @NamedQuery(name = "EmpDetailsView.findByLastName", query = "SELECT e FROM EmpDetailsView e WHERE e.lastName = :lastName")
-    , @NamedQuery(name = "EmpDetailsView.findBySalary", query = "SELECT e FROM EmpDetailsView e WHERE e.salary = :salary")
-    , @NamedQuery(name = "EmpDetailsView.findByCommissionPct", query = "SELECT e FROM EmpDetailsView e WHERE e.commissionPct = :commissionPct")
-    , @NamedQuery(name = "EmpDetailsView.findByDepartmentName", query = "SELECT e FROM EmpDetailsView e WHERE e.departmentName = :departmentName")
-    , @NamedQuery(name = "EmpDetailsView.findByJobTitle", query = "SELECT e FROM EmpDetailsView e WHERE e.jobTitle = :jobTitle")
-    , @NamedQuery(name = "EmpDetailsView.findByCity", query = "SELECT e FROM EmpDetailsView e WHERE e.city = :city")
-    , @NamedQuery(name = "EmpDetailsView.findByStateProvince", query = "SELECT e FROM EmpDetailsView e WHERE e.stateProvince = :stateProvince")
-    , @NamedQuery(name = "EmpDetailsView.findByCountryName", query = "SELECT e FROM EmpDetailsView e WHERE e.countryName = :countryName")
-    , @NamedQuery(name = "EmpDetailsView.findByRegionName", query = "SELECT e FROM EmpDetailsView e WHERE e.regionName = :regionName")})
+    @NamedQuery(name = "EmpDetailsView.findAll", query = "SELECT e FROM EmpDetailsView e")})
 public class EmpDetailsView implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "EMPLOYEE_ID")
     private int employeeId;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
     @Column(name = "JOB_ID")
     private String jobId;
     @Column(name = "MANAGER_ID")
@@ -60,15 +39,11 @@ public class EmpDetailsView implements Serializable {
     private Short departmentId;
     @Column(name = "LOCATION_ID")
     private Short locationId;
-    @Size(max = 2)
     @Column(name = "COUNTRY_ID")
     private String countryId;
-    @Size(max = 20)
     @Column(name = "FIRST_NAME")
     private String firstName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 25)
     @Column(name = "LAST_NAME")
     private String lastName;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -77,27 +52,18 @@ public class EmpDetailsView implements Serializable {
     @Column(name = "COMMISSION_PCT")
     private BigDecimal commissionPct;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
     @Column(name = "DEPARTMENT_NAME")
     private String departmentName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 35)
     @Column(name = "JOB_TITLE")
     private String jobTitle;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
     @Column(name = "CITY")
     private String city;
-    @Size(max = 25)
     @Column(name = "STATE_PROVINCE")
     private String stateProvince;
-    @Size(max = 40)
     @Column(name = "COUNTRY_NAME")
     private String countryName;
-    @Size(max = 25)
     @Column(name = "REGION_NAME")
     private String regionName;
 

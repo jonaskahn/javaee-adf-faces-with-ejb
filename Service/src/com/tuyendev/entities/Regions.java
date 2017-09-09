@@ -11,14 +11,11 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -27,25 +24,21 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "REGIONS", catalog = "", schema = "C##TUYEN")
+@Table(name = "REGIONS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Regions.findAll", query = "SELECT r FROM Regions r")
-    , @NamedQuery(name = "Regions.findByRegionId", query = "SELECT r FROM Regions r WHERE r.regionId = :regionId")
-    , @NamedQuery(name = "Regions.findByRegionName", query = "SELECT r FROM Regions r WHERE r.regionName = :regionName")})
+    @NamedQuery(name = "Regions.findAll", query = "SELECT r FROM Regions r")})
 public class Regions implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "REGION_ID")
     private BigDecimal regionId;
-    @Size(max = 25)
     @Column(name = "REGION_NAME")
     private String regionName;
-    @OneToMany(mappedBy = "regionId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "regionId")
     private List<Countries> countriesList;
 
     public Regions() {

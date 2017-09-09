@@ -13,18 +13,18 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -33,45 +33,30 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "EMPLOYEES", catalog = "", schema = "C##TUYEN")
+@Table(name = "EMPLOYEES")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM Employees e")
-    , @NamedQuery(name = "Employees.findByEmployeeId", query = "SELECT e FROM Employees e WHERE e.employeeId = :employeeId")
-    , @NamedQuery(name = "Employees.findByFirstName", query = "SELECT e FROM Employees e WHERE e.firstName = :firstName")
-    , @NamedQuery(name = "Employees.findByLastName", query = "SELECT e FROM Employees e WHERE e.lastName = :lastName")
-    , @NamedQuery(name = "Employees.findByEmail", query = "SELECT e FROM Employees e WHERE e.email = :email")
-    , @NamedQuery(name = "Employees.findByPhoneNumber", query = "SELECT e FROM Employees e WHERE e.phoneNumber = :phoneNumber")
-    , @NamedQuery(name = "Employees.findByHireDate", query = "SELECT e FROM Employees e WHERE e.hireDate = :hireDate")
-    , @NamedQuery(name = "Employees.findBySalary", query = "SELECT e FROM Employees e WHERE e.salary = :salary")
-    , @NamedQuery(name = "Employees.findByCommissionPct", query = "SELECT e FROM Employees e WHERE e.commissionPct = :commissionPct")})
+    @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM Employees e")})
 public class Employees implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
     @Column(name = "EMPLOYEE_ID")
+    @GeneratedValue(generator = "EMPLOYEES_SEQ_GEN", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "EMPLOYEES_SEQ_GEN", sequenceName = "EMPLOYEES_SEQ",allocationSize=1)
     private Integer employeeId;
-    @Size(max = 20)
     @Column(name = "FIRST_NAME")
     private String firstName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 25)
     @Column(name = "LAST_NAME")
     private String lastName;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 25)
     @Column(name = "EMAIL")
     private String email;
-    @Size(max = 20)
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "HIRE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date hireDate;
@@ -81,19 +66,19 @@ public class Employees implements Serializable {
     @Column(name = "COMMISSION_PCT")
     private BigDecimal commissionPct;
     @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "DEPARTMENT_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Departments departmentId;
-    @OneToMany(mappedBy = "managerId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "managerId")
     private List<Employees> employeesList;
     @JoinColumn(name = "MANAGER_ID", referencedColumnName = "EMPLOYEE_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Employees managerId;
     @JoinColumn(name = "JOB_ID", referencedColumnName = "JOB_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Jobs jobId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employees", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employees")
     private List<JobHistory> jobHistoryList;
-    @OneToMany(mappedBy = "managerId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "managerId")
     private List<Departments> departmentsList;
 
     public Employees() {

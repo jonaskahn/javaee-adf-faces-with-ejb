@@ -41,11 +41,12 @@
                     </button>
                      
                     <a class="navbar-brand" href="#">
-                        <b>NTT</b>
-                         Studio</a>
+                        <b>
+                            <af:outputLabel value="#{template['com.tuyendev.template.header.homepage01']}"/></b><af:outputLabel value="#{template['com.tuyendev.template.header.homepage02']}"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <af:inputText value="#{appSetting.activeMenu.name}" disabled="true" readOnly="false" visible="false"/>
+                    <af:inputText value="#{appSetting.activeMenu.name}" disabled="true" readOnly="false"
+                                  visible="false"/>
                     <ul class="nav navbar-nav">
                         <af:forEach items="#{appSetting.lstMenu}" var="menu">
                             <li class="dropdown #{menu.styleClass}">
@@ -68,9 +69,12 @@
                         </af:forEach>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#">
-                                <span></span>Tuyen Nguyen</a>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tuyen Nguyen
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <div></div>
+                            </ul>
                         </li>
                     </ul>
                 </div>

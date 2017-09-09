@@ -37,7 +37,7 @@ public class AppSetting implements Serializable {
         try {
             SubMenu sub01 = new SubMenu();
             sub01.setSubMenuId(1L);
-            sub01.setName("TESTED_01");
+            sub01.setName("Quan Ly");
             sub01.setDescription("TEST_LINK_01");
             sub01.setLink("test_01");
             sub01.setStyleClass("");

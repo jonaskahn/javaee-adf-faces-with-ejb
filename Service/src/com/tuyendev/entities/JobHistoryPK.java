@@ -12,7 +12,6 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -22,11 +21,9 @@ import javax.validation.constraints.NotNull;
 public class JobHistoryPK implements Serializable {
 
     @Basic(optional = false)
-    @NotNull
     @Column(name = "EMPLOYEE_ID")
     private int employeeId;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "START_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;

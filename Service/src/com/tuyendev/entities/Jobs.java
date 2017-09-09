@@ -11,14 +11,11 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -27,35 +24,27 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "JOBS", catalog = "", schema = "C##TUYEN")
+@Table(name = "JOBS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Jobs.findAll", query = "SELECT j FROM Jobs j")
-    , @NamedQuery(name = "Jobs.findByJobId", query = "SELECT j FROM Jobs j WHERE j.jobId = :jobId")
-    , @NamedQuery(name = "Jobs.findByJobTitle", query = "SELECT j FROM Jobs j WHERE j.jobTitle = :jobTitle")
-    , @NamedQuery(name = "Jobs.findByMinSalary", query = "SELECT j FROM Jobs j WHERE j.minSalary = :minSalary")
-    , @NamedQuery(name = "Jobs.findByMaxSalary", query = "SELECT j FROM Jobs j WHERE j.maxSalary = :maxSalary")})
+    @NamedQuery(name = "Jobs.findAll", query = "SELECT j FROM Jobs j")})
 public class Jobs implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
     @Column(name = "JOB_ID")
     private String jobId;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 35)
     @Column(name = "JOB_TITLE")
     private String jobTitle;
     @Column(name = "MIN_SALARY")
     private Integer minSalary;
     @Column(name = "MAX_SALARY")
     private Integer maxSalary;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "jobId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "jobId")
     private List<Employees> employeesList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "jobId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "jobId")
     private List<JobHistory> jobHistoryList;
 
     public Jobs() {

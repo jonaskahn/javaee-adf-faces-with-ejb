@@ -1,26 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="windows-1252" ?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
   <persistence-unit name="Service" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <jta-data-source>java:/app/jdbc/jdbc/TUYENDS</jta-data-source>
+    <jta-data-source>java:/app/jdbc/jdbc/HRDS</jta-data-source>
     <class>com.tuyendev.entities.Countries</class>
-    <class>com.tuyendev.entities.Locations</class>
-    <class>com.tuyendev.entities.Regions</class>
-    <class>com.tuyendev.entities.Jobs</class>
-    <class>com.tuyendev.entities.EmpDetailsView</class>
     <class>com.tuyendev.entities.Departments</class>
     <class>com.tuyendev.entities.Employees</class>
+    <class>com.tuyendev.entities.EmpDetailsView</class>
+    <class>com.tuyendev.entities.Jobs</class>
     <class>com.tuyendev.entities.JobHistory</class>
+    <class>com.tuyendev.entities.Locations</class>
+    <class>com.tuyendev.entities.Menu</class>
+    <class>com.tuyendev.entities.Regions</class>
+    <class>com.tuyendev.entities.SubMenu</class>
     <properties>
       <property name="eclipselink.target-server" value="WebLogic_12"/>
-      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/TUYENDS"/>
-      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-      <property name="javax.persistence.jdbc.password" value="4DDF112149EEFDA29BBB81308CD0029E"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@172.16.5.111:1522:db12c"/>
-      <property name="javax.persistence.jdbc.user" value="c##tuyen"/>
-      <property name="eclipselink.logging.level" value="FINEST"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/HRDS"/>
+      <property name="eclipselink.logging.level" value="SEVERE"/>
       <property name="eclipselink.logging.logger" value="JavaLogger"/>
     </properties>
   </persistence-unit>

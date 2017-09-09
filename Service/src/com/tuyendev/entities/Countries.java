@@ -10,7 +10,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,8 +17,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -28,28 +25,23 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "COUNTRIES", catalog = "", schema = "C##TUYEN")
+@Table(name = "COUNTRIES")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Countries.findAll", query = "SELECT c FROM Countries c")
-    , @NamedQuery(name = "Countries.findByCountryId", query = "SELECT c FROM Countries c WHERE c.countryId = :countryId")
-    , @NamedQuery(name = "Countries.findByCountryName", query = "SELECT c FROM Countries c WHERE c.countryName = :countryName")})
+    @NamedQuery(name = "Countries.findAll", query = "SELECT c FROM Countries c")})
 public class Countries implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 2)
     @Column(name = "COUNTRY_ID")
     private String countryId;
-    @Size(max = 40)
     @Column(name = "COUNTRY_NAME")
     private String countryName;
-    @OneToMany(mappedBy = "countryId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "countryId")
     private List<Locations> locationsList;
     @JoinColumn(name = "REGION_ID", referencedColumnName = "REGION_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Regions regionId;
 
     public Countries() {

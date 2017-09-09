@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -19,7 +18,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -27,31 +25,27 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Tuyen Nguyen
  */
 @Entity
-@Table(name = "JOB_HISTORY", catalog = "", schema = "C##TUYEN")
+@Table(name = "JOB_HISTORY")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JobHistory.findAll", query = "SELECT j FROM JobHistory j")
-    , @NamedQuery(name = "JobHistory.findByEmployeeId", query = "SELECT j FROM JobHistory j WHERE j.jobHistoryPK.employeeId = :employeeId")
-    , @NamedQuery(name = "JobHistory.findByStartDate", query = "SELECT j FROM JobHistory j WHERE j.jobHistoryPK.startDate = :startDate")
-    , @NamedQuery(name = "JobHistory.findByEndDate", query = "SELECT j FROM JobHistory j WHERE j.endDate = :endDate")})
+    @NamedQuery(name = "JobHistory.findAll", query = "SELECT j FROM JobHistory j")})
 public class JobHistory implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected JobHistoryPK jobHistoryPK;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
     @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "DEPARTMENT_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Departments departmentId;
     @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Employees employees;
     @JoinColumn(name = "JOB_ID", referencedColumnName = "JOB_ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Jobs jobId;
 
     public JobHistory() {
