@@ -92,7 +92,7 @@ public class AppSetting implements Serializable {
                 logger.severe(e.getMessage());
             }
 
-        }
+        }else activeMenu = new SubMenu();
         return activeMenu;
     }
 

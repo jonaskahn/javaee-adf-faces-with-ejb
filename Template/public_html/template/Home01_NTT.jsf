@@ -32,15 +32,17 @@
         <af:resource type="javascript" source="/resources/js/template.js"/>
     </af:group>
     <af:form>
-        <script type="text/javascript">
+        <af:resource type="javascript">
           $(document).ready(function () {
               $('.dropdown-submenu a.test').on("click", function (e) {
                   $(this).next('ul').toggle();
                   e.stopPropagation();
                   e.preventDefault();
               });
+              $('.state_menu_active').addClass("glyphicon-folder-open");
+              $('.state_menu_').addClass("glyphicon-folder-close");
           });
-        </script>
+        </af:resource>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -50,33 +52,30 @@
                         <span class="icon-bar"></span>
                     </button>
                      
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index">
                         <b>
                             <af:outputText value="#{template['com.tuyendev.template.header.homepage01']} "/></b><af:outputText value=" #{template['com.tuyendev.template.header.homepage02']}"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <af:inputText value="#{appSetting.activeMenu.name}" disabled="true" readOnly="false"
+                    <af:inputText value="#{appSetting.activeMenu.name}" disabled="true" readOnly="true"
                                   visible="false"/>
                     <ul class="nav navbar-nav">
                         <af:forEach items="#{appSetting.lstMenu}" var="menu">
                             <li class="dropdown #{menu.styleClass}">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <c:if test="#{empty menu.styleClass}">
-                                        <span class="glyphicon glyphicon-folder-close"></span>
-                                    </c:if><c:if test="#{not empty menu.styleClass}">
-                                        <span class="glyphicon glyphicon-folder-open"></span>
-                                    </c:if><af:outputText value=" #{template[menu.name]}"
-                                                          shortDesc="#{template[menu.description]}"
-                                                          rendered="#{empty menu.link}"/><af:commandLink value="#{template[menu.name]}"
-                                                                                                         shortDesc="#{template[menu.description]}"
-                                                                                                         rendered="#{not empty menu.link}"
-                                                                                                         action="#{menu.link}"/><span class="caret"></span></a>
+                                    <span class="state_menu_#{menu.styleClass} glyphicon "></span>
+                                    <af:outputText value=" #{template[menu.name]}" shortDesc="#{template[menu.description]}" rendered="#{empty menu.link}"/>
+                                    <af:commandLink value="#{template[menu.name]}" shortDesc="#{template[menu.description]}" rendered="#{not empty menu.link}" action="#{menu.link}"/>
+                                    <span class="caret"></span>
+                                </a>
+                                    
                                 <ul class="dropdown-menu">
                                     <af:forEach items="#{menu.subMenuList}" var="subMenu">
                                         <li id="#{subMenu.subMenuId}" class="#{subMenu.styleClass}">
                                             <a href="#{subMenu.link}" style="padding:5px">
-                                                <span class="glyphicon glyphicon-link"></span><af:outputText value=" #{template[subMenu.name]}"
-                                                                                                             shortDesc="#{template[subMenu.description]}"/></a>
+                                                <span class="glyphicon glyphicon-link"></span>
+                                                <af:outputText value=" #{template[subMenu.name]}" shortDesc="#{template[subMenu.description]}"/>
+                                            </a>
                                         </li>
                                     </af:forEach>
                                 </ul>
@@ -90,26 +89,48 @@
                             <div class="dropdown-menu">
                                 <div class="form-group"
                                      style="min-width: 300px; min-height: 200px !important; padding: 5px">
-                                    <div class="user-body"></div>
+                                    <div class="user-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center ">
+                                                <img src="../resources/img/user.jpg" class="img-circle"
+                                                     alt="Cinque Terre" height="90" width="90"/>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="row">
+                                                <div class="col-sm-12 text-center">
+                                                    <p>
+                                                        <h4>Nguyen Thanh Tuyen</h4>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 text-center">
+                                                    <small>Developer, since 2014</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="user-footer form-inline">
                                         <div class="row form-group">
                                             <div class="col-sm-8">
                                                 <div class="dropdown-submenu">
-                                                    <a class="test btn btn-primary" tabindex="-1" href="#">
-                                                    Change language 
-                                                        <span class="caret"></span></a>
+                                                    <a class="test btn btn_select" tabindex="-1" href="#">
+                                                        <af:outputText value="#{template['com.tuyendev.template.lang.change']}"/><span class="caret"></span></a>
                                                     <ul class="dropdown-menu">
                                                         <li>
-                                                            <a tabindex="-1" href="#">Tiếng Việt</a>
+                                                            <af:commandLink text="#{template['com.tuyendev.template.lang.change.vi']}" action="#{langSetting.doChangeLanguage('vi')}"/>
                                                         </li>
                                                         <li>
-                                                            <a tabindex="-1" href="#">English</a>
+                                                            <af:commandLink text="#{template['com.tuyendev.template.lang.change.en']}" action="#{langSetting.doChangeLanguage('en')}"/>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
-                                                <button type="button" class="btn btn-danger">Logout</button>
+                                                <button type="button" class="btn btn-danger">
+                                                    <af:outputText value="#{template['com.tuyendev.template.btn.logout']}"/>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -124,12 +145,20 @@
             <li>
                 <af:outputText value="#{template['com.tuyendev.template.home']}"/>
             </li>
-            <li>
-                <af:outputText value="#{template[appSetting.activeMenu.menuId.name]}"/>
-            </li>
-            <li>
-                <af:outputText value="#{template[appSetting.activeMenu.name]}"/>
-            </li>
+            <c:if test="#{not empty appSetting.activeMenu.subMenuId}">
+                <li>
+                    <af:outputText value="#{template[appSetting.activeMenu.menuId.name]}"/>
+                </li>
+                <li>
+                    <af:outputText value="#{template[appSetting.activeMenu.name]}"/>
+                </li>
+            </c:if>
+            <c:if test="#{empty appSetting.activeMenu.subMenuId}">
+                 <li>
+                    <af:outputText value="#{template['com.tuyendev.template.index']}"/>
+                </li>
+            </c:if>
+            
         </ul>
         <af:panelGroupLayout>
             <af:facetRef facetName="main"/>

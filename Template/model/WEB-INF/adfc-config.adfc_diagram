@@ -3,17 +3,17 @@
    <OverallProperties
       id="OverallProperties1"/>
    <View
-      id="View6">
+      id="View3">
       <property
-         name="activityId">untitled1</property>
+         name="activityId">index</property>
       <property
-         name="x">147.5</property>
+         name="x">85.5</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>untitled1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>index&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">343.79883</property>
+         name="y">212.09766</property>
       <property
-         name="page">/test/untitled1.jsf</property>
+         name="page">/index/index.jsf</property>
       <property
          name="exceptionHandler">false</property>
    </View>

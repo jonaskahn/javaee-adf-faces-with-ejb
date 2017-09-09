@@ -1,7 +1,7 @@
 package com.tuyendev.common;
 
 public enum Lang {
-    DEFAULT_LANGUAGE("default_language"),
+    DEFAULT_LANGUAGE("DEFAULT_LANGUAGE"),
     VIETNAM("vi"),
     ENGLISH("en");
     

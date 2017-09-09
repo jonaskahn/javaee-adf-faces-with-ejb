@@ -15,7 +15,11 @@ import javax.faces.event.ValueChangeEvent;
 
 import javax.servlet.http.Cookie;
 
+import oracle.adf.share.logging.ADFLogger;
+
 public class LanguageSetting implements Serializable {
+    
+    public final static ADFLogger logger = ADFLogger.createADFLogger(LanguageSetting.class);
 
     @SuppressWarnings("compatibility:9151126823632763920")
     private static final long serialVersionUID = 3848022905456551129L;
@@ -28,9 +32,9 @@ public class LanguageSetting implements Serializable {
             FacesContext ctx = FacesContext.getCurrentInstance();
             Cookie cookie = CookieUtil.getCookie(ctx, Lang.DEFAULT_LANGUAGE.getCode());
             language = DataUtil.isNullObject(cookie) ? Lang.VIETNAM.getCode() : cookie.getValue();
-
         } catch (Exception e) {
             language = Lang.VIETNAM.getCode();
+            logger.severe(e.getMessage(),e);
         }
     }
 

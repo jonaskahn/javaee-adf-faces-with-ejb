@@ -9,7 +9,7 @@ body {
 /*header*/
 .navbar {
     border-radius: 0px !important;
-    margin-bottom: 1px !important;
+    margin-bottom: 0px !important;
 }
 
 .navbar-inverse {
@@ -56,7 +56,7 @@ body {
 }
 
 .dropdown-menu {
-    padding: 0 0px 0 0px !important;
+    padding: 0!important;
     margin: 2px 0 0;
 }
 
@@ -86,7 +86,13 @@ li.active-sub-menu > a {
 ul.breadcrumb {
     padding: 10px 16px;
     list-style: none;
-    background-color: #eee;
+    background-color: rgba(21, 101, 192, 0.79);
+    color:white;
+    
+}
+
+.breadcrumb {
+    margin-bottom: 0px!important;
 }
 
 ul.breadcrumb li {
@@ -124,5 +130,20 @@ ul.breadcrumb li a:hover {
 
 .dropdown-submenu {
     position: relative;
+}
+
+.btn_select {
+    background-color: #1565C0 !important;
+    color: white!important;
+}
+
+.btn_select:focus {
+    background-color: #0D47A1 !important;
+    color: white!important;
+}
+
+.btn_select:hover {
+    background-color: #1E88E5 !important;
+    color: white!important;
 }
 

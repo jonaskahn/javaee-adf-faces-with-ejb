@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.12.24" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.tuyendev.template" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index/index.jsf" usageId="com_tuyendev_template_indexPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_tuyendev_template_indexPageDef" path="index.indexPageDef"/>
+  </pageDefinitionUsages>
+</Application>
