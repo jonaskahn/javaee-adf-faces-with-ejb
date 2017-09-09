@@ -76,13 +76,6 @@
          <hash>
             <hash n="dependable">
                <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
-               <url n="sourceURL" path="../BundleResources/BundleResources.jpr"/>
-            </hash>
-            <value n="recognizerId" v="oracle.jdeveloper.library"/>
-         </hash>
-         <hash>
-            <hash n="dependable">
-               <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
                <url n="sourceURL" path="../Framework/Framework.jpr"/>
             </hash>
             <value n="recognizerId" v="oracle.jdeveloper.library"/>
@@ -107,50 +100,29 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ADFFacesWithEJB_Template_webapp">
-            <hash n="appletArchives"/>
-            <hash n="appletFiles">
-               <value n="autoInclude" v="true"/>
-               <list n="selectionFilters">
-                  <string v="oracle.jdevimpl.deploy.common.JavaSelectionFilter"/>
-               </list>
-            </hash>
+         <hash n="Template_ADF_Lib">
+            <value n="adflib-connectionDetails" v="true"/>
             <hash n="archiveOptions">
-               <value n="hasManifest" v="false"/>
+               <value n="hasManifest" v="true"/>
             </hash>
-            <value n="enterpriseAppName" v="ADFFacesWithEJB_Template_webapp"/>
             <hash n="fileGroups">
                <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Web Files"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="web-files"/>
-                     <value n="type" v="1"/>
-                  </hash>
                   <hash>
                      <list n="contributors">
                         <hash>
                            <value n="type" v="2"/>
                         </hash>
                         <hash>
-                           <value n="type" v="7"/>
+                           <value n="type" v="5"/>
                         </hash>
                      </list>
-                     <value n="displayName" v="WEB-INF/classes"/>
+                     <value n="displayName" v="Project Output"/>
                      <hash n="filters">
                         <list n="rules">
+                           <hash>
+                              <value n="pattern" v="WEB-INF/classes/**"/>
+                              <value n="type" v="1"/>
+                           </hash>
                            <hash>
                               <value n="pattern" v="**"/>
                               <value n="type" v="0"/>
@@ -158,32 +130,35 @@
                         </list>
                      </hash>
                      <value n="internalName" v="project-output"/>
-                     <value n="targetWithinJar" v="WEB-INF/classes"/>
                      <value n="type" v="1"/>
-                  </hash>
-                  <hash>
-                     <value n="displayName" v="WEB-INF/lib"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="libraries"/>
-                     <value n="targetWithinJar" v="WEB-INF/lib"/>
-                     <value n="type" v="3"/>
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/ADFFacesWithEJB_Template_webapp.war"/>
-            <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="ADFFacesWithEJB_Template_webapp"/>
+            <url n="jarURL" path="deploy/Template_ADF_Lib.jar"/>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList">
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
+                        <url n="sourceURL" path="../BundleResources/BundleResources.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
+                        <url n="sourceURL" path="../Framework/Framework.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+               </list>
+            </hash>
+            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
+            <value n="profileName" v="Template_ADF_Lib"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ADFFacesWithEJB_Template_webapp"/>
+         <string v="Template_ADF_Lib"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
