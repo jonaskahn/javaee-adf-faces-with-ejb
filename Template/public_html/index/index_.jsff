@@ -9,7 +9,9 @@
             <div class="col-sm-4">
                 <h3>Documents</h3>
                 <p>Why did I make it? To help my new co-workers or it maybe also help you.</p>
-                <p><a href="https://github.com/tuyendev/FSP-ADFFacesWithEJB/blob/master/README.md">Want to see more</a></p>
+                <p>
+                    <a href="https://github.com/tuyendev/FSP-ADFFacesWithEJB/blob/master/README.md">Want to see more</a>
+                </p>
             </div>
             <div class="col-sm-4">
                 <h3>Project support</h3>
@@ -19,7 +21,9 @@
             <div class="col-sm-4">
                 <h3>About me</h3>
                 <p>I have nothing to say.</p>
-                <p><a href="https://about.me/tuyendev">I'm just a simple programmer</a></p>
+                <p>
+                    <a href="https://about.me/tuyendev">I'm just a simple programmer</a>
+                </p>
             </div>
         </div>
     </div>

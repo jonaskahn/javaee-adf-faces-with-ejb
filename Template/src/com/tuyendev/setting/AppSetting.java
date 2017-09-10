@@ -74,26 +74,22 @@ public class AppSetting implements Serializable {
     }
 
     public SubMenu getActiveMenu() {
-        String currentMenu = (String)ADFContext.getCurrent().getSessionScope().get(Constant.SUB_MENU_ID);
-        if (!DataUtil.isNullObject(currentMenu)) {
-            try {
-                SubMenu sub = mapMenu.get(currentMenu);
-                if (!DataUtil.isNullObject(sub) && !Objects.equals(activeMenu, sub)) {
-                    if (!DataUtil.isNullObject(activeMenu) && !DataUtil.isNullObject(activeMenu.getMenuId())) {
-                        activeMenu.getMenuId().setStyleClass("");
-                        activeMenu.setStyleClass("");
-                    }
-                    sub.getMenuId().setStyleClass("active");
-                    sub.setStyleClass("active-sub-menu");
-                    activeMenu = sub;
-                }
-            } catch (Exception e) {
-                activeMenu = new SubMenu();
-                logger.severe(e.getMessage());
-            }
-
-        }else activeMenu = new SubMenu();
+        String currentMenu = (String) ADFContext.getCurrent()
+                                                .getSessionScope()
+                                                .get(Constant.SUB_MENU_ID);
+        SubMenu sub = !DataUtil.isNullObject(currentMenu) ? mapMenu.get(currentMenu) : null;
+        
+        if (!DataUtil.isNullObject(activeMenu) && !DataUtil.isNullObject(activeMenu.getMenuId())) {
+            activeMenu.getMenuId().setStyleClass("");
+            activeMenu.setStyleClass("");
+        }
+        if (!DataUtil.isNullObject(sub)) {
+            sub.getMenuId().setStyleClass("active");
+            sub.setStyleClass("active-sub-menu");
+            activeMenu = sub;
+        }
         return activeMenu;
     }
+
 
 }

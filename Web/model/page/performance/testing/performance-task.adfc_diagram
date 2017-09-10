@@ -5,19 +5,19 @@
    <View
       id="View2">
       <property
-         name="activityId">index</property>
+         name="activityId">performance</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">116.0</property>
+         name="x">191.0</property>
       <property
          name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>index&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>performance&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">156.5459</property>
+         name="y">193.5459</property>
       <property
-         name="page">/index/index.jsff</property>
+         name="page">/page/performance/testing/performance.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
