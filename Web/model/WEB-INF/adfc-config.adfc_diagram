@@ -47,4 +47,19 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View5">
+      <property
+         name="activityId">region</property>
+      <property
+         name="x">505.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>region&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">277.79883</property>
+      <property
+         name="page">/page/catalog/region/region.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
 </SDM>

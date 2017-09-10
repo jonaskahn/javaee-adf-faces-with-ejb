@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <af:resource type="css">
+        .content-box {
+            margin: 5px;
+            padding: 15px;
+            background-color: rgba(169, 169, 169, 0.23);
+            border-radius: 5px;
+        }
+    </af:resource>
+    <div class="content-box">
+        <div class="container-fluid form-horizontald">
+            <fieldset>
+                <legend>Search Information</legend>
+                <div class="form-group">
+                    <div class="col-lg-2">
+                        <af:outputLabel value="Email" for="regionId" class="control-label"/>
+                    </div>
+                    <div class="col-lg-10">
+                        <label class="input"><af:inputText type="text" id="regionId" placeholder="Email"/></label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</ui:composition>

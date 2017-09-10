@@ -9,4 +9,7 @@
   <view id="test_production">
     <page>/page/production/testing/production.jsf</page>
   </view>
+  <view id="region">
+    <page>/page/catalog/region/region.jsf</page>
+  </view>
 </adfc-config>

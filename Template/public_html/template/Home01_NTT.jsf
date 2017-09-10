@@ -145,7 +145,7 @@
             <li>
                 <af:outputText value="#{template['com.tuyendev.template.home']}"/>
             </li>
-            <c:if test="#{not empty appSetting.activeMenu.subMenuId}">
+            <c:if test="#{not empty appSetting.activeMenu.styleClass}">
                 <li>
                     <af:outputText value="#{template[appSetting.activeMenu.menuId.name]}"/>
                 </li>
@@ -153,7 +153,7 @@
                     <af:outputText value="#{template[appSetting.activeMenu.name]}"/>
                 </li>
             </c:if>
-            <c:if test="#{empty appSetting.activeMenu.subMenuId}">
+            <c:if test="#{empty appSetting.activeMenu.styleClass}">
                  <li>
                     <af:outputText value="#{template['com.tuyendev.template.index']}"/>
                 </li>
