@@ -150,18 +150,143 @@ ul.breadcrumb li a:hover {
     background-color: rgba(0, 0, 0, 0.02);
     border-radius: 5px;
 }
-.x25 {
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
-    display: block;
-    font-size: 14px;
-    height: 34px;
-    line-height: 1.42857;
-    padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
+
+.mt-5 {
+    margin-top: 5px!important
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.mt-15 {
+    margin-top: 15px !important;
+}
+.mt-20 {
+    margin-top: 5px !important;
+}
+
+.mt-25 {
+    margin-top: 10px !important;
+}
+
+.mt-30 {
+    margin-top: 15px !important;
+}
+
+.mb-5 {
+    margin-top: 5px!important
+}
+
+.mb-10 {
+    margin-top: 10px !important;
+}
+
+.mb-15 {
+    margin-top: 15px !important;
+}
+.mb-20 {
+    margin-top: 5px !important;
+}
+
+.mb-25 {
+    margin-top: 10px !important;
+}
+
+.mb-30 {
+    margin-top: 15px !important;
+}
+
+.mb-35 {
+    margin-top: 5px !important;
+}
+
+.mb-45 {
+    margin-top: 10px !important;
+}
+
+.mb-50 {
+    margin-top: 15px !important;
+}
+
+.ml-5 {
+    margin-top: 5px!important
+}
+
+.ml-10 {
+    margin-top: 10px !important;
+}
+
+.ml-15 {
+    margin-top: 15px !important;
+}
+.ml-20 {
+    margin-top: 5px !important;
+}
+
+.ml-25 {
+    margin-top: 10px !important;
+}
+
+.ml-30 {
+    margin-top: 15px !important;
+}
+
+.ml-35 {
+    margin-top: 5px !important;
+}
+
+.ml-45 {
+    margin-top: 10px !important;
+}
+
+.ml-50 {
+    margin-top: 15px !important;
+}
+
+.mr-5 {
+    margin-top: 5px!important
+}
+
+.mr-10 {
+    margin-top: 10px !important;
+}
+
+.mr-15 {
+    margin-top: 15px !important;
+}
+.mr-20 {
+    margin-top: 5px !important;
+}
+
+.mr-25 {
+    margin-top: 10px !important;
+}
+
+.mr-30 {
+    margin-top: 15px !important;
+}
+
+.mr-35 {
+    margin-top: 5px !important;
+}
+
+.mr-45 {
+    margin-top: 10px !important;
+}
+
+.mr-50 {
+    margin-top: 15px !important;
+}
+
+.mt-35 {
+    margin-top: 5px !important;
+}
+
+.mt-45 {
+    margin-top: 10px !important;
+}
+
+.mt-50 {
+    margin-top: 15px !important;
 }

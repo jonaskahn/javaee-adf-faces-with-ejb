@@ -6,5 +6,6 @@ $(document).ready(function () {
     });
     $('.state_menu_active').addClass("glyphicon-folder-open");
     $('.state_menu_').addClass("glyphicon-folder-close");
-    
+
 });
+}

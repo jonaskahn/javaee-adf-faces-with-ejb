@@ -23,12 +23,13 @@
         </afc:component>
     </af:xmlContent>
     <af:group>
-        <af:resource type="css" source="/resources/css/template.css"/>
         <af:resource type="css" source="/resources/css/bootstrap.min.css"/>
         <af:resource type="css" source="/resources/css/font-awesome.css"/>
+        <af:resource type="css" source="/resources/css/animate.css"/>
+        <af:resource type="css" source="/resources/css/template.css"/>
         <af:resource type="javascript" source="/resources/js/jquery.js"/>
-        <af:resource type="javascript" source="/resources/js/jquery.cookie.js"/>
-        <af:resource type="javascript" source="/resources/js/bootstrap.js"/>
+        <af:resource type="javascript" source="/resources/js/bootstrap.min.js"/>
+        <af:resource type="javascript" source="/resources/js/bootstrap-notify.min.js"/>
         <af:resource type="javascript" source="/resources/js/template.js"/>
     </af:group>
     <af:form>
@@ -87,9 +88,7 @@
                                         <div class="row form-group">
                                             <div class="row">
                                                 <div class="col-sm-12 text-center">
-                                                    <p>
-                                                        <h4>Nguyen Thanh Tuyen</h4>
-                                                    </p>
+                                                    <p class="h4">Nguyen Thanh Tuyen</p>
                                                 </div>
                                             </div>
                                             <div class="row">
