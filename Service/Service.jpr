@@ -132,4 +132,14 @@
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
    </hash>
+   <hash n="oracle.toplink.workbench.addin">
+      <hash n="persistence-list">
+         <value n="jpa-version" v="2.0"/>
+         <hash n="src$META-INF$persistence.xml">
+            <hash n="A">
+               <value n="development-database" v="HR"/>
+            </hash>
+         </hash>
+      </hash>
+   </hash>
 </jpr:project>

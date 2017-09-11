@@ -3,9 +3,8 @@
 body {
     background-color: white !important;
     background-image: none !important;
-    font-size: 14px!important;
+    font-size: 14px !important;
 }
-
 /*header*/
 .navbar {
     border-radius: 0px !important;
@@ -25,10 +24,7 @@ body {
     color: #fff !important;
 }
 
-
-.navbar-inverse .navbar-nav > .open > a, 
-.navbar-inverse .navbar-nav > .open > a:hover, 
-.navbar-inverse .navbar-nav > .open > a:focus {
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
     background-color: #0D47A1 !important;
 }
 
@@ -56,14 +52,14 @@ body {
 }
 
 .dropdown-menu {
-    padding: 0!important;
+    padding: 0 !important;
     margin: 2px 0 0;
 }
 
 .dropdown-menu > li > a {
     min-width: 128px !important;
     min-height: 32px !important;
-    margin: auto!important;
+    margin: auto !important;
 }
 
 li.dropdown > ul.dropdown-menu > li:hover {
@@ -74,25 +70,23 @@ li.dropdown > ul.dropdown-menu {
     min-width: 200px !important;
 }
 
-
 li.active-sub-menu {
     background-color: #1565C0;
 }
 
 li.active-sub-menu > a {
-    color:white!important;
+    color: white !important;
 }
 /*breadcrumb*/
 ul.breadcrumb {
     padding: 10px 16px;
     list-style: none;
     background-color: rgba(21, 101, 192, 0.79);
-    color:white;
-    
+    color: white;
 }
 
 .breadcrumb {
-    margin-bottom: 0px!important;
+    margin-bottom: 0px !important;
 }
 
 ul.breadcrumb li {
@@ -115,16 +109,19 @@ ul.breadcrumb li a:hover {
     color: #01447e;
     text-decoration: underline;
 }
+
 .breadcrumb {
-    border-radius: 1px!important;
+    border-radius: 1px !important;
 }
+
 .user-body {
-    min-height:160px!important;
+    min-height: 160px !important;
     border-bottom: #1565C0 solid 2px;
     padding: 10px;
 }
+
 .user-footer {
-    min-height:40px!important;
+    min-height: 40px !important;
     padding: 10px 10px;
 }
 
@@ -134,23 +131,37 @@ ul.breadcrumb li a:hover {
 
 .btn_select {
     background-color: #1565C0 !important;
-    color: white!important;
+    color: white !important;
 }
 
 .btn_select:focus {
     background-color: #0D47A1 !important;
-    color: white!important;
+    color: white !important;
 }
 
 .btn_select:hover {
     background-color: #1E88E5 !important;
-    color: white!important;
+    color: white !important;
 }
 
 .content-box {
-    margin: 10px;
-    padding: 15px;
-    background-color: rgba(169, 169, 169, 0.23);
-    border-radius: 2px;
+    margin: 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
 }
-
+.x25 {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}

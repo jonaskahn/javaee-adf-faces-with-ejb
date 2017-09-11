@@ -12,7 +12,7 @@
                 <value>hr</value>
             </property>
         </properties>
-        <password-encrypted>2D5E5061AF9F72F435BBE22CC4D38B85</password-encrypted>
+        <password-encrypted>0C4D035342E18E700708B6389060EE7C</password-encrypted>
     </jdbc-driver-params>
     <jdbc-connection-pool-params>
         <test-table-name>SQL SELECT 1 FROM DUAL</test-table-name>

@@ -1,26 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets">
-    <af:resource type="css">
-        .content-box {
-            margin: 5px;
-            padding: 15px;
-            background-color: rgba(169, 169, 169, 0.23);
-            border-radius: 5px;
-        }
-    </af:resource>
-    <div class="content-box">
-        <div class="container-fluid form-horizontald">
-            <fieldset>
-                <legend>Search Information</legend>
+<ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/catalogTemplate.jsff">
+    <ui:param name="searchName" value="#{lang['com.tuyendev.region.label.header.search']}"/>
+    <ui:param name="resultName" value="#{lang['com.tuyendev.region.label.header.result']}"/>
+    <ui:define name="searchArea">
+        <div class="row">
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
-                    <div class="col-lg-2">
-                        <af:outputLabel value="Email" for="regionId" class="control-label"/>
+                    <div class="col-sm-2">
+                        <label for="sId">
+                            <af:outputText value="#{lang['com.tuyendev.region.label.search.regionId']}"/>
+                        </label>
                     </div>
-                    <div class="col-lg-10">
-                        <label class="input"><af:inputText type="text" id="regionId" placeholder="Email"/></label>
+                    <div class="col-sm-4">
+                        <af:inputText styleClass="w-100" id="sId" value="A" maximumLength="100" simple="true"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="sName">
+                            <af:outputText value="#{lang['com.tuyendev.region.label.search.regionName']}"/>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <af:inputText styleClass="w-100" id="sName" value="A" maximumLength="100" simple="true"/>
                     </div>
                 </div>
-            </fieldset>
+                <div class="col-sm-12 text-right">
+                        <af:commandButton type="submit" class="btn btn-default" text="Search"/>
+                    </div>
+            </article>
         </div>
-    </div>
+    </ui:define>
+    <ui:define name="resultArea"></ui:define>
 </ui:composition>

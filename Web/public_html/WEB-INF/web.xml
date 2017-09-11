@@ -79,7 +79,7 @@
         <filter-class>oracle.adf.library.webapp.LibraryFilter</filter-class>
         <init-param>
             <param-name>include-extension-list</param-name>
-            <param-value>,png,jpg,jpeg,gif,js,css,htm,html,eot,ttf,woff,svg,</param-value>
+            <param-value>,png,jpg,jpeg,gif,js,css,htm,html,eot,ttf,woff,svg,woff2,</param-value>
         </init-param>
     </filter>
     <filter-mapping>

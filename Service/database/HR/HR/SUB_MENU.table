@@ -53,7 +53,7 @@
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
       <properties>
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
@@ -76,7 +76,7 @@
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">100</value>
+            <value class="java.lang.Long">200</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -239,7 +239,7 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>SYS_C007000</name>
+      <name>SYS_C007001</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>SUB_MENU_ID</name>
@@ -254,7 +254,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>SYS_C007000</name>
+        <name>SYS_C007001</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>SUB_MENU</name>
           <schemaName>HR</schemaName>
@@ -267,7 +267,7 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>SYS_C007000</name>
+            <name>SYS_C007001</name>
             <childObjectNames>
               <childObjectName>SUB_MENU_ID</childObjectName>
             </childObjectNames>
@@ -286,7 +286,7 @@
   </constraints>
   <indexes>
     <index>
-      <name>SYS_C007000</name>
+      <name>SYS_C007001</name>
       <columnExpressions>
         <columnExpression>
           <expressionSource>SUB_MENU_ID</expressionSource>
@@ -297,7 +297,7 @@
               <value class="oracle.javatools.db.ReferenceID">
                 <name>SUB_MENU_ID</name>
                 <parent class="oracle.javatools.db.ReferenceID">
-                  <name>SYS_C007000</name>
+                  <name>SYS_C007001</name>
                   <identifier class="java.math.BigDecimal">20063</identifier>
                   <parent class="oracle.javatools.db.ReferenceID">
                     <name>SUB_MENU</name>
@@ -320,7 +320,7 @@
         <entry>
           <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
           <value class="oracle.javatools.db.ReferenceID">
-            <name>SYS_C007000</name>
+            <name>SYS_C007001</name>
             <identifier class="java.math.BigDecimal">20063</identifier>
             <parent class="oracle.javatools.db.ReferenceID">
               <name>SUB_MENU</name>
