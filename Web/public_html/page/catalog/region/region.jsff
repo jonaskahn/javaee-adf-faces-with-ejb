@@ -10,22 +10,23 @@
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
                     <div class="col-sm-2">
-                        <label for="sName">
+                        <label for="regionName">
                             <af:outputText value="#{lang['com.tuyendev.region.label.search.regionName']}"/>
                         </label>
                     </div>
                     <div class="col-sm-4">
-                        <af:inputText styleClass="w-100" id="sName"
+                        <af:inputText styleClass="w-100" id="regionName"
                                       value="#{pageFlowScope.regionController.searchDTO.regionName}" maximumLength="100"
                                       simple="true" contentStyle="width:100%;"/>
                     </div>
+                    
                     <div class="col-sm-2">
-                        <label for="sId">
+                        <label for="regionId">
                             <af:outputText value="#{lang['com.tuyendev.region.label.search.regionId']}"/>
                         </label>
                     </div>
                     <div class="col-sm-4">
-                        <af:inputText styleClass="w-100" id="sId"
+                        <af:inputText styleClass="w-100" id="regionId"
                                       value="#{pageFlowScope.regionController.searchDTO.regionId}" maximumLength="100"
                                       simple="true" contentStyle="width:100%;"/>
                     </div>

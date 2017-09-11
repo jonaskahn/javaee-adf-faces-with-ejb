@@ -11,6 +11,9 @@ import javax.annotation.PostConstruct;
 
 import java.util.List;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+
 import oracle.adf.share.logging.ADFLogger;
 
 public class RegionController extends BaseController {
@@ -28,7 +31,6 @@ public class RegionController extends BaseController {
         try {
             searchDTO = new Regions();
             lstRegions = Lists.newArrayList();
-            reportSuccess("TEST THONG BAO");
         } catch (Exception e) {
             logger.severe(e.getMessage(), e);
             reportError(e);
@@ -50,4 +52,5 @@ public class RegionController extends BaseController {
     public List getLstRegions() {
         return lstRegions;
     }
+
 }

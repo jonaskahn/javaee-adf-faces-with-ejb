@@ -8,4 +8,3 @@ $(document).ready(function () {
     $('.state_menu_').addClass("glyphicon-folder-close");
 
 });
-}

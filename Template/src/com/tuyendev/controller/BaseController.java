@@ -70,7 +70,7 @@ public class BaseController implements Serializable {
         try {
             Object[] params = e.getParams();
             String errorMes = getText(e.getKeyMsg(), params);
-            //Message.smallError(errorMes);
+            MessageSender.sendErrorMessage(errorMes);
             logger.severe(errorMes);
         } catch (Exception ex) {
             baseLogger.severe(ex);

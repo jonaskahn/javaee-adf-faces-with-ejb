@@ -159,8 +159,8 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="ADFFacesWithEJB-Template-webapp"/>
-      <value n="j2eeWebContextRoot" v="ADFFacesWithEJB-Template-context-root"/>
+      <value n="j2eeWebAppName" v="ADFFacesWithEJB"/>
+      <value n="j2eeWebContextRoot" v="ADFFacesWithEJB"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
@@ -606,5 +606,8 @@
             <value n="version" v="1.1"/>
          </hash>
       </list>
+   </hash>
+   <hash n="ResourceBundleOptions">
+      <list n="RegisteredResourceBundles"/>
    </hash>
 </jpr:project>

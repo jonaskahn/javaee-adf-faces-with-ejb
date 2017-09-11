@@ -87,11 +87,11 @@ public class MessageSender {
         "		exit: 'animated fadeOutRight'\n" + 
         "	},\n" + 
         "	icon_type: 'class',\n" + 
-        "	template: '<div style=\"min-width:400px!important\" data-notify=\"container\" class=\"col-xs-11 col-sm-3 alert alert-{0}\" role=\"alert\">' +\n" + 
+        "	template: '<div style=\"min-width:250px!important;\" data-notify=\"container\" class=\"col-xs-11 col-sm-4 alert alert-{0}\" role=\"alert\">' +\n" + 
         "		'<button type=\"button\" aria-hidden=\"true\" class=\"close\" data-notify=\"dismiss\">×</button>' +\n" + 
         "		'<span data-notify=\"icon\"></span> ' +\n" + 
         "		'<span data-notify=\"title\" class=\"h5\">{1}: </span> ' +\n" + 
-        "		'<span data-notify=\"message\">{2}</span>' +\n" + 
+        "		'<span data-notify=\"message\" style=\"word-break: break-word;\">{2}</span>' +\n" + 
         "	'</div>' \n" + 
         "    });");   
         

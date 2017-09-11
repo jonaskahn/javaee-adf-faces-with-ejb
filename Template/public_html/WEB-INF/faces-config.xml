@@ -9,12 +9,16 @@
             <base-name>com.tuyendev.resources.template</base-name>
             <var>template</var>
         </resource-bundle>
-        
+        <resource-bundle>
+            <base-name>com.tuyendev.messagebundle.messages</base-name>
+            <var>message-bundle</var>
+        </resource-bundle>
         <!--Locale-->
         <locale-config>
             <default-locale>vi</default-locale>
             <supported-locale>en</supported-locale>
             <supported-locale>vi</supported-locale>
         </locale-config>
+        <message-bundle>com.tuyendev.messagebundle.MessageBundle</message-bundle>
     </application>
 </faces-config>

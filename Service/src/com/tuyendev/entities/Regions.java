@@ -1,12 +1,11 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * and open the template in the editor.regionId
  */
 package com.tuyendev.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -35,7 +34,7 @@ public class Regions implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "REGION_ID")
-    private BigDecimal regionId;
+    private Long regionId;
     @Column(name = "REGION_NAME")
     private String regionName;
     @OneToMany(mappedBy = "regionId")
@@ -44,15 +43,15 @@ public class Regions implements Serializable {
     public Regions() {
     }
 
-    public Regions(BigDecimal regionId) {
+    public Regions(Long regionId) {
         this.regionId = regionId;
     }
 
-    public BigDecimal getRegionId() {
+    public Long getRegionId() {
         return regionId;
     }
 
-    public void setRegionId(BigDecimal regionId) {
+    public void setRegionId(Long regionId) {
         this.regionId = regionId;
     }
 
