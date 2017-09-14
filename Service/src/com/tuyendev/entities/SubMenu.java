@@ -5,6 +5,8 @@
  */
 package com.tuyendev.entities;
 
+import com.tuyendev.dto.MenuDTO;
+
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -129,5 +131,4 @@ public class SubMenu implements Serializable {
     public String toString() {
         return "com.tuyendev.entities.SubMenu[ subMenuId=" + subMenuId + " ]";
     }
-    
 }

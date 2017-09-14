@@ -247,27 +247,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Cloning-1.9.5.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Guava-23.0.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Streamex-0.6.5.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Oracle Page Templates"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Oracle JEWT"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Objenesis-2.6.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -286,12 +270,28 @@
             <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Cloning-1.9.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Objenesis-2.6.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Guava-23.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Streamex-0.6.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../Lib/cloning-1.9.5.jar" jar-entry=""/>
+                  <url path="../Lib/cloneobject/cloning-1.9.5.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Cloning-1.9.5.jar"/>
@@ -300,7 +300,16 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../Lib/guava-23.0.jar" jar-entry=""/>
+                  <url path="../Lib/cloneobject/objenesis-2.6.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Objenesis-2.6.jar"/>
+               <value n="id" v="Objenesis-2.6.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/guava/guava-23.0.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Guava-23.0.jar"/>
@@ -309,20 +318,11 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../Lib/streamex-0.6.5.jar" jar-entry=""/>
+                  <url path="../Lib/streamex/streamex-0.6.5.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Streamex-0.6.5.jar"/>
                <value n="id" v="Streamex-0.6.5.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/objenesis-2.6.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Objenesis-2.6.jar"/>
-               <value n="id" v="Objenesis-2.6.jar"/>
                <value n="locked" v="true"/>
             </hash>
          </list>
@@ -401,27 +401,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Cloning-1.9.5.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Guava-23.0.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Streamex-0.6.5.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Oracle Page Templates"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Oracle JEWT"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Objenesis-2.6.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -438,6 +422,22 @@
          </hash>
          <hash>
             <value n="id" v="ADF Model Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Cloning-1.9.5.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Objenesis-2.6.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Guava-23.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Streamex-0.6.5.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
