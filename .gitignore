@@ -1,2 +1,13 @@
-
-New Text Document.txt
+.adf/*
+.data/*
+.gitignore
+BundleResources/deploy/*
+Framework/deploy/*
+Service/deploy/*
+Template/deploy/*
+Web/deploy/*
+BundleResources/classes/*
+Framework/classes/*
+Service/classes/*
+Template/classes/*
+Web/classes/*

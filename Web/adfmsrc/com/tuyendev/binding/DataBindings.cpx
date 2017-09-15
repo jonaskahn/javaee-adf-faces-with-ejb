@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.12.24" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.tuyendev.binding" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/page/catalog/employee/employee.jsf" usageId="com_tuyendev_binding_employeePageDef"/>
+    <page path="/page/performance/testing/performance.jsf" usageId="com_tuyendev_binding_performancePageDef"/>
+    <page path="/page/production/testing/production.jsf" usageId="com_tuyendev_binding_productionPageDef"/>
+    <page path="/page/catalog/region/region.jsf" usageId="com_tuyendev_binding_regionPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_tuyendev_binding_employeePageDef" path="page.catalog.employee.employeePageDef"/>
+    <page id="com_tuyendev_binding_performancePageDef" path="page.performance.testing.performancePageDef"/>
+    <page id="com_tuyendev_binding_productionPageDef" path="page.production.testing.productionPageDef"/>
+    <page id="com_tuyendev_binding_regionPageDef" path="page.catalog.region.regionPageDef"/>
+  </pageDefinitionUsages>
+</Application>

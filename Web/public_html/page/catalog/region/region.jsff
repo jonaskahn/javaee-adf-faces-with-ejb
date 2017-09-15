@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/catalogTemplate.jsff">
+    <af:resource type="css">
+    </af:resource>
+    <ui:param name="searchName" value="#{lang['com.tuyendev.region.label.header.search']}"/>
+    <ui:param name="resultName" value="#{lang['com.tuyendev.region.label.header.result']}"/>
+    <ui:define name="searchArea">
+        <div class="row">
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="regionName">
+                            <af:outputText value="#{lang['com.tuyendev.region.label.search.regionName']}"/>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <af:inputText styleClass="w-100" id="regionName"
+                                      value="#{pageFlowScope.regionController.searchDTO.regionName}" maximumLength="100"
+                                      simple="true" contentStyle="width:100%;"/>
+                    </div>
+                    
+                    <div class="col-sm-2">
+                        <label for="regionId">
+                            <af:outputText value="#{lang['com.tuyendev.region.label.search.regionId']}"/>
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <af:inputText styleClass="w-100" id="regionId"
+                                      value="#{pageFlowScope.regionController.searchDTO.regionId}" maximumLength="100"
+                                      simple="true" contentStyle="width:100%;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-right mt-10">
+                        <af:link class="btn btn-primary" text="Search"></af:link>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </ui:define>
+    <ui:define name="resultArea"></ui:define>
+</ui:composition>

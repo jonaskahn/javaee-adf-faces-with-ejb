@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">region</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">233.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>region&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">136.89648</property>
+      <property
+         name="page">/page/catalog/region/region.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+</SDM>

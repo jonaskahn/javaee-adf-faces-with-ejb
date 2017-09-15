@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Employee" id="d1">
+        <af:pageTemplate viewId="/template/Home01_NTT.jsf" id="pt1">
+            <f:facet name="main">
+                <af:region value="#{bindings.employeetask1.regionModel}" id="r1"/>
+            </f:facet>
+            <f:facet name="resources"/>
+            <f:facet name="extends"/>
+        </af:pageTemplate>
+    </af:document>
+</f:view>
