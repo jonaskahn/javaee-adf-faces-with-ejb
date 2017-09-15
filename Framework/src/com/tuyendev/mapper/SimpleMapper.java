@@ -2,25 +2,75 @@ package com.tuyendev.mapper;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
+
 import java.util.*;
 import java.util.function.Function;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class ManualMapper<Source, Desc> {
+public class SimpleMapper<Entity, DTO> {
+
+    private Logger logger = Logger.getGlobal();
 
     List<Object> objds = new ArrayList<>();
     List<Object> objsr = new ArrayList<>();
     Map<Integer, Object> mapObj = new HashMap<>();
 
-    private final Class<Source> src;
-    private final Class<Desc> desc;
-    private final static ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+    private final Class<Entity> src;
+    private final Class<DTO> desc;
 
-    public ManualMapper(Class<Source> src, Class<Desc> desc) {
+    public SimpleMapper(Class<Entity> src, Class<DTO> desc) {
         this.src = src;
         this.desc = desc;
     }
 
+
+    public DTO entityToDTO(Entity entity) {
+        DTO dto = null;
+        try {
+            dto = convertDTO(entity);
+        } catch (Exception e) {
+            logger.severe(e.getMessage());
+        }
+        return dto;
+    }
+
+    public List<DTO> entityToDTO(List<Entity> entities) {
+        List<DTO> dtos = new ArrayList<DTO>();
+        try {
+            for (Entity entity : entities) {
+                dtos.add(convertDTO(entity));
+            }
+        } catch (Exception e) {
+            logger.severe(e.getMessage());
+        }
+        return dtos;
+    }
+
+
+    public Entity dtoToEntity(DTO dto) {
+        Entity entity = null;
+        try {
+            entity = convertEntity(dto);
+        } catch (Exception e) {
+            logger.severe(e.getMessage());
+        }
+        return entity;
+    }
+
+    public List<Entity> dtoToEntity(List<DTO> dtos) {
+        List<Entity> entities = new ArrayList<Entity>();
+        try {
+            for (DTO dto : dtos) {
+                entities.add(convertEntity(dto));
+            }
+        } catch (Exception e) {
+            logger.severe(e.getMessage());
+        }
+        return entities;
+    }
+
+    @SuppressWarnings("unchecked")
     private void convertFrom(Object src, Object desc) throws Exception {
 
         if (objsr.isEmpty() || !isInList(src, objsr)) {
@@ -30,12 +80,14 @@ public class ManualMapper<Source, Desc> {
         if (objds.isEmpty() || !isInList(desc, objds)) {
             objds.add(desc);
         }
-        Map<String, Field> map_src_vars_fields = Arrays.stream(src.getClass().getDeclaredFields())
-                .collect(Collectors.toMap(Field::getName, Function.identity()));
+        Map<String, Field> map_src_vars_fields =
+            Arrays.stream(src.getClass().getDeclaredFields())
+            .collect(Collectors.toMap(Field::getName, Function.identity()));
 
 
-        Map<String, Field> map_desc_vars_fields = Arrays.stream(desc.getClass().getDeclaredFields())
-                .collect(Collectors.toMap(Field::getName, Function.identity()));
+        Map<String, Field> map_desc_vars_fields =
+            Arrays.stream(desc.getClass().getDeclaredFields())
+            .collect(Collectors.toMap(Field::getName, Function.identity()));
 
         for (Map.Entry<String, Field> entry : map_src_vars_fields.entrySet()) {
             String var = entry.getKey();
@@ -109,14 +161,19 @@ public class ManualMapper<Source, Desc> {
         return false;
     }
 
-
-    public Desc convertFrom(Source src) throws Exception {
-        Desc de = desc.newInstance();
-        convertFrom(src, de);
+    private DTO convertDTO(Entity source) throws Exception {
+        DTO de = desc.newInstance();
+        convertFrom(source, de);
         return de;
     }
 
-    public Class getTypeClass(Field field) {
+    private Entity convertEntity(DTO source) throws Exception {
+        Entity de = src.newInstance();
+        convertFrom(source, de);
+        return de;
+    }
+
+    private Class getTypeClass(Field field) {
         ParameterizedType stringListType = (ParameterizedType) field.getGenericType();
         return (Class<?>) stringListType.getActualTypeArguments()[0];
     }
