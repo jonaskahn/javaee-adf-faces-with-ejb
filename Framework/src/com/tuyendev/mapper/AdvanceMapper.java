@@ -7,14 +7,14 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AutoMapper<Entity, DTO> {
+public class AdvanceMapper<Entity, DTO> {
 
     private final Class<Entity> entity;
     private final Class<DTO> dto;
     private MapperFacade mapper;
 
 
-    public AutoMapper(Class<Entity> entity, Class<DTO> dto) {
+    public AdvanceMapper(Class<Entity> entity, Class<DTO> dto) {
         this.entity = entity;
         this.dto = dto;
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
