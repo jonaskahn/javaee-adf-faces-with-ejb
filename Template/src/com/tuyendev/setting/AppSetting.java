@@ -4,7 +4,6 @@ import com.google.common.collect.*;
 
 import com.tuyendev.common.Constant;
 import com.tuyendev.common.ContextUtil;
-import com.tuyendev.common.CookieUtil;
 import com.tuyendev.common.ServiceName;
 import com.tuyendev.entities.Menu;
 import com.tuyendev.entities.SubMenu;
@@ -14,18 +13,9 @@ import com.tuyendev.inf.MenuFacadeRemote;
 import java.io.Serializable;
 
 import java.util.*;
-
 import java.util.function.Function;
 
 import javax.annotation.PostConstruct;
-
-import javax.faces.context.FacesContext;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
-import javax.servlet.http.Cookie;
 
 import one.util.streamex.StreamEx;
 
@@ -78,7 +68,7 @@ public class AppSetting implements Serializable {
                                                 .getSessionScope()
                                                 .get(Constant.SUB_MENU_ID);
         SubMenu sub = !DataUtil.isNullObject(currentMenu) ? mapMenu.get(currentMenu) : null;
-        
+
         if (!DataUtil.isNullObject(activeMenu) && !DataUtil.isNullObject(activeMenu.getMenuId())) {
             activeMenu.getMenuId().setStyleClass("");
             activeMenu.setStyleClass("");

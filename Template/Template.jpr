@@ -109,11 +109,8 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="template_lib">
+         <hash n="Template">
             <value n="adflib-connectionDetails" v="true"/>
-            <list n="adflib-excludedConnections">
-               <string v="|"/>
-            </list>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
             </hash>
@@ -146,16 +143,31 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/template_lib.jar"/>
+            <url n="jarURL" path="deploy/Template.jar"/>
             <hash n="LibraryDependencies">
-               <list n="dependencyList"/>
+               <list n="dependencyList">
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
+                        <url n="sourceURL" path="../Framework/Framework.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+                  <hash>
+                     <hash n="dependable">
+                        <url n="sourceOwnerURL" path="../ADFFacesWithEJB.jws"/>
+                        <url n="sourceURL" path="../Service/Service.jpr"/>
+                     </hash>
+                     <value n="recognizerId" v="oracle.jdeveloper.library"/>
+                  </hash>
+               </list>
             </hash>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="template_lib"/>
+            <value n="profileName" v="Template"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="template_lib"/>
+         <string v="Template"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
