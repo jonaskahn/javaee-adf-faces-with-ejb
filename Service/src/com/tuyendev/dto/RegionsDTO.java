@@ -1,39 +1,41 @@
 package com.tuyendev.dto;
 
 import java.io.Serializable;
+
 import java.math.BigDecimal;
+
 import java.util.*;
 
 public class RegionsDTO implements Serializable {
 
-	//VARIABLES
-	private BigDecimal regionId;
-	private String regionName;
-	private List<CountriesDTO> countriesList;
+    //VARIABLES
+    private BigDecimal regionId;
+    private String regionName;
+    private List<CountriesDTO> countriesList;
 
-	//GETTER-SETTER
-	public BigDecimal getRegionId() {
-		return this.regionId;
-	}
+    //GETTER-SETTER
+    public BigDecimal getRegionId() {
+        return this.regionId;
+    }
 
-	public void setRegionId(BigDecimal regionId) {
-		this.regionId = regionId;
-	}
+    public void setRegionId(BigDecimal regionId) {
+        this.regionId = regionId;
+    }
 
-	public String getRegionName() {
-		return this.regionName;
-	}
+    public String getRegionName() {
+        return this.regionName;
+    }
 
-	public void setRegionName(String regionName) {
-		this.regionName = regionName;
-	}
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
 
-	public List<CountriesDTO> getCountriesList() {
-		return this.countriesList;
-	}
+    public List<CountriesDTO> getCountriesList() {
+        return this.countriesList;
+    }
 
-	public void setCountriesList(List<CountriesDTO> countriesList) {
-		this.countriesList = countriesList;
-	}
+    public void setCountriesList(List<CountriesDTO> countriesList) {
+        this.countriesList = countriesList;
+    }
 
 }
