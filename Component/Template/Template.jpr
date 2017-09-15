@@ -109,7 +109,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Template">
+         <hash n="template">
             <value n="adflib-connectionDetails" v="true"/>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -143,7 +143,7 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/Template.jar"/>
+            <url n="jarURL" path="deploy/template.jar"/>
             <hash n="LibraryDependencies">
                <list n="dependencyList">
                   <hash>
@@ -163,11 +163,11 @@
                </list>
             </hash>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="Template"/>
+            <value n="profileName" v="template"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="Template"/>
+         <string v="template"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">

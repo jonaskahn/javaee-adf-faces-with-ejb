@@ -68,19 +68,46 @@
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="com.tuyendev.fw"/>
+   <value n="defaultPackage" v="com.tuyendev"/>
+   <hash n="ejbModuleContainer">
+      <value n="dbConnection" v="HR"/>
+      <url n="ejbJarNodeURL" path="src/META-INF/ejb-jar.xml"/>
+      <value n="ejbVersion" v="3.0"/>
+      <value n="ejbVersionMinor" v="0.1"/>
+   </hash>
+   <hash n="oracle.ide.model.DependencyConfiguration">
+      <list n="dependencyList">
+         <hash>
+            <hash n="dependable">
+               <url n="sourceOwnerURL" path="../../HR_System/HR_System.jws"/>
+               <url n="sourceURL" path="../BundleResources/BundleResources.jpr"/>
+            </hash>
+            <value n="recognizerId" v="oracle.jdeveloper.library"/>
+         </hash>
+         <hash>
+            <hash n="dependable">
+               <url n="sourceOwnerURL" path="../../HR_System/HR_System.jws"/>
+               <url n="sourceURL" path="../Framework/Framework.jpr"/>
+            </hash>
+            <value n="recognizerId" v="oracle.jdeveloper.library"/>
+         </hash>
+      </list>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
+         <string v="Database"/>
+         <string v="EJB"/>
          <string v="Java"/>
+         <string v="TopLink"/>
+         <string v="XML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
-      <value n="internalEncoding" v="UTF-8"/>
       <value n="webIANAEncoding" v="windows-1252"/>
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Framework">
+         <hash n="service">
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
             </hash>
@@ -109,61 +136,39 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/Framework.jar"/>
+            <url n="jarURL" path="deploy/service.jar"/>
             <value n="profileClass" v="oracle.jdeveloper.deploy.jar.ArchiveProfile"/>
-            <value n="profileName" v="Framework"/>
+            <value n="profileName" v="service"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="Framework"/>
+         <string v="service"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="ADFFacesWithEJB-Framework-webapp"/>
-      <value n="j2eeWebContextRoot" v="ADFFacesWithEJB-Framework-context-root"/>
-   </hash>
-   <hash n="oracle.jdeveloper.model.PathsConfiguration">
-      <hash n="javaContentSet">
-         <list n="pattern-filters">
-            <string v="+**"/>
-         </list>
-         <list n="url-path">
-            <url path="src/"/>
-         </list>
-      </hash>
+      <value n="j2eeWebAppName" v="ADFFacesWithEJB-Service-webapp"/>
+      <value n="j2eeWebContextRoot" v="ADFFacesWithEJB-Service-context-root"/>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>
-            <value n="id" v="Cloning-1.9.5.jar"/>
+            <value n="id" v="Java EE"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Objenesis-2.6.jar"/>
+            <value n="id" v="EJB"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="TopLink"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Guava-23.0.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Javassist-3.12.1.GA.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Orika-core-1.5.1.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Paranamer-2.8.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Slf4j-api-1.7.5.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Slf4j-simple-1.7.5.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -175,74 +180,11 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../Lib/cloneobject/cloning-1.9.5.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Cloning-1.9.5.jar"/>
-               <value n="id" v="Cloning-1.9.5.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/cloneobject/objenesis-2.6.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Objenesis-2.6.jar"/>
-               <value n="id" v="Objenesis-2.6.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
                   <url path="../Lib/guava/guava-23.0.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Guava-23.0.jar"/>
                <value n="id" v="Guava-23.0.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/mapper/javassist-3.12.1.GA.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Javassist-3.12.1.GA.jar"/>
-               <value n="id" v="Javassist-3.12.1.GA.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/mapper/orika-core-1.5.1.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Orika-core-1.5.1.jar"/>
-               <value n="id" v="Orika-core-1.5.1.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/mapper/paranamer-2.8.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Paranamer-2.8.jar"/>
-               <value n="id" v="Paranamer-2.8.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/mapper/slf4j-api-1.7.5.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Slf4j-api-1.7.5.jar"/>
-               <value n="id" v="Slf4j-api-1.7.5.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../Lib/mapper/slf4j-simple-1.7.5.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Slf4j-simple-1.7.5.jar"/>
-               <value n="id" v="Slf4j-simple-1.7.5.jar"/>
                <value n="locked" v="true"/>
             </hash>
             <hash>
@@ -258,35 +200,23 @@
       </hash>
       <list n="libraryReferences">
          <hash>
-            <value n="id" v="Cloning-1.9.5.jar"/>
+            <value n="id" v="Java EE"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Objenesis-2.6.jar"/>
+            <value n="id" v="EJB"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="TopLink"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Guava-23.0.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Javassist-3.12.1.GA.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Orika-core-1.5.1.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Paranamer-2.8.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Slf4j-api-1.7.5.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Slf4j-simple-1.7.5.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -297,5 +227,15 @@
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
+   </hash>
+   <hash n="oracle.toplink.workbench.addin">
+      <hash n="persistence-list">
+         <value n="jpa-version" v="2.0"/>
+         <hash n="src$META-INF$persistence.xml">
+            <hash n="A">
+               <value n="development-database" v="HR"/>
+            </hash>
+         </hash>
+      </hash>
    </hash>
 </jpr:project>
