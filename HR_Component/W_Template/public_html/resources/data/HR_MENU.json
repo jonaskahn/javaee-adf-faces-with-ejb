@@ -1,0 +1,23 @@
+[
+    {
+        "MENU_ID" : 1,
+        "NAME" : "com.tuyendev.template.menu.catalog",
+        "LINK" : null,
+        "DESCRIPTION" : "com.tuyendev.template.menu.catalog.desc",
+        "STYLE_CLASS" : null
+    },
+    {
+        "MENU_ID" : 2,
+        "NAME" : "com.tuyendev.template.menu.production",
+        "LINK" : null,
+        "DESCRIPTION" : "com.tuyendev.template.menu.production.desc",
+        "STYLE_CLASS" : null
+    },
+    {
+        "MENU_ID" : 3,
+        "NAME" : "com.tuyendev.template.menu.performance",
+        "LINK" : null,
+        "DESCRIPTION" : "com.tuyendev.template.menu.performance.desc",
+        "STYLE_CLASS" : null
+    }
+]

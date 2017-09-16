@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="employeePageDef"
+                Package="page.catalog.employee">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="employeetask1" taskFlowId="/page/catalog/employee/employee-task.xml#employee-task"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

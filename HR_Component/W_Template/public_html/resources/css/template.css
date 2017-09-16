@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+body {
+    background-color: white !important;
+    background-image: none !important;
+    font-size: 14px !important;
+}
+/*header*/
+.navbar {
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.navbar-inverse {
+    background-color: #1565C0 !important;
+    border-color: #1565C0 !important;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #0D47A1 !important;
+}
+
+.navbar-nav > li.active > a:focus {
+    background-color: #0D47A1 !important;
+}
+
+.navbar-nav > li > a:hover {
+    background-color: #1E88E5 !important;
+    color: #FFFF00 !important;
+}
+
+.navbar-nav > li.active > a {
+    background-color: #1A237E !important;
+}
+/*header- dropdown menu*/
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:hover {
+    background-color: #0D47A1 !important;
+    color: white !important;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #0D47A1 !important;
+    color: white !important;
+}
+
+.dropdown-menu {
+    padding: 0 !important;
+    margin: 2px 0 0;
+}
+
+.dropdown-menu > li > a {
+    min-width: 128px !important;
+    min-height: 32px !important;
+    margin: auto !important;
+}
+
+li.dropdown > ul.dropdown-menu > li:hover {
+    background-color: #78909C !important;
+}
+
+li.dropdown > ul.dropdown-menu {
+    min-width: 200px !important;
+}
+
+li.active-sub-menu {
+    background-color: #1565C0;
+}
+
+li.active-sub-menu > a {
+    color: white !important;
+}
+/*breadcrumb*/
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: rgba(21, 101, 192, 0.79);
+    color: white;
+}
+
+.breadcrumb {
+    margin-bottom: 0px !important;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 14px;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+
+.breadcrumb {
+    border-radius: 1px !important;
+}
+
+.user-body {
+    min-height: 160px !important;
+    border-bottom: #1565C0 solid 2px;
+    padding: 10px;
+}
+
+.user-footer {
+    min-height: 40px !important;
+    padding: 10px 10px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.btn_select {
+    background-color: #1565C0 !important;
+    color: white !important;
+}
+
+.btn_select:focus {
+    background-color: #0D47A1 !important;
+    color: white !important;
+}
+
+.btn_select:hover {
+    background-color: #1E88E5 !important;
+    color: white !important;
+}
+
+.content-box {
+    margin: 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+}
+
+.mt-5 {
+    margin-top: 5px !important
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.mt-15 {
+    margin-top: 15px !important;
+}
+
+.mt-20 {
+    margin-top: 5px !important;
+}
+
+.mt-25 {
+    margin-top: 10px !important;
+}
+
+.mt-30 {
+    margin-top: 15px !important;
+}
+
+.mb-5 {
+    margin-top: 5px !important
+}
+
+.mb-10 {
+    margin-top: 10px !important;
+}
+
+.mb-15 {
+    margin-top: 15px !important;
+}
+
+.mb-20 {
+    margin-top: 5px !important;
+}
+
+.mb-25 {
+    margin-top: 10px !important;
+}
+
+.mb-30 {
+    margin-top: 15px !important;
+}
+
+.mb-35 {
+    margin-top: 5px !important;
+}
+
+.mb-45 {
+    margin-top: 10px !important;
+}
+
+.mb-50 {
+    margin-top: 15px !important;
+}
+
+.ml-5 {
+    margin-top: 5px !important
+}
+
+.ml-10 {
+    margin-top: 10px !important;
+}
+
+.ml-15 {
+    margin-top: 15px !important;
+}
+
+.ml-20 {
+    margin-top: 5px !important;
+}
+
+.ml-25 {
+    margin-top: 10px !important;
+}
+
+.ml-30 {
+    margin-top: 15px !important;
+}
+
+.ml-35 {
+    margin-top: 5px !important;
+}
+
+.ml-45 {
+    margin-top: 10px !important;
+}
+
+.ml-50 {
+    margin-top: 15px !important;
+}
+
+.mr-5 {
+    margin-top: 5px !important
+}
+
+.mr-10 {
+    margin-top: 10px !important;
+}
+
+.mr-15 {
+    margin-top: 15px !important;
+}
+
+.mr-20 {
+    margin-top: 5px !important;
+}
+
+.mr-25 {
+    margin-top: 10px !important;
+}
+
+.mr-30 {
+    margin-top: 15px !important;
+}
+
+.mr-35 {
+    margin-top: 5px !important;
+}
+
+.mr-45 {
+    margin-top: 10px !important;
+}
+
+.mr-50 {
+    margin-top: 15px !important;
+}
+
+.mt-35 {
+    margin-top: 5px !important;
+}
+
+.mt-45 {
+    margin-top: 10px !important;
+}
+
+.mt-50 {
+    margin-top: 15px !important;
+}

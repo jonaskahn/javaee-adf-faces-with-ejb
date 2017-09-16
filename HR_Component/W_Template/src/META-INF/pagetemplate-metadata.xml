@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageTemplateDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/pagetemplate">
+    <pagetemplate-jsp-ui-def>/template/NTT_Studio_01.jsf</pagetemplate-jsp-ui-def>
+</pageTemplateDefs>

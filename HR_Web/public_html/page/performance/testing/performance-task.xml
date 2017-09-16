@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="performance-task">
+    <default-activity>performance</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="performance">
+      <page>/page/performance/testing/performance.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

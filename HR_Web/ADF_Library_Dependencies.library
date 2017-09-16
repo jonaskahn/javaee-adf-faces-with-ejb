@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<library id="oracle..adf-library-dependencies" name="ADF Library Dependencies" deployed="true" locked="true" xmlns="http://xmlns.oracle.com/jdeveloper/1013/manifest-libraries">
+  <description/>
+  <classpath>../HR_Component/Lib/jackson/jackson-annotations-2.9.1.jar</classpath>
+  <classpath>../HR_Component/Lib/jackson/jackson-core-2.9.1.jar</classpath>
+  <classpath>../HR_Component/Lib/jackson/jackson-databind-2.9.1.jar</classpath>
+</library>

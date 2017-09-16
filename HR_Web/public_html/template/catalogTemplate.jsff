@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <af:panelGroupLayout>
+        <div class="content-box">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>
+                        <af:outputText value="#{searchName}"/></strong>
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid">
+                        <ui:insert name="searchArea">SearchArea</ui:insert>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>
+                        <af:outputText value="#{resultName}"/></strong>
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid">
+                        <ui:insert name="resultArea">ResultArea</ui:insert>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </af:panelGroupLayout>
+</ui:composition>

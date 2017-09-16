@@ -1,0 +1,58 @@
+[
+    {
+        "SUB_MENU_ID" : 6,
+        "MENU_ID" : 1,
+        "NAME" : "com.tuyendev.template.menu.catalog.submenu.countries",
+        "LINK" : "countries",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : "com.tuyendev.template.menu.catalog.submenu.countries.desc"
+    },
+    {
+        "SUB_MENU_ID" : 7,
+        "MENU_ID" : 1,
+        "NAME" : "com.tuyendev.template.menu.catalog.submenu.region",
+        "LINK" : "region",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : "com.tuyendev.template.menu.catalog.submenu.region.desc"
+    },
+    {
+        "SUB_MENU_ID" : 1,
+        "MENU_ID" : 1,
+        "NAME" : "com.tuyendev.template.menu.catalog.submenu.menu",
+        "LINK" : "menu",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : null
+    },
+    {
+        "SUB_MENU_ID" : 2,
+        "MENU_ID" : 1,
+        "NAME" : "com.tuyendev.template.menu.catalog.submenu.job",
+        "LINK" : "job",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : null
+    },
+    {
+        "SUB_MENU_ID" : 3,
+        "MENU_ID" : 1,
+        "NAME" : "com.tuyendev.template.menu.catalog.submenu.employee",
+        "LINK" : "employee",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : null
+    },
+    {
+        "SUB_MENU_ID" : 4,
+        "MENU_ID" : 2,
+        "NAME" : "com.tuyendev.template.menu.production.submenu.testingproduction",
+        "LINK" : "test_production",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : null
+    },
+    {
+        "SUB_MENU_ID" : 5,
+        "MENU_ID" : 3,
+        "NAME" : "com.tuyendev.template.menu.performance.submenu.testingperformance",
+        "LINK" : "test_performance",
+        "STYLE_CLASS" : null,
+        "DESCRIPTION" : null
+    }
+]
