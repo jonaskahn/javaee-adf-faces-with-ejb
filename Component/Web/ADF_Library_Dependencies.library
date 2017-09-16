@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<library id="" name="ADF Library Dependencies" deployed="true" locked="true" xmlns="http://xmlns.oracle.com/jdeveloper/1013/manifest-libraries">
-  <description/>
-  <classpath>../Lib/mapper/javassist-3.12.1.GA.jar</classpath>
-  <classpath>../Lib/mapper/orika-core-1.5.1.jar</classpath>
-  <classpath>../Lib/mapper/paranamer-2.8.jar</classpath>
-  <classpath>../Lib/mapper/slf4j-api-1.7.5.jar</classpath>
-  <classpath>../Lib/mapper/slf4j-simple-1.7.5.jar</classpath>
-</library>
