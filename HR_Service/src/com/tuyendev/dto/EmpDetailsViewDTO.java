@@ -2,9 +2,11 @@ package com.tuyendev.dto;
 
 import java.io.Serializable;
 
+import com.tuyendev.fw.BaseDTO;
+
 import java.math.BigDecimal;
 
-public class EmpDetailsViewDTO implements Serializable {
+public class EmpDetailsViewDTO extends BaseDTO implements Serializable {
 
     //VARIABLES
     private String departmentName;

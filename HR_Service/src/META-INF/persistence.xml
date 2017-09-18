@@ -1,24 +1,22 @@
-<?xml version="1.0" encoding="windows-1252" ?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
-             version="2.0">
-  <persistence-unit name="Service" transaction-type="JTA">
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <jta-data-source>HRDS</jta-data-source>
-    <class>com.tuyendev.entities.Countries</class>
-    <class>com.tuyendev.entities.Departments</class>
-    <class>com.tuyendev.entities.Employees</class>
-    <class>com.tuyendev.entities.EmpDetailsView</class>
-    <class>com.tuyendev.entities.Jobs</class>
-    <class>com.tuyendev.entities.JobHistory</class>
-    <class>com.tuyendev.entities.Locations</class>
-    <class>com.tuyendev.entities.Menu</class>
-    <class>com.tuyendev.entities.Regions</class>
-    <class>com.tuyendev.entities.SubMenu</class>
-    <properties>
-      <property name="eclipselink.target-server" value="WebLogic_12"/>
-      <property name="eclipselink.logging.level" value="SEVERE"/>
-      <property name="eclipselink.logging.logger" value="JavaLogger"/>
-    </properties>
-  </persistence-unit>
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="HR_Service" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <properties>
+            <property name="eclipselink.target-server" value="WebLogic_12"/>
+            <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/HRDS"/>
+        </properties>
+        <jta-data-source>java:/app/jdbc/jdbc/HRDS</jta-data-source>
+        <class>com.tuyendev.entities.Jobs</class>
+        <class>com.tuyendev.entities.EmpDetailsView</class>
+        <class>com.tuyendev.entities.JobHistory</class>
+        <class>com.tuyendev.entities.Departments</class>
+        <class>com.tuyendev.entities.Employees</class>
+        <class>com.tuyendev.entities.Regions</class>
+        <class>com.tuyendev.entities.Locations</class>
+        <class>com.tuyendev.entities.JobHistoryPK</class>
+        <class>com.tuyendev.entities.Countries</class>
+    </persistence-unit>
 </persistence>

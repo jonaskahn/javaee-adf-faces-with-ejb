@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <af:document title="Dashboard" id="d1" largeIconSource="../resources/img/favicon.png"
+                 smallIconSource="../resources/img/favicon.png">
+        <af:pageTemplate viewId="/template/NTTStudio_V01.jsf" id="pt1">
+            <f:facet name="main">
+                <ui:include src="/page/index_v01.jsff"/>
+            </f:facet>
+            <f:facet name="resources"/>
+            <f:facet name="extends"/>
+        </af:pageTemplate>
+    </af:document>
+</f:view>

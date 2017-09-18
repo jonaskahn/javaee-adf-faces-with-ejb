@@ -22,13 +22,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Entity
 @Table(name = "COUNTRIES")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Countries.findAll", query = "SELECT c FROM Countries c")})
+    @NamedQuery(name = "Countries.findAll", query = "SELECT c FROM Countries c")
+    , @NamedQuery(name = "Countries.findByCountryId", query = "SELECT c FROM Countries c WHERE c.countryId = :countryId")
+    , @NamedQuery(name = "Countries.findByCountryName", query = "SELECT c FROM Countries c WHERE c.countryName = :countryName")})
 public class Countries implements Serializable {
 
     private static final long serialVersionUID = 1L;

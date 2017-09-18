@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="region.jsf" id="d1">
-        <af:pageTemplate viewId="/template/NTT_Studio_01.jsf" id="pt1">
+    <af:document title="Region" id="d1" largeIconSource="../resources/img/favicon.png"
+                 smallIconSource="../resources/img/favicon.png">
+        <af:pageTemplate viewId="/template/NTTStudio_V01.jsf" id="pt1">
             <f:facet name="main">
                 <af:region value="#{bindings.regiontask1.regionModel}" id="r1"/>
             </f:facet>

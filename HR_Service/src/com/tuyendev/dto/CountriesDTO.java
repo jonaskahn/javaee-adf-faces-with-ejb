@@ -2,9 +2,11 @@ package com.tuyendev.dto;
 
 import java.io.Serializable;
 
+import com.tuyendev.fw.BaseDTO;
+
 import java.util.*;
 
-public class CountriesDTO implements Serializable {
+public class CountriesDTO extends BaseDTO implements Serializable {
 
     //VARIABLES
     private RegionsDTO regionId;

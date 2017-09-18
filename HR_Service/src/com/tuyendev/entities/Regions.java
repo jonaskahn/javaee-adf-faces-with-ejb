@@ -1,11 +1,12 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.regionId
+ * and open the template in the editor.
  */
 package com.tuyendev.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -20,13 +21,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Entity
 @Table(name = "REGIONS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Regions.findAll", query = "SELECT r FROM Regions r")})
+    @NamedQuery(name = "Regions.findAll", query = "SELECT r FROM Regions r")
+    , @NamedQuery(name = "Regions.findByRegionId", query = "SELECT r FROM Regions r WHERE r.regionId = :regionId")
+    , @NamedQuery(name = "Regions.findByRegionName", query = "SELECT r FROM Regions r WHERE r.regionName = :regionName")})
 public class Regions implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,7 +37,7 @@ public class Regions implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "REGION_ID")
-    private Long regionId;
+    private BigDecimal regionId;
     @Column(name = "REGION_NAME")
     private String regionName;
     @OneToMany(mappedBy = "regionId")
@@ -43,15 +46,15 @@ public class Regions implements Serializable {
     public Regions() {
     }
 
-    public Regions(Long regionId) {
+    public Regions(BigDecimal regionId) {
         this.regionId = regionId;
     }
 
-    public Long getRegionId() {
+    public BigDecimal getRegionId() {
         return regionId;
     }
 
-    public void setRegionId(Long regionId) {
+    public void setRegionId(BigDecimal regionId) {
         this.regionId = regionId;
     }
 

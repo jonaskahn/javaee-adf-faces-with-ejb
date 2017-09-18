@@ -2,11 +2,13 @@ package com.tuyendev.dto;
 
 import java.io.Serializable;
 
+import com.tuyendev.fw.BaseDTO;
+
 import java.util.*;
 
 import java.math.BigDecimal;
 
-public class EmployeesDTO implements Serializable {
+public class EmployeesDTO extends BaseDTO implements Serializable {
 
     //VARIABLES
     private String lastName;

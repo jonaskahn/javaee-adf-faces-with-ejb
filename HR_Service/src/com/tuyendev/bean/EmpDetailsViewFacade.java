@@ -5,22 +5,28 @@
  */
 package com.tuyendev.bean;
 
+import com.tuyendev.base.BaseFacade;
 import com.tuyendev.common.ServiceName;
-import com.tuyendev.inf.EmpDetailsViewFacadeLocal;
+import com.tuyendev.dto.EmpDetailsViewDTO;
+import com.tuyendev.local.EmpDetailsViewFacadeLocal;
 import com.tuyendev.entities.EmpDetailsView;
+import com.tuyendev.mapper.AdvanceMapper;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
-@Stateless(name=ServiceName.EJB_NAME.EMP_DETAILS_VIEW_FACADE,mappedName=ServiceName.EJB_MAPPED_NAME.EMP_DETAILS_VIEW_FACADE)
-public class EmpDetailsViewFacade extends AbstractFacade<EmpDetailsView> implements EmpDetailsViewFacadeLocal, com.tuyendev.inf.EmpDetailsViewFacadeRemote {
+@Stateless(name = ServiceName.EJB_NAME.EMP_DETAILS_VIEW_FACADE,mappedName = ServiceName.EJB_MAPPED_NAME.EMP_DETAILS_VIEW_FACADE)
+public class EmpDetailsViewFacade extends BaseFacade<EmpDetailsView,EmpDetailsViewDTO> implements EmpDetailsViewFacadeLocal, com.tuyendev.remote.EmpDetailsViewFacadeRemote {
 
-    @PersistenceContext(unitName = "Service")
+    @PersistenceContext(unitName = "HR_Service")
     private EntityManager em;
+    
+    private final AdvanceMapper mapper = new AdvanceMapper<EmpDetailsView,EmpDetailsViewDTO>(EmpDetailsView.class,EmpDetailsViewDTO.class);
 
     @Override
     protected EntityManager getEntityManager() {
@@ -28,7 +34,11 @@ public class EmpDetailsViewFacade extends AbstractFacade<EmpDetailsView> impleme
     }
 
     public EmpDetailsViewFacade() {
-        super(EmpDetailsView.class);
+        super(EmpDetailsView.class,EmpDetailsViewDTO.class);
     }
-    
+
+    @Override
+    protected AdvanceMapper getMapper() {
+        return mapper;
+    }
 }

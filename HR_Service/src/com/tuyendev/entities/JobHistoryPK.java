@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Embeddable
 public class JobHistoryPK implements Serializable {

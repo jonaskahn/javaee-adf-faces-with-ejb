@@ -2,9 +2,11 @@ package com.tuyendev.dto;
 
 import java.io.Serializable;
 
+import com.tuyendev.fw.BaseDTO;
+
 import java.util.*;
 
-public class JobHistoryPKDTO implements Serializable {
+public class JobHistoryPKDTO extends BaseDTO implements Serializable {
 
     //VARIABLES
     private Date startDate;

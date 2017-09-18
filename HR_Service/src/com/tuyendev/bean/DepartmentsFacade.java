@@ -5,22 +5,28 @@
  */
 package com.tuyendev.bean;
 
+import com.tuyendev.base.BaseFacade;
 import com.tuyendev.common.ServiceName;
-import com.tuyendev.inf.DepartmentsFacadeLocal;
+import com.tuyendev.dto.DepartmentsDTO;
+import com.tuyendev.local.DepartmentsFacadeLocal;
 import com.tuyendev.entities.Departments;
+import com.tuyendev.mapper.AdvanceMapper;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
-@Stateless(name=ServiceName.EJB_NAME.DEPARTMENTS_FACADE,mappedName=ServiceName.EJB_MAPPED_NAME.DEPARTMENTS_FACADE)
-public class DepartmentsFacade extends AbstractFacade<Departments> implements DepartmentsFacadeLocal, com.tuyendev.inf.DepartmentsFacadeRemote {
+@Stateless(name = ServiceName.EJB_NAME.DEPARTMENTS_FACADE,mappedName = ServiceName.EJB_MAPPED_NAME.DEPARTMENTS_FACADE)
+public class DepartmentsFacade extends BaseFacade<Departments,DepartmentsDTO> implements DepartmentsFacadeLocal, com.tuyendev.remote.DepartmentsFacadeRemote {
 
-    @PersistenceContext(unitName = "Service")
+    @PersistenceContext(unitName = "HR_Service")
     private EntityManager em;
+    
+    private final AdvanceMapper mapper = new AdvanceMapper<Departments,DepartmentsDTO>(Departments.class, DepartmentsDTO.class);
 
     @Override
     protected EntityManager getEntityManager() {
@@ -28,7 +34,11 @@ public class DepartmentsFacade extends AbstractFacade<Departments> implements De
     }
 
     public DepartmentsFacade() {
-        super(Departments.class);
+        super(Departments.class,DepartmentsDTO.class);
     }
-    
+
+    @Override
+    protected AdvanceMapper getMapper() {
+        return mapper;
+    }
 }

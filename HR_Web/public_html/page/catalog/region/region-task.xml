@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="region-task">
-    <default-activity>region</default-activity>
+    <default-activity>region_page</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -10,8 +10,8 @@
       <managed-bean-class>com.tuyendev.controller.RegionController</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
-    <view id="region">
-      <page>/page/catalog/region/region.jsff</page>
+    <view id="region_page">
+      <page>/page/catalog/region/region_page.jsff</page>
     </view>
     <use-page-fragments/>
   </task-flow-definition>

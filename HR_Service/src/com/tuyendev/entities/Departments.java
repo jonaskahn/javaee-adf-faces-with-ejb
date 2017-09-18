@@ -10,37 +10,33 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Entity
 @Table(name = "DEPARTMENTS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Departments.findAll", query = "SELECT d FROM Departments d")})
+    @NamedQuery(name = "Departments.findAll", query = "SELECT d FROM Departments d")
+    , @NamedQuery(name = "Departments.findByDepartmentId", query = "SELECT d FROM Departments d WHERE d.departmentId = :departmentId")
+    , @NamedQuery(name = "Departments.findByDepartmentName", query = "SELECT d FROM Departments d WHERE d.departmentName = :departmentName")})
 public class Departments implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
     @Id
     @Basic(optional = false)
     @Column(name = "DEPARTMENT_ID")
-    @GeneratedValue(generator = "DEPARTMENTS_SEQ_GEN", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "DEPARTMENTS_SEQ_GEN", sequenceName = "DEPARTMENTS_SEQ",allocationSize=1)
     private Short departmentId;
     @Basic(optional = false)
     @Column(name = "DEPARTMENT_NAME")

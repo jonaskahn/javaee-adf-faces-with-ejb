@@ -21,13 +21,17 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Entity
 @Table(name = "JOBS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Jobs.findAll", query = "SELECT j FROM Jobs j")})
+    @NamedQuery(name = "Jobs.findAll", query = "SELECT j FROM Jobs j")
+    , @NamedQuery(name = "Jobs.findByJobId", query = "SELECT j FROM Jobs j WHERE j.jobId = :jobId")
+    , @NamedQuery(name = "Jobs.findByJobTitle", query = "SELECT j FROM Jobs j WHERE j.jobTitle = :jobTitle")
+    , @NamedQuery(name = "Jobs.findByMinSalary", query = "SELECT j FROM Jobs j WHERE j.minSalary = :minSalary")
+    , @NamedQuery(name = "Jobs.findByMaxSalary", query = "SELECT j FROM Jobs j WHERE j.maxSalary = :maxSalary")})
 public class Jobs implements Serializable {
 
     private static final long serialVersionUID = 1L;

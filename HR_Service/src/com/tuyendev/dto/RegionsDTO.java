@@ -2,11 +2,13 @@ package com.tuyendev.dto;
 
 import java.io.Serializable;
 
+import com.tuyendev.fw.BaseDTO;
+
 import java.math.BigDecimal;
 
 import java.util.*;
 
-public class RegionsDTO implements Serializable {
+public class RegionsDTO extends BaseDTO implements Serializable {
 
     //VARIABLES
     private BigDecimal regionId;

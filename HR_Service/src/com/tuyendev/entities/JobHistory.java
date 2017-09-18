@@ -22,13 +22,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Entity
 @Table(name = "JOB_HISTORY")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JobHistory.findAll", query = "SELECT j FROM JobHistory j")})
+    @NamedQuery(name = "JobHistory.findAll", query = "SELECT j FROM JobHistory j")
+    , @NamedQuery(name = "JobHistory.findByEmployeeId", query = "SELECT j FROM JobHistory j WHERE j.jobHistoryPK.employeeId = :employeeId")
+    , @NamedQuery(name = "JobHistory.findByStartDate", query = "SELECT j FROM JobHistory j WHERE j.jobHistoryPK.startDate = :startDate")
+    , @NamedQuery(name = "JobHistory.findByEndDate", query = "SELECT j FROM JobHistory j WHERE j.endDate = :endDate")})
 public class JobHistory implements Serializable {
 
     private static final long serialVersionUID = 1L;

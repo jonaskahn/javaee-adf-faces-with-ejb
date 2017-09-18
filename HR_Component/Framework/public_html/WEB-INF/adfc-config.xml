@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <view id="index">
+        <page>/page/index.jsf</page>
+    </view>
+    <managed-bean id="__1">
+        <managed-bean-name>appSetting</managed-bean-name>
+        <managed-bean-class>com.tuyendev.setting.AppSetting</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+        <managed-bean-name>langSetting</managed-bean-name>
+        <managed-bean-class>com.tuyendev.setting.LanguageSetting</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+</adfc-config>

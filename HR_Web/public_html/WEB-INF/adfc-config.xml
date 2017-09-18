@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <view id="employee">
-    <page>/page/catalog/employee/employee.jsf</page>
+  <view id="performance">
+    <page>/page/performance/performance.jsf</page>
   </view>
   <view id="region">
     <page>/page/catalog/region/region.jsf</page>
-  </view>
-  <view id="performance">
-    <page>/page/performance/testing/performance.jsf</page>
-  </view>
-  <view id="production">
-    <page>/page/production/testing/production.jsf</page>
   </view>
 </adfc-config>

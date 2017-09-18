@@ -12,13 +12,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Tuyen Nguyen
+ * @author tuyendev
  */
 @Entity
 @Table(name = "EMP_DETAILS_VIEW")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "EmpDetailsView.findAll", query = "SELECT e FROM EmpDetailsView e")})
+    @NamedQuery(name = "EmpDetailsView.findAll", query = "SELECT e FROM EmpDetailsView e")
+    , @NamedQuery(name = "EmpDetailsView.findByEmployeeId", query = "SELECT e FROM EmpDetailsView e WHERE e.employeeId = :employeeId")
+    , @NamedQuery(name = "EmpDetailsView.findByJobId", query = "SELECT e FROM EmpDetailsView e WHERE e.jobId = :jobId")
+    , @NamedQuery(name = "EmpDetailsView.findByManagerId", query = "SELECT e FROM EmpDetailsView e WHERE e.managerId = :managerId")
+    , @NamedQuery(name = "EmpDetailsView.findByDepartmentId", query = "SELECT e FROM EmpDetailsView e WHERE e.departmentId = :departmentId")
+    , @NamedQuery(name = "EmpDetailsView.findByLocationId", query = "SELECT e FROM EmpDetailsView e WHERE e.locationId = :locationId")
+    , @NamedQuery(name = "EmpDetailsView.findByCountryId", query = "SELECT e FROM EmpDetailsView e WHERE e.countryId = :countryId")
+    , @NamedQuery(name = "EmpDetailsView.findByFirstName", query = "SELECT e FROM EmpDetailsView e WHERE e.firstName = :firstName")
+    , @NamedQuery(name = "EmpDetailsView.findByLastName", query = "SELECT e FROM EmpDetailsView e WHERE e.lastName = :lastName")
+    , @NamedQuery(name = "EmpDetailsView.findBySalary", query = "SELECT e FROM EmpDetailsView e WHERE e.salary = :salary")
+    , @NamedQuery(name = "EmpDetailsView.findByCommissionPct", query = "SELECT e FROM EmpDetailsView e WHERE e.commissionPct = :commissionPct")
+    , @NamedQuery(name = "EmpDetailsView.findByDepartmentName", query = "SELECT e FROM EmpDetailsView e WHERE e.departmentName = :departmentName")
+    , @NamedQuery(name = "EmpDetailsView.findByJobTitle", query = "SELECT e FROM EmpDetailsView e WHERE e.jobTitle = :jobTitle")
+    , @NamedQuery(name = "EmpDetailsView.findByCity", query = "SELECT e FROM EmpDetailsView e WHERE e.city = :city")
+    , @NamedQuery(name = "EmpDetailsView.findByStateProvince", query = "SELECT e FROM EmpDetailsView e WHERE e.stateProvince = :stateProvince")
+    , @NamedQuery(name = "EmpDetailsView.findByCountryName", query = "SELECT e FROM EmpDetailsView e WHERE e.countryName = :countryName")
+    , @NamedQuery(name = "EmpDetailsView.findByRegionName", query = "SELECT e FROM EmpDetailsView e WHERE e.regionName = :regionName")})
 public class EmpDetailsView implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,15 +44,18 @@ public class EmpDetailsView implements Serializable {
     private int employeeId;
     @Id
     @Basic(optional = false)
-    @Column(name = "JOB_ID") 
+    @Column(name = "JOB_ID")
     private String jobId;
     @Id
     @Column(name = "MANAGER_ID")
     private Integer managerId;
+    @Id
     @Column(name = "DEPARTMENT_ID")
     private Short departmentId;
+    @Id
     @Column(name = "LOCATION_ID")
     private Short locationId;
+    @Id
     @Column(name = "COUNTRY_ID")
     private String countryId;
     @Column(name = "FIRST_NAME")

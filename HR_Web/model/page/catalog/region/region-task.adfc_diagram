@@ -1,28 +1,23 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <SDM>
    <OverallProperties
-      id="OverallProperties1">
-      <property
-         name="x">91.5</property>
-      <property
-         name="y">266.5</property>
-   </OverallProperties>
+      id="OverallProperties1"/>
    <View
       id="View2">
       <property
-         name="activityId">region</property>
+         name="activityId">region_page</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">91.5</property>
+         name="x">117.0</property>
       <property
          name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>region&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>region_page&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">98.79883</property>
+         name="y">192.5459</property>
       <property
-         name="page">/page/catalog/region/region.jsff</property>
+         name="page">/page/catalog/region/region_page.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
