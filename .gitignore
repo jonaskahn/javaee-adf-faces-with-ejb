@@ -10,3 +10,5 @@ HR_Component/Common/classes/*
 HR_Component/Framework/classes/*
 HR_Component/Resources/Web/classes/*
 *.lck
+
+HR_Component/Resources/classes/
