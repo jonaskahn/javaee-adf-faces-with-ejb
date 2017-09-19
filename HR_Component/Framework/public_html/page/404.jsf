@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="404" id="d1">
+        <af:form id="f1">
+            <div class="error-container">
+                <h1>404</h1>
+                <p class="return">
+                    Take me back to 
+                    <a href="index">NTT Studio</a>
+                </p>
+            </div>
+        </af:form>
+    </af:document>
+</f:view>

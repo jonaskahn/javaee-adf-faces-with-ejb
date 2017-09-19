@@ -17,4 +17,19 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View25">
+      <property
+         name="activityId">NotFound</property>
+      <property
+         name="x">55.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>NotFound&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">71.79883</property>
+      <property
+         name="page">/page/404.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
 </SDM>

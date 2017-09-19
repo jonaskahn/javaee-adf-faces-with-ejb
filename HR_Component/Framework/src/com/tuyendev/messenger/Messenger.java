@@ -2,6 +2,8 @@ package com.tuyendev.messenger;
 
 import com.tuyendev.common.Constant;
 
+import com.tuyendev.common.JsUtil;
+
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
@@ -78,8 +80,6 @@ public class Messenger {
                       "		'<span data-notify=\"message\" style=\"word-break: break-word;\">{2}</span>' +\n" +
                       "	'</div>' \n" + "    });");
 
-        ExtendedRenderKitService erks =
-            Service.getService(FacesContext.getCurrentInstance().getRenderKit(), ExtendedRenderKitService.class);
-        erks.addScript(FacesContext.getCurrentInstance(), script.toString());
+        JsUtil.callJS(script.toString());
     }
 }

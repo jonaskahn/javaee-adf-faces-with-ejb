@@ -2,7 +2,7 @@ package com.tuyendev.controller;
 
 import com.google.common.collect.Lists;
 
-import com.tuyendev.common.ServiceName;
+import com.tuyendev.common.*;
 import com.tuyendev.dto.RegionsDTO;
 import com.tuyendev.inject.Autoinjector;
 
@@ -11,6 +11,8 @@ import com.tuyendev.remote.RegionsFacadeRemote;
 import javax.annotation.PostConstruct;
 
 import java.util.List;
+
+import javax.faces.event.ActionEvent;
 
 import oracle.adf.share.logging.ADFLogger;
 
@@ -27,7 +29,7 @@ public class RegionController extends BaseController {
 
     @Autoinjector(mappedName = ServiceName.EJB_MAPPED_NAME.REGIONS_FACADE)
     private RegionsFacadeRemote regionsService;
-    
+
     /*Bindings*/
     private ComponentReference tbRegions;
 
@@ -40,12 +42,21 @@ public class RegionController extends BaseController {
             reportError(e);
         }
     }
-    
+
     public String doPreapreView() {
-        // Add event code here...
+        try {
+            RegionsDTO regionsSelected = (RegionsDTO) ((RichTable) tbRegions.getComponent()).getSelectedRowData();
+            JsUtil.callJS("showModal();");
+        } catch (Exception e) {
+            reportError(e, logger);
+        }
         return null;
     }
 
+    public void onCloseRegionDetail(ActionEvent actionEvent) {
+        JsUtil.callJS("hideModal();");
+    }
+    
     public String doSearch() {
         try {
             lstRegions = regionsService.findByCondition(searchDTO);

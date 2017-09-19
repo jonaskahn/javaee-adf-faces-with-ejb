@@ -153,6 +153,10 @@
         <extension>amf</extension>
         <mime-type>application/x-amf</mime-type>
     </mime-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/E404</location>
+    </error-page>
     <listener>
         <listener-class>oracle.adf.mbean.share.connection.ADFConnectionLifeCycleCallBack</listener-class>
     </listener>

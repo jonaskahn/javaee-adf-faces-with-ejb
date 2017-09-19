@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:resource type="javascript" >
+        var modal_id = "#{modalId}";
+        function showModal() {
+            var modal = document.getElementById(modal_id);
+            modal.style.display = "block";
+        }
+
+        function hideModal() {
+            var modal = document.getElementById(modal_id);
+            modal.style.display = "hide";
+        }
+        
+        window.onclick = function(event) {
+            var modal = document.getElementById(modal_id);
+            if (event.target == modal) {
+                modal.style.display = "block";
+            }
+        }
+    </af:resource>
+    <div id="#{modalId}" class="ntt-modal">
+        <!-- ntt-modal content -->
+        <div class="ntt-modal-content">
+            <div class="ntt-modal-header">
+                <af:link actionListener="#{pageFlowScope.regionController.onCloseRegionDetail}"  >
+                    <span class="ntt-close">×</span>
+                </af:link>
+                 
+                <h4>Region detail</h4>
+            </div>
+            <div class="ntt-modal-body">
+                <p>Some text in the ntt-modal Body</p>
+                <p>Some other text...</p>
+            </div>
+            <div class="ntt-modal-footer">
+                <af:link actionListener="#{pageFlowScope.regionController.onCloseRegionDetail}"  inlineStyle="color: white" styleClass="btn btn-danger" text="Close"/>
+            </div>
+        </div>
+    </div>
+</ui:composition>

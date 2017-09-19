@@ -30,10 +30,11 @@
                                       simple="true" contentStyle="width:100%;"/>
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <div class="col-sm-12 text-right mt-10">
-                        <af:link styleClass="btn btn-primary" inlineStyle="color:white!important" text="#{lang['com.tuyendev.template.btn.search']}"
-                                 id="btnSearch" partialSubmit="true"
+                        <af:link styleClass="btn btn-primary" inlineStyle="color:white!important"
+                                 text="#{lang['com.tuyendev.template.btn.search']}" id="btnSearch" partialSubmit="true"
                                  action="#{pageFlowScope.regionController.doSearch}"/>
                     </div>
                 </div>
@@ -42,15 +43,15 @@
     </ui:define>
     <ui:define name="resultArea">
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <af:table var="row" rowBandingInterval="1" id="t1" varStatus="vs" styleClass="center-header table table-hover"
-                      columnStretching="column:col_stretch" fetchSize="15" autoHeightRows="0" scrollPolicy="page"
-                      maxClientRows="15" rows="15" rowSelection="single" clientComponent="true" immediate="true"
-                      binding="#{pageFlowScope.regionController.tbRegions}"
+            <af:table var="row" rowBandingInterval="1" id="t1" varStatus="vs"
+                      styleClass="center-header table table-hover" columnStretching="column:col_stretch" fetchSize="15"
+                      autoHeightRows="0" scrollPolicy="page" maxClientRows="15" rows="15" rowSelection="single"
+                      clientComponent="true" immediate="true" binding="#{pageFlowScope.regionController.tbRegions}"
                       emptyText="#{lang['com.tuyendev.template.table.value.empty']}"
                       value="#{pageFlowScope.regionController.lstRegions}" partialTriggers="::btnSearch">
                 <af:column sortable="false" align="center" width="80"
                            headerText="#{lang['com.tuyendev.template.table.row.select']}" id="c6">
-                    <af:selectBooleanCheckbox value="#{row.selected}" id="sbc1" autoSubmit="true" />
+                    <af:selectBooleanCheckbox value="#{row.selected}" id="sbc1" autoSubmit="true"/>
                 </af:column>
                 <af:column sortable="true" styleClass="col_stt" align="center" width="100" id="test_uindex"
                            headerText="#{lang['com.tuyendev.template.table.row.order']}">
@@ -58,16 +59,25 @@
                 </af:column>
                 <af:column sortable="true" headerText="#{lang['com.tuyendev.region.label.search.regionId']}"
                            align="center" width="150">
-                    <?audit suppress oracle.adf.faces.no-id-found?>
                     <af:link text="#{row.regionId}" partialSubmit="true"
-                             action="#{pageFlowScope.regionController.doPreapreView}"></af:link>
+                             shortDesc="#{lang['com.tuyendev.region.label.clicktoview']}"
+                             action="#{pageFlowScope.regionController.doPreapreView}"/>
+                    <!-- Modal -->
                 </af:column>
-                <af:column sortable="true" headerText="#{lang['com.tuyendev.region.label.search.regionName']}" id="col_stretch"
-                           width="200">
+                <af:column sortable="true" headerText="#{lang['com.tuyendev.region.label.search.regionName']}"
+                           id="col_stretch" width="200">
                     <?audit suppress oracle.adf.faces.no-id-found?>
                     <af:outputText value="#{row.regionName}" inlineStyle="font-weight: bold;"/>
                 </af:column>
             </af:table>
         </article>
+        <af:resource type="javascript">
+          
+        </af:resource>
+        <div>
+            <ui:include src="/page/catalog/region/popup/region_detail.jsff">
+                <ui:param name="modalId" value="regionPopUpDetail"/>
+            </ui:include>
+        </div>
     </ui:define>
 </ui:composition>

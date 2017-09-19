@@ -125,8 +125,8 @@
       <list n="profileList"/>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="HR_SYS-HR_Web-webapp"/>
-      <value n="j2eeWebContextRoot" v="HR_SYS-HR_Web-context-root"/>
+      <value n="j2eeWebAppName" v="HR_SYS-HR_Web"/>
+      <value n="j2eeWebContextRoot" v="HR_SYS-HR_Web"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">
