@@ -296,7 +296,7 @@ ul.breadcrumb li a:hover {
 }
 
 .ntt-modal {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -319,9 +319,6 @@ ul.breadcrumb li a:hover {
     border-radius: 4px;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
     animation-duration: 0.4s
 }
 

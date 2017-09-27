@@ -1,41 +1,94 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:resource type="javascript" >
-        var modal_id = "#{modalId}";
-        function showModal() {
-            var modal = document.getElementById(modal_id);
-            modal.style.display = "block";
-        }
-
-        function hideModal() {
-            var modal = document.getElementById(modal_id);
-            modal.style.display = "hide";
-        }
-        
-        window.onclick = function(event) {
-            var modal = document.getElementById(modal_id);
-            if (event.target == modal) {
-                modal.style.display = "block";
-            }
-        }
-    </af:resource>
-    <div id="#{modalId}" class="ntt-modal">
+    <div id="regionPopUpDetail" class="ntt-modal">
         <!-- ntt-modal content -->
-        <div class="ntt-modal-content">
-            <div class="ntt-modal-header">
-                <af:link actionListener="#{pageFlowScope.regionController.onCloseRegionDetail}"  >
-                    <span class="ntt-close">×</span>
-                </af:link>
-                 
-                <h4>Region detail</h4>
+        <af:resource type="css" >
+            .AFZOrderLayerContainer, .AFZOrderLayer {
+                    position: unset!important;
+            }
+        </af:resource>
+        <af:panelGroupLayout>
+            <div class="ntt-modal-content">
+                <div class="ntt-modal-header">
+                    <af:link actionListener="#{pageFlowScope.regionController.onCloseRegionDetail}">
+                        <span class="ntt-close">×</span>
+                    </af:link>
+                     
+                    <h4>Region detail</h4>
+                </div>
+                <div class="ntt-modal-body">
+                    <div class="">
+                        <div class="">
+                            <div class="row" style="border-bottom: Blue 2.0pt solid;">
+                                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+                                            <label for="regionNameView">
+                                                <af:outputText value="#{lang['com.tuyendev.region.label.search.regionName']}"/>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <af:inputText styleClass="w-100" id="regionNameView" disabled="true"
+                                                          readOnly="true"
+                                                          value="#{pageFlowScope.regionController.viewDTO.regionName}"
+                                                          maximumLength="100" simple="true" contentStyle="width:100%;"/>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label for="regionIdView">
+                                                <af:outputText value="#{lang['com.tuyendev.region.label.search.regionId']}"/>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <af:inputText styleClass="w-100" id="regionIdView" disabled="true"
+                                                          readOnly="true"
+                                                          value="#{pageFlowScope.regionController.viewDTO.regionId}"
+                                                          maximumLength="100" simple="true" contentStyle="width:100%;"/>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="row">
+                                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h4>Countries</h4>
+                                    <div class="form-group">
+                                        <af:table var="row" rowBandingInterval="1" id="cityInR" varStatus="vs"
+                                                  styleClass="center-header table table-hover"
+                                                  columnStretching="column:col_stretch_01" fetchSize="15" autoHeightRows="0"
+                                                  scrollPolicy="page" maxClientRows="15" rows="15" rowSelection="single"
+                                                  clientComponent="true" immediate="true"
+                                                  emptyText="#{lang['com.tuyendev.template.table.value.empty']}"
+                                                  value="#{pageFlowScope.regionController.viewDTO.countriesList}">
+                                            <af:column sortable="true" styleClass="col_stt" align="center" width="100"
+                                                       id="index"
+                                                       headerText="#{lang['com.tuyendev.template.table.row.order']}">
+                                                <af:outputText value="#{vs.index + 1}"
+                                                               inlineStyle="font-weight: bold;"/>
+                                            </af:column>
+                                            <af:column sortable="true"
+                                                       headerText="#{lang['com.tuyendev.country.label.search.id']}"
+                                                       align="center" width="150">
+                                                <af:outputText value="#{row.countryId}"
+                                                               inlineStyle="font-weight: bold;"/>
+                                            </af:column>
+                                            <af:column sortable="true"
+                                                       headerText="#{lang['com.tuyendev.country.label.search.name']}"
+                                                       id="col_stretch_01" width="200">
+                                                <?audit suppress oracle.adf.faces.no-id-found?>
+                                                <af:outputText value="#{row.countryName}"
+                                                               inlineStyle="font-weight: bold;"/>
+                                            </af:column>
+                                        </af:table>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ntt-modal-footer">
+                    <af:link actionListener="#{pageFlowScope.regionController.onCloseRegionDetail}"
+                             inlineStyle="color: white" styleClass="btn btn-danger" text="Close"/>
+                </div>
             </div>
-            <div class="ntt-modal-body">
-                <p>Some text in the ntt-modal Body</p>
-                <p>Some other text...</p>
-            </div>
-            <div class="ntt-modal-footer">
-                <af:link actionListener="#{pageFlowScope.regionController.onCloseRegionDetail}"  inlineStyle="color: white" styleClass="btn btn-danger" text="Close"/>
-            </div>
-        </div>
+        </af:panelGroupLayout>
     </div>
 </ui:composition>

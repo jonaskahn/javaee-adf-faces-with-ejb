@@ -12,6 +12,8 @@ import com.tuyendev.fw.DataUtil;
 
 import com.tuyendev.messenger.Messenger;
 
+import java.awt.event.ActionEvent;
+
 import java.io.Serializable;
 
 import java.text.MessageFormat;
@@ -27,11 +29,13 @@ import javax.faces.context.FacesContext;
 import one.util.streamex.StreamEx;
 
 import oracle.adf.share.logging.ADFLogger;
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.javatools.resourcebundle.BundleFactory;
 
 import org.apache.myfaces.trinidad.event.RangeChangeEvent;
+import org.apache.myfaces.trinidad.util.ComponentReference;
 
 public class BaseController implements Serializable {
 
@@ -113,6 +117,22 @@ public class BaseController implements Serializable {
         RangeChangeEvent event = new RangeChangeEvent(table, 0, 0, 0, 0);
         table.broadcast(event);
         AdfFacesContext.getCurrentInstance().addPartialTarget(table);
+    }
+    
+    public void openPopup(ComponentReference popup) {
+        openPopup(((RichPopup) popup.getComponent()));
+    }
+    
+    public void openPopup(RichPopup popup) {
+        popup.show(new RichPopup.PopupHints());
+    }
+    
+    public void closePopup(ComponentReference popup) {
+        closePopup(((RichPopup) popup.getComponent()));
+    }
+    
+    public void closePopup(RichPopup popup) {
+        popup.hide();
     }
 
 

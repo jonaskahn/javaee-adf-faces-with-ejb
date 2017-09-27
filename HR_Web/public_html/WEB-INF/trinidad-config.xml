@@ -2,4 +2,5 @@
 <trinidad-config xmlns="http://myfaces.apache.org/trinidad/config">
   <skin-family>alta</skin-family>
   <skin-version>v1</skin-version>
+  <animation-enabled>true</animation-enabled>
 </trinidad-config>
