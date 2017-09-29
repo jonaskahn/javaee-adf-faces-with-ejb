@@ -16,4 +16,9 @@
         <managed-bean-class>com.tuyendev.setting.LanguageSetting</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__3">
+        <managed-bean-name>extendedPopup</managed-bean-name>
+        <managed-bean-class>com.tuyendev.component.ExtendedPopupHandler</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </adfc-config>

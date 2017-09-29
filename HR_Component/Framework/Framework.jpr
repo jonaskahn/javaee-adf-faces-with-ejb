@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <jpr:project xmlns:jpr="http://xmlns.oracle.com/ide/project">
    <value n="ADFComponentWizard.LAST_TAG_NS_PREF" v="component"/>
-   <value n="ADFComponentWizard.LAST_TAGLIB_URI_PREF"/>
+   <value n="ADFComponentWizard.LAST_TAGLIB_URI_PREF" v="https://tuyendev.com/component"/>
    <hash n="component-versions">
       <value n="oracle.adfdt.controller.adfc.source.migration.AdfControllerSchemaMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdt.controller.common.migrator.ProjectMigrator" v="11.1.1.1.0"/>
