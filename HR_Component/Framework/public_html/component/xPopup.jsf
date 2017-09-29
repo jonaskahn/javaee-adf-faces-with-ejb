@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:componentDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" componentVar="comp" definition="private"
+                 xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>xPopup</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>header</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>body</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>footer</afc:facet-name>
+            </afc:facet>
+            <afc:attribute>
+                <afc:attribute-name>pId</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:required>true</afc:required>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>header</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:required>true</afc:required>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>enableHeader</afc:attribute-name>
+                <afc:attribute-class>boolean</afc:attribute-class>
+                <afc:default-value>true</afc:default-value>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>enableFooter</afc:attribute-name>
+                <afc:attribute-class>boolean</afc:attribute-class>
+                <afc:default-value>true</afc:default-value>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>bindingPn</afc:attribute-name>
+                <afc:attribute-class>oracle.adf.view.rich.component.rich.RichPopup</afc:attribute-class>
+                <afc:required>true</afc:required>
+            </afc:attribute>
+            <afc:component-extension>
+                <afc:component-tag-namespace>component</afc:component-tag-namespace>
+                <afc:component-taglib-uri>https://tuyendev.com/component</afc:component-taglib-uri>
+                <afc:method-attribute>
+                    <afc:attribute-name>beforeClose</afc:attribute-name>
+                    <afc:method-signature>void method()</afc:method-signature>
+                </afc:method-attribute>
+                <afc:method-attribute>
+                    <afc:attribute-name>beforeOpen</afc:attribute-name>
+                    <afc:method-signature>void method()</afc:method-signature>
+                </afc:method-attribute>
+            </afc:component-extension>
+        </afc:component>
+    </af:xmlContent>
+    <af:popup animate="true" id="popup#{attrs.pId}" binding="#{attrs.bindingPn}">
+        <div id="detail#{attrs.id}" class="ntt-modal">
+            <!-- ntt-modal content -->
+            <af:resource type="css">
+                .AFZOrderLayerContainer, .AFZOrderLayer {
+                    position: unset !important;
+                }
+            </af:resource>
+             
+            <af:panelGroupLayout>
+                <af:commandButton styleClass="hidden" action="#{comp.beforeClose}"/>
+                <div class="ntt-modal-content">
+                    <div class="ntt-modal-header">
+                        <af:link id="closeAction_02"
+                                 actionListener="#{sessionScope.popupHandler.closePopup}"
+                                 action="#{extendedPopup.closePopup}">
+                            <span class="ntt-close">×</span>
+                        <h4>
+                            <af:outputText rendered="#{attrs.enableHeader}"  value="#{attrs.header}"/>
+                        </h4>
+                    </div>
+                    <div class="ntt-modal-body">
+                        <div class="">
+                            <af:facetRef facetName="body"/>
+                        </div>
+                    </div>
+                    <div class="ntt-modal-footer">
+                        <af:facetRef facetName="footer"/>
+                         
+                        <af:link id="closeAction_01" inlineStyle="color: white"
+                                 rendered="#{attrs.enableFooter}" styleClass="btn btn-danger" text="Close"
+                                 actionListener="#{sessionScope.popupHandler.closePopup}">
+                        </af:link>
+                    </div>
+                </div>
+            </af:panelGroupLayout>
+        </div>
+    </af:popup>
+</af:componentDef>
