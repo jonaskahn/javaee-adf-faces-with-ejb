@@ -77,6 +77,7 @@
         </article>
         <div>
             <af:popup animate="true" id="popupdetail" binding="#{pageFlowScope.regionController.popupDetail}">
+                <?audit suppress oracle.adf.faces.bindingWithoutRequestOrBackingBeanScope?>
                 <ui:include src="/page/catalog/region/popup/region_detail.jsff"/>
             </af:popup>
         </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="windows-1258" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <declarativeCompDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/declarativecomp">
   <declarativecomp-jsp-ui-def>/component/xPopup.jsf</declarativecomp-jsp-ui-def>
   <declarativecomp-taglib>

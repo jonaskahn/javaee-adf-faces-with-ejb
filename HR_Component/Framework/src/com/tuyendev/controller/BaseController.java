@@ -3,9 +3,11 @@ package com.tuyendev.controller;
 import com.google.common.collect.Maps;
 
 import com.tuyendev.common.Constant;
+import com.tuyendev.common.JSFUtil;
 import com.tuyendev.common.Lang;
 
 import com.tuyendev.common.LocaleUtil;
+import com.tuyendev.component.ExtendedPopupHandler;
 import com.tuyendev.exception.LogicException;
 
 import com.tuyendev.fw.DataUtil;
@@ -41,6 +43,11 @@ public class BaseController implements Serializable {
 
     protected final static ADFLogger baseLogger = ADFLogger.createADFLogger(BaseController.class);
     private Map<String, ResourceBundle> mapBundleResources = getMultiBundle();
+    private final ExtendedPopupHandler extendPopupHandler=  getExtendedPopupHandler();
+    
+    private ExtendedPopupHandler getExtendedPopupHandler(){
+        return (ExtendedPopupHandler)JSFUtil.getManagedBeanValue("extendedPopup");   
+    }
 
 
     public Map<String, ResourceBundle> getMultiBundle() {
@@ -120,19 +127,21 @@ public class BaseController implements Serializable {
     }
     
     public void openPopup(ComponentReference popup) {
-        openPopup(((RichPopup) popup.getComponent()));
+        JSFUtil.showPopup(popup.getComponent());
     }
     
-    public void openPopup(RichPopup popup) {
-        popup.show(new RichPopup.PopupHints());
-    }
     
     public void closePopup(ComponentReference popup) {
-        closePopup(((RichPopup) popup.getComponent()));
+        JSFUtil.hidePopup(popup.getComponent());
     }
     
-    public void closePopup(RichPopup popup) {
-        popup.hide();
+    
+    public void openExtendedPopup(ComponentReference popup){
+        openExtendedPopup(((RichPopup) popup.getComponent()));
+    }
+    
+    public void openExtendedPopup(RichPopup popup) {
+        extendPopupHandler.onOpen(popup);
     }
 
 

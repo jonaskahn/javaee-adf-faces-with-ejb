@@ -55,7 +55,7 @@ public class RegionController extends BaseController {
     public void prepareView(ClientEvent clientEvent) {
         try {
             viewDTO = (RegionsDTO) ((RichTable) tbRegions.getComponent()).getSelectedRowData();
-            openPopup(popupDetail);
+            openExtendedPopup(getPopupDetail());
         } catch (Exception e) {
             reportError(e, logger);
         }

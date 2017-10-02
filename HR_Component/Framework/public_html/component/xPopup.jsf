@@ -39,6 +39,12 @@
                 <afc:attribute-class>oracle.adf.view.rich.component.rich.RichPopup</afc:attribute-class>
                 <afc:required>true</afc:required>
             </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>partialTriggersAfterClose</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:default-value>@this</afc:default-value>
+                <afc:required>false</afc:required>
+            </afc:attribute>
             <afc:component-extension>
                 <afc:component-tag-namespace>component</afc:component-tag-namespace>
                 <afc:component-taglib-uri>https://tuyendev.com/component</afc:component-taglib-uri>
@@ -62,30 +68,58 @@
                 }
             </af:resource>
              
+            <af:resource type="javascript">
+              function invokeBFO() {
+                  var btnBFO = "btnBFO#{attrs.pId}";
+                  openBtnById(btnBFO);
+              }
+
+              function invokeBFC() {
+                  var btnBFC = "btnBFC#{attrs.pId}";
+                  openBtnById(btnBFC);
+              }
+
+              function openBtnById(id) {
+                  if (id != null) {
+                      var button = AdfPage.PAGE.findComponentByAbsoluteId(id);
+                      AdfActionEvent.queue(button, true);
+                      event.cancel();
+                  }
+
+              }
+            </af:resource>
+             
             <af:panelGroupLayout>
-                <af:commandButton styleClass="hidden" action="#{comp.beforeClose}"/>
+                <af:button partialSubmit="true" id="btnBFC#{attrs.pId}" text="BFC" styleClass="hidden"
+                           action="#{comp.handleBeforeClose}">
+                    <af:target execute="@this" render="#{attrs.partialTriggersAfterClose}"/>
+                </af:button>
+                <af:button partialSubmit="true" id="btnBFO#{attrs.pId}" text="BFO" styleClass="hidden"
+                           action="#{comp.handleBeforeOpen}">
+                    <af:target execute="@this" render="body#{attrs.pId}"/>           
+                </af:button>
                 <div class="ntt-modal-content">
                     <div class="ntt-modal-header">
-                        <af:link id="closeAction_02"
-                                 actionListener="#{sessionScope.popupHandler.closePopup}"
-                                 action="#{extendedPopup.closePopup}">
+                        <af:link id="closeAction_02" actionListener="#{extendedPopup.onClose}">
                             <span class="ntt-close">×</span>
-                            </af:link>
+                            <f:attribute name="ppbd" value="#{attrs.bindingPn}"/>
+                        </af:link>
+                         
                         <h4>
-                            <af:outputText rendered="#{attrs.enableHeader}"  value="#{attrs.header}"/>
+                            <af:outputText rendered="#{attrs.enableHeader}" value="#{attrs.header}"/>
                         </h4>
                     </div>
                     <div class="ntt-modal-body">
-                        <div class="">
+                        <af:panelGroupLayout id="body#{attrs.pId}">
                             <af:facetRef facetName="body"/>
-                        </div>
+                        </af:panelGroupLayout>
                     </div>
                     <div class="ntt-modal-footer">
                         <af:facetRef facetName="footer"/>
                          
-                        <af:link id="closeAction_01" inlineStyle="color: white"
-                                 rendered="#{attrs.enableFooter}" styleClass="btn btn-danger" text="Close"
-                                 actionListener="#{sessionScope.popupHandler.closePopup}">
+                        <af:link id="closeAction_01" inlineStyle="color: white" rendered="#{attrs.enableFooter}"
+                                 styleClass="btn btn-danger" text="Close" actionListener="#{extendedPopup.onClose}">
+                            <f:attribute name="ppbd" value="#{attrs.bindingPn}"/>
                         </af:link>
                     </div>
                 </div>

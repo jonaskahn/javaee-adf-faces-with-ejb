@@ -2,7 +2,7 @@ package com.tuyendev.messenger;
 
 import com.tuyendev.common.Constant;
 
-import com.tuyendev.common.JsUtil;
+import com.tuyendev.common.JSFUtil;
 
 import javax.faces.context.FacesContext;
 
@@ -80,6 +80,6 @@ public class Messenger {
                       "		'<span data-notify=\"message\" style=\"word-break: break-word;\">{2}</span>' +\n" +
                       "	'</div>' \n" + "    });");
 
-        JsUtil.callJS(script.toString());
+        JSFUtil.clientScript(script.toString());
     }
 }
