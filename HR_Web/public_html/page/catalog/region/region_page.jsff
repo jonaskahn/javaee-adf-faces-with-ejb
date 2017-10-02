@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/template/catalogTemplate.jsff">
+                template="/template/catalogTemplate.jsff" xmlns:ntt="https://tuyendev.com/component"
+                xmlns:f="http://java.sun.com/jsf/core">
     
     <ui:param name="searchName" value="#{lang['com.tuyendev.region.label.header.search']}"/>
     <ui:param name="resultName" value="#{lang['com.tuyendev.region.label.header.result']}"/>
@@ -62,7 +63,7 @@
                 </af:column>
                 <af:column sortable="true" headerText="#{lang['com.tuyendev.region.label.search.regionId']}"
                            align="center" width="150">
-                    <af:outputText value="#{row.regionId}" inlineStyle="font-weight: bold;">
+                    <af:outputText value="#{row.regionId}" inlineStyle="font-weight: bold;" styleClass="btn-link">
                         <af:clientListener method="callPopup" type="click"/>
                         <af:serverListener type="callMethodPopup"
                                            method="#{pageFlowScope.regionController.prepareView}"/>
@@ -76,10 +77,14 @@
             </af:table>
         </article>
         <div>
-            <af:popup animate="true" id="popupdetail" binding="#{pageFlowScope.regionController.popupDetail}">
-                <?audit suppress oracle.adf.faces.bindingWithoutRequestOrBackingBeanScope?>
-                <ui:include src="/page/catalog/region/popup/region_detail.jsff"/>
-            </af:popup>
+            <ntt:xPopup header="Region Detail" pId="regionDSetail" 
+                        bindingPn="#{pageFlowScope.regionController.popupDetail}" id="xp1">
+                <f:facet name="header"/>
+                <f:facet name="body">
+                    <ui:include src="/page/catalog/region/popup/region_detail.jsff"/>
+                </f:facet>
+                <f:facet name="footer"/>
+            </ntt:xPopup>
         </div>
     </ui:define>
 </ui:composition>

@@ -17,8 +17,8 @@ public class ExtendedPopupHandler implements Serializable {
             RichPopup currentPopup = (RichPopup) actionEvent.getComponent()
                                                             .getAttributes()
                                                             .get("ppbd");
-            JSFUtil.clientScript("invokeBFC()");
             currentPopup.hide();
+            JSFUtil.clientScript("invokeBFC()");
         } catch (Exception e) {
             logger.severe(e.getMessage());
         }
@@ -26,8 +26,8 @@ public class ExtendedPopupHandler implements Serializable {
     
     public void onOpen(RichPopup currentPopup){
         try {
-            JSFUtil.clientScript("invokeBFO()");
             currentPopup.show(new RichPopup.PopupHints());
+            JSFUtil.clientScript("invokeBFO()");
         } catch (Exception e) {
             logger.severe(e.getMessage());
         }

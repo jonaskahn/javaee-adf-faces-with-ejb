@@ -18,15 +18,15 @@
          name="exceptionHandler">false</property>
    </View>
    <View
-      id="View25">
+      id="View4">
       <property
-         name="activityId">NotFound</property>
+         name="activityId">E404</property>
       <property
-         name="x">55.5</property>
+         name="x">134.5</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>NotFound&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>E404&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">71.79883</property>
+         name="y">60.448242</property>
       <property
          name="page">/page/404.jsf</property>
       <property

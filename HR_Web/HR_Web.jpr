@@ -334,6 +334,10 @@
             <value n="id" v="omnifaces-2.6.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="framework.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -525,6 +529,14 @@
                <value n="description" v="omnifaces-2.6.4.jar"/>
                <value n="id" v="omnifaces-2.6.4.jar"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../HR_Component/Framework/deploy/framework.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="framework.jar"/>
+               <value n="id" v="framework.jar"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -708,6 +720,10 @@
             <value n="id" v="omnifaces-2.6.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="framework.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
@@ -845,6 +861,16 @@
             <value n="URI" v="http://omnifaces.org/functions"/>
             <value n="version" v="2.2"/>
          </hash>
+         <hash>
+            <value n="libraries" v="framework.jar"/>
+            <value n="name" v="Extendedpopup"/>
+            <value n="prefix" v="ntt"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../HR_Component/Framework/deploy/framework.jar!/META-INF/extendedpopup.taglib.xml"/>
+            <value n="URI" v="https://tuyendev.com/component"/>
+            <value n="version" v="2.0"/>
+         </hash>
       </list>
       <list n="facelets-tag-libraries-internalDefinitions">
          <hash>
@@ -866,6 +892,16 @@
             <value n="taglibURL" v="@project@../Lib/omifaces/omnifaces-2.6.4.jar!/META-INF/omnifaces-ui.taglib.xml"/>
             <value n="URI" v="http://omnifaces.org/ui"/>
             <value n="version" v="2.2"/>
+         </hash>
+         <hash>
+            <value n="libraries" v="framework.jar"/>
+            <value n="name" v="Extendedpopup"/>
+            <value n="prefix" v="extendedpopup"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../HR_Component/Framework/deploy/framework.jar!/META-INF/extendedpopup.taglib.xml"/>
+            <value n="URI" v="https://tuyendev.com/component"/>
+            <value n="version" v="2.0"/>
          </hash>
       </list>
    </hash>
