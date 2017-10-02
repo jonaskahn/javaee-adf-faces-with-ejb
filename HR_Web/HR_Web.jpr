@@ -330,6 +330,10 @@
             <value n="id" v="Resource Bundle Variable Resolver"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="omnifaces-2.6.4.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -513,6 +517,14 @@
                <value n="id" v="Framework.jar"/>
                <value n="locked" v="true"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/omifaces/omnifaces-2.6.4.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="omnifaces-2.6.4.jar"/>
+               <value n="id" v="omnifaces-2.6.4.jar"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -692,6 +704,10 @@
             <value n="id" v="Resource Bundle Variable Resolver"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="omnifaces-2.6.4.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
@@ -808,6 +824,48 @@
             <value n="taglibURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.taglib.xml"/>
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
+         </hash>
+         <hash>
+            <value n="libraries" v="omnifaces-2.6.4.jar"/>
+            <value n="name" v="Omnifaces-ui"/>
+            <value n="prefix" v="o"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../Lib/omifaces/omnifaces-2.6.4.jar!/META-INF/omnifaces-ui.taglib.xml"/>
+            <value n="URI" v="http://omnifaces.org/ui"/>
+            <value n="version" v="2.2"/>
+         </hash>
+         <hash>
+            <value n="libraries" v="omnifaces-2.6.4.jar"/>
+            <value n="name" v="Omnifaces-functions"/>
+            <value n="prefix" v="of"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../Lib/omifaces/omnifaces-2.6.4.jar!/META-INF/omnifaces-functions.taglib.xml"/>
+            <value n="URI" v="http://omnifaces.org/functions"/>
+            <value n="version" v="2.2"/>
+         </hash>
+      </list>
+      <list n="facelets-tag-libraries-internalDefinitions">
+         <hash>
+            <value n="libraries" v="omnifaces-2.6.4.jar"/>
+            <value n="name" v="Omnifaces-functions"/>
+            <value n="prefix" v="omnifaces-functions"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../Lib/omifaces/omnifaces-2.6.4.jar!/META-INF/omnifaces-functions.taglib.xml"/>
+            <value n="URI" v="http://omnifaces.org/functions"/>
+            <value n="version" v="2.2"/>
+         </hash>
+         <hash>
+            <value n="libraries" v="omnifaces-2.6.4.jar"/>
+            <value n="name" v="Omnifaces-ui"/>
+            <value n="prefix" v="omnifaces-ui"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../Lib/omifaces/omnifaces-2.6.4.jar!/META-INF/omnifaces-ui.taglib.xml"/>
+            <value n="URI" v="http://omnifaces.org/ui"/>
+            <value n="version" v="2.2"/>
          </hash>
       </list>
    </hash>

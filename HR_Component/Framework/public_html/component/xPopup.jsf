@@ -70,6 +70,7 @@
                                  actionListener="#{sessionScope.popupHandler.closePopup}"
                                  action="#{extendedPopup.closePopup}">
                             <span class="ntt-close">×</span>
+                            </af:link>
                         <h4>
                             <af:outputText rendered="#{attrs.enableHeader}"  value="#{attrs.header}"/>
                         </h4>
