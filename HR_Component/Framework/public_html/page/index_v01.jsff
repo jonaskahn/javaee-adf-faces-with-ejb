@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:ntte="http://java.sun.com/jsf/composite/ExtendedComposite">
     <div class="jumbotron text-center">
         <h1>Welcome to ADF Faces Template</h1>
         <p>I'll help you take a shortcut</p>
     </div>
     <div class="container">
         <div class="row">
+        <ntte:confirmBox mode="advance" idFrom="adada" content="asdadw" actionYes="asda" name="btn"/>
             <div class="col-sm-4">
                 <h3>Documents</h3>
                 <p>Why did I make it? To help my new co-workers or it maybe also help you.</p>

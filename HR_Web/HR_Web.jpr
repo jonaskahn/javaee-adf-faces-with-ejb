@@ -121,8 +121,85 @@
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
-      <hash n="profileDefinitions"/>
-      <list n="profileList"/>
+      <hash n="profileDefinitions">
+         <hash n="HR_SYS">
+            <hash n="appletArchives"/>
+            <hash n="appletFiles">
+               <value n="autoInclude" v="true"/>
+               <list n="selectionFilters">
+                  <string v="oracle.jdevimpl.deploy.common.JavaSelectionFilter"/>
+               </list>
+            </hash>
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="false"/>
+            </hash>
+            <value n="enterpriseAppName" v="HR_SYS"/>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="5"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Web Files"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="web-files"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="2"/>
+                        </hash>
+                        <hash>
+                           <value n="type" v="7"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="WEB-INF/classes"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="project-output"/>
+                     <value n="targetWithinJar" v="WEB-INF/classes"/>
+                     <value n="type" v="1"/>
+                  </hash>
+                  <hash>
+                     <value n="displayName" v="WEB-INF/lib"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="libraries"/>
+                     <value n="targetWithinJar" v="WEB-INF/lib"/>
+                     <value n="type" v="3"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="jarURL" path="deploy/HR_SYS.war"/>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
+            <value n="profileName" v="HR_SYS"/>
+         </hash>
+      </hash>
+      <list n="profileList">
+         <string v="HR_SYS"/>
+      </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
       <value n="j2eeWebAppName" v="HR_SYS-HR_Web"/>
@@ -134,6 +211,7 @@
             <hash>
                <url n="content-folder-url" path="adfmsrc/com/tuyendev/controller/"/>
                <list n="pattern-filters">
+                  <string v="+com/tuyendev/controller/ExcelImportController.java"/>
                   <string v="+com/tuyendev/controller/RegionController.java"/>
                </list>
                <list n="url-path">
@@ -338,6 +416,38 @@
             <value n="id" v="framework.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Commons-codec-1.10.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons-collections4-4.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Curvesapi-1.04.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-3.17.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-ooxml-3.17.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-ooxml-schemas-3.17.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Stax-api-1.0.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Xmlbeans-2.6.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -537,6 +647,78 @@
                <value n="description" v="framework.jar"/>
                <value n="id" v="framework.jar"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/commons-codec-1.10.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Commons-codec-1.10.jar"/>
+               <value n="id" v="Commons-codec-1.10.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/commons-collections4-4.1.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Commons-collections4-4.1.jar"/>
+               <value n="id" v="Commons-collections4-4.1.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/curvesapi-1.04.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Curvesapi-1.04.jar"/>
+               <value n="id" v="Curvesapi-1.04.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/poi-3.17.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-3.17.jar"/>
+               <value n="id" v="Poi-3.17.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/poi-ooxml-3.17.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-ooxml-3.17.jar"/>
+               <value n="id" v="Poi-ooxml-3.17.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/poi-ooxml-schemas-3.17.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Poi-ooxml-schemas-3.17.jar"/>
+               <value n="id" v="Poi-ooxml-schemas-3.17.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/stax-api-1.0.1.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Stax-api-1.0.1.jar"/>
+               <value n="id" v="Stax-api-1.0.1.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../Lib/apache-poi/xmlbeans-2.6.0.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Xmlbeans-2.6.0.jar"/>
+               <value n="id" v="Xmlbeans-2.6.0.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -722,6 +904,38 @@
          </hash>
          <hash>
             <value n="id" v="framework.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons-codec-1.10.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Commons-collections4-4.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Curvesapi-1.04.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-3.17.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-ooxml-3.17.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Poi-ooxml-schemas-3.17.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Stax-api-1.0.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Xmlbeans-2.6.0.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

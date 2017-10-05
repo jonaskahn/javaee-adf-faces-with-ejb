@@ -296,19 +296,35 @@ ul.breadcrumb li a:hover {
 }
 
 .ntt-modal {
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: block;
+    /* Hidden by default */
+
+    position: fixed;
+    /* Stay in place */
+
+    z-index: 1;
+    /* Sit on top */
+
+    padding-top: 100px;
+    /* Location of the box */
+
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    width: 100%;
+    /* Full width */
 
+    height: 100%;
+    /* Full height */
+
+    overflow: auto;
+    /* Enable scroll if needed */
+
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
 /* ntt-modal Content */
 .ntt-modal-content {
     position: relative;
@@ -318,20 +334,33 @@ ul.breadcrumb li a:hover {
     border: 1px solid #888;
     border-radius: 4px;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-duration: 0.4s
 }
-
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
 
+
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
+
 
 /* The Close Button */
 .ntt-close {
@@ -341,8 +370,7 @@ ul.breadcrumb li a:hover {
     font-weight: bold;
 }
 
-.ntt-close:hover,
-.ntt-close:focus {
+.ntt-close:hover, .ntt-close:focus {
     color: red;
     cursor: pointer;
 }
@@ -354,14 +382,82 @@ ul.breadcrumb li a:hover {
     color: white;
 }
 
-.ntt-modal-body {padding: 2px 16px;}
+.ntt-modal-body {
+    padding: 2px 16px;
+}
 
 .ntt-modal-footer {
     padding: 2px 16px;
     /*background-color: #1565C0;*/
+
     border-top: 2px solid #1565C0;
-    text-align: right!important;
+    text-align: right !important;
     border-radius: 0px 0px 4px 4px;
     margin: 2px 4px 0px 4px;
     color: white;
+}
+
+.nav-pills.nav-wizard > li {
+    position: relative;
+    overflow: visible;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+}
+
+.nav-pills.nav-wizard > li + li {
+    margin-left: 0;
+}
+
+.nav-pills.nav-wizard > li:first-child {
+    border-left: 0;
+}
+
+.nav-pills.nav-wizard > li:first-child a {
+    border-radius: 5px 0 0 5px;
+}
+
+.nav-pills.nav-wizard > li:last-child {
+    border-right: 0;
+}
+
+.nav-pills.nav-wizard > li:last-child a {
+    border-radius: 0 5px 5px 0;
+}
+
+.nav-pills.nav-wizard > li a {
+    border-radius: 0;
+    background-color: #eee;
+}
+
+.nav-pills.nav-wizard > li:not(:last-child) a:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -20px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 0 20px 20px;
+    border-color: transparent transparent transparent #eee;
+    z-index: 150;
+}
+
+.nav-pills.nav-wizard > li:not(:first-child) a:before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -20px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 0 20px 20px;
+    border-color: #eee #eee #eee transparent;
+    z-index: 150;
+}
+.btn span.glyphicon {
+    opacity: 0;
+}
+
+.btn.active span.glyphicon {
+    opacity: 1;
 }

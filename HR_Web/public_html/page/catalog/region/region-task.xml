@@ -7,7 +7,7 @@
     </data-control-scope>
     <managed-bean id="__1">
       <managed-bean-name>regionController</managed-bean-name>
-      <managed-bean-class>com.tuyendev.controller.RegionController</managed-bean-class>
+      <managed-bean-class>com.tuyendev.control.RegionController</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
     <view id="region_page">

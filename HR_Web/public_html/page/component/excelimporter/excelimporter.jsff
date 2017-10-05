@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <af:resource type="javascript" source="http://johnny.github.io/jquery-sortable/js/jquery-sortable.js"/>
+    <af:resource type="javascript">
+      $(function () {
+          var group = $("ol.dd-list").sortable( {
+              onDrop : function ($item, container, _super) {
+                  var sortedList = group.sortable("serialize").get().join(",");
+                  setPropertiesChanged(sortedList);
+                  _super($item, container);
+              },
+              serialize : function (parent, children, isContainer) {
+                  return isContainer ? children.join().trim() : parent.text().trim();
+              }
+          });
+      });
+
+      function setPropertiesChanged(value) {
+          var input = AdfPage.PAGE.findComponent("pt1:r1:0:inputListed");
+          if (input != null) {
+              input.setValue(value);
+          }
+
+      }
+    </af:resource>
+    <af:resource type="css">
+        body.dragging, body.dragging * {
+            cursor: move !important;
+        }
+
+        .dragged {
+            position: absolute;
+            opacity: 0.5;
+            z-index: 2000;
+        }
+
+        ol.example li.placeholder {
+            position: relative;
+            /** More li styles **/
+        }
+
+        ol.example li.placeholder:before {
+            position: absolute;
+            /** Define arrowhead **/
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+    </af:resource>
+    <af:panelGroupLayout>
+        <af:inputText id="inputListed" styleClass="hidden" autoSubmit="true"
+                      value="#{pageFlowScope.excelImporterController.sortedValue}">
+            <af:target events="valueChange" render="@this"/>
+        </af:inputText>
+        <af:panelGroupLayout partialTriggers="::backStep ::nextStep">
+            <div class="content-box">
+                <div class="panel panel-info">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body ">
+                        <div class="row">
+                            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="dd" id="nestable">
+                                    <af:panelGroupLayout id="spec" class="container"
+                                                         rendered="#{pageFlowScope.excelImporterController.step == '1'}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h3>Specifications</h3>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <af:table var="row" rowBandingInterval="1" id="tableEx" varStatus="vs"
+                                                      contentDelivery="immediate"
+                                                      styleClass="center-header table table-hover"
+                                                      columnStretching="column:col_stretch" fetchSize="10"
+                                                      autoHeightRows="0" scrollPolicy="page" maxClientRows="10"
+                                                      rows="10" rowSelection="none" clientComponent="true"
+                                                      immediate="true"
+                                                      emptyText="#{lang['com.tuyendev.template.table.value.empty']}"
+                                                      value="#{pageFlowScope.excelImporterController.lstSpecs}">
+                                                <af:column sortable="false" align="center" width="80"
+                                                           headerText="#{lang['com.tuyendev.template.table.row.select']}"
+                                                           id="c6">
+                                                    <af:selectBooleanCheckbox value="#{row.selected}" id="sbc1"
+                                                                              autoSubmit="true">
+                                                        <af:target events="valueChange" render="refname"/>
+                                                    </af:selectBooleanCheckbox>
+                                                </af:column>
+                                                <af:column sortable="true" styleClass="col_stt" align="center"
+                                                           width="100" id="test_uindex"
+                                                           headerText="#{lang['com.tuyendev.template.table.row.order']}">
+                                                    <af:outputText value="#{vs.index + 1}"
+                                                                   inlineStyle="font-weight: bold;"/>
+                                                </af:column>
+                                                <af:column sortable="true" headerText="Name" width="100">
+                                                    <?audit suppress oracle.adf.faces.no-id-found?>
+                                                    <af:outputText value="#{row.name}"
+                                                                   inlineStyle="font-weight: bold;"/>
+                                                </af:column>
+                                                <af:column sortable="true" headerText="Refname" id="col_stretch"
+                                                           width="400">
+                                                    <?audit suppress oracle.adf.faces.no-id-found?>
+                                                    <af:inputText required="#{row.selected}" id="refname"
+                                                                  disabled="#{!row.selected}" autoSubmit="true"
+                                                                  value="#{row.refName}"
+                                                                  inlineStyle="font-weight: bold;"/>
+                                                </af:column>
+                                            </af:table>
+                                        </div>
+                                        <div class="row text-right active">
+                                            <af:link id="nextStep" text="NEXT" styleClass="btn btn-primary white"
+                                                     immediate="true" partialSubmit="true"
+                                                     action="#{pageFlowScope.excelImporterController.nextStep}"/>
+                                        </div>
+                                    </af:panelGroupLayout>
+                                     
+                                    <af:panelGroupLayout id="download" class="container"
+                                                         rendered="#{pageFlowScope.excelImporterController.step == '2'}">
+                                        <h3>Arrange and Download</h3>
+                                        <af:inputText value="#{pageFlowScope.excelImporterController.headerTitle}" placeholder="Enter name of header" required="true"/>
+                                        <ol class="dd-list wrapper">
+                                            <af:forEach items="#{pageFlowScope.excelImporterController.lstSelected}"
+                                                        var="row" varStatus="index" begin="0">
+                                                <li class="dd-item" data-id="#{index}">
+                                                    <div class="dd-handle input-group">
+                                                        <span class="input-group-btn "><button class="btn btn-info" type="button"><af:outputText value="#{row.id} - #{row.name}"/></button></span>
+                                                         
+                                                        <input id="msg" type="text" class="form-control bg-info " name="msg" value="#{row.refName}" title="#{row.refName}"
+                                                               placeholder="Additional Info">
+                                                        </input>
+                                                    </div>
+                                                </li>
+                                            </af:forEach>
+                                        </ol>
+                                        <div class="row">
+                                            <div class="col text-left">
+                                                <af:link id="backStep" text="BACK" styleClass="btn btn-primary white "
+                                                 immediate="true" partialSubmit="true"
+                                                 action="#{pageFlowScope.excelImporterController.backStep}"/>
+                                            </div>
+                                            <div class="col text-right">
+                                                <af:link id="downloadTemplate" text="DOWNLOAD" styleClass="btn btn-primary white "
+                                                  partialSubmit="true"
+                                                 action="#{pageFlowScope.excelImporterController.downloadTemplate}"/>
+                                            </div>
+                                        </div>
+                                        
+                                    </af:panelGroupLayout>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</ui:composition>

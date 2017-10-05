@@ -8,8 +8,11 @@
   </definitionFactories>
   <pageMap>
     <page path="/page/catalog/region/region.jsf" usageId="com_tuyendev_controller_regionPageDef"/>
+    <page path="/page/component/excelimporter/excelimporter.jsf"
+          usageId="com_tuyendev_controller_excelimporterPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_tuyendev_controller_regionPageDef" path="page.catalog.region.regionPageDef"/>
+    <page id="com_tuyendev_controller_excelimporterPageDef" path="page.component.excelimporter.excelimporterPageDef"/>
   </pageDefinitionUsages>
 </Application>

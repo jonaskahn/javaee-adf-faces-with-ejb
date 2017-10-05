@@ -59,6 +59,8 @@
       <value n="oracle.toplink.workbench.addin.migration.PersistenceProjectMigrator" v="11.1.1.1.0"/>
       <value n="oracle.toplink.workbench.addin.migration.TopLinkProjectMigrator" v="11.1.1.1.0"/>
    </hash>
+   <value n="CompositeComponentWizard.LAST_CC_LIB_NAME" v="ExtendedComposite"/>
+   <value n="CompositeComponentWizard.LAST_CC_LIB_TYPE" v="false"/>
    <list n="contentSets">
       <string v="oracle.jdeveloper.model.PathsConfiguration/javaContentSet"/>
       <string v="oracle.ide.model.ResourcePaths/resourcesContentSet"/>
@@ -94,10 +96,32 @@
          </hash>
       </list>
    </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="url-path">
+                  <url path="src/META-INF/resources/ExtendedComposite/"/>
+               </list>
+            </hash>
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+*"/>
+               </list>
+               <list n="url-path">
+                  <url path="."/>
+               </list>
+            </hash>
+         </list>
+         <list n="url-path"/>
+      </hash>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADF_FACES"/>
          <string v="ADFc"/>
+         <string v="HTML"/>
+         <string v="JAVASCRIPT"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -106,6 +130,27 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <list n="copyRes">
+         <string v=".cpx"/>
+         <string v=".dcx"/>
+         <string v=".ejx"/>
+         <string v=".gif"/>
+         <string v=".ini"/>
+         <string v=".jpeg"/>
+         <string v=".jpg"/>
+         <string v=".png"/>
+         <string v=".properties"/>
+         <string v=".sva"/>
+         <string v=".tag"/>
+         <string v=".tld"/>
+         <string v=".wsdl"/>
+         <string v=".xcfg"/>
+         <string v=".xlf"/>
+         <string v=".xml"/>
+         <string v=".xsd"/>
+         <string v=".xsl"/>
+         <string v=".xhtml"/>
+      </list>
       <value n="internalEncoding" v="UTF-8"/>
       <value n="webIANAEncoding" v="UTF-8"/>
    </hash>

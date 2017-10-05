@@ -32,4 +32,19 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">excelimporter</property>
+      <property
+         name="x">186.0918</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>excelimporter&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">150.44824</property>
+      <property
+         name="page">/page/component/excelimporter/excelimporter.jsf</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
 </SDM>

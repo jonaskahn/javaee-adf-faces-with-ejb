@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <cc:interface>
+        <cc:attribute name="idFrom" required="true" shortDescription="Enter the ID of the confirmBox"/>
+        <cc:attribute name="content" required="true" default="Content" shortDescription="Enter content of confirmbox"/>
+        <cc:attribute name="actionYes" required="true" shortDescription="action when you click btn Yes"/>
+        <cc:attribute name="mode" default="simple" shortDescription="You can choose 'simple' or 'advance' "/>
+        <cc:attribute name="type" shortDescription="link or button, default is button" default="link"/>
+        <cc:attribute name="name" shortDescription="Name of link or button" required="true"/>
+        <cc:attribute name="yesname" shortDescription="Name of link or button yes" default="Yes"/>
+        <cc:attribute name="noname" shortDescription="Name of link or button no" default="No"/>
+    </cc:interface>
+    <cc:implementation>
+        <af:panelGroupLayout id="pgl1#{cc.attrs.idFrom}">
+            <af:resource type="javascript">
+              function callYesAction() {
+                  alert("YES");
+              }
+
+              function openConfirmBox(evt) {
+              
+                  var content = "#{cc.attrs.content}";
+                  var mode = "#{cc.attrs.mode}";
+                  var yes = "#{cc.attrs.yesname}";
+                  var no = "#{cc.attrs.noname}";
+                  
+                  if (mode == 'advance') {
+                      bootbox.confirm( {
+                          message : content, buttons :  {
+                              confirm :  {
+                                  label : yes, className : 'btn-success'
+                                  callback : function (result) {
+                                      callYesAction();
+                                  }
+                              },
+                              cancel :  {
+                                  label : no, className : 'btn-danger'
+                              }
+                          },
+
+                      });
+                  }esle if (mode == 'simple') {
+
+                  }
+
+              }
+            </af:resource>
+            <af:link immediate="true" id="btnYes#{cc.attrs.idFrom}" styleClass="hidden" action="#{cc.attrs.actionYes}"/>
+            <af:outputText rendered="#{cc.attrs.type eq 'link'}" value="#{cc.attrs.name}" styleClass="btn-link">
+                <af:clientListener method="openConfirmBox" type="click"/>
+            </af:outputText>
+        </af:panelGroupLayout>
+    </cc:implementation>
+</html>

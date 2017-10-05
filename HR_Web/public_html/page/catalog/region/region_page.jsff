@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/template/catalogTemplate.jsff" xmlns:ntt="https://tuyendev.com/component"
+                xmlns:ntte="http://java.sun.com/jsf/composite/ExtendedComposite"
                 xmlns:f="http://java.sun.com/jsf/core">
     
     <ui:param name="searchName" value="#{lang['com.tuyendev.region.label.header.search']}"/>
@@ -55,7 +56,7 @@
                       value="#{pageFlowScope.regionController.lstRegions}" partialTriggers="::btnSearch">
                 <af:column sortable="false" align="center" width="80"
                            headerText="#{lang['com.tuyendev.template.table.row.select']}" id="c6">
-                    <af:selectBooleanCheckbox value="#{row.selected}" id="sbc1" autoSubmit="true"/>
+                    <af:selectBooleanCheckbox value="#{row.selected}" id="sbc1" autoSubmit="true" />
                 </af:column>
                 <af:column sortable="true" styleClass="col_stt" align="center" width="100" id="test_uindex"
                            headerText="#{lang['com.tuyendev.template.table.row.order']}">

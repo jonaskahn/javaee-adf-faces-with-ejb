@@ -153,6 +153,10 @@
         <extension>amf</extension>
         <mime-type>application/x-amf</mime-type>
     </mime-mapping>
+    <mime-mapping>
+        <extension>xhtml</extension>
+        <mime-type>text/html</mime-type>
+    </mime-mapping>
     <error-page>
         <error-code>404</error-code>
         <location>/faces/E404</location>
@@ -163,7 +167,6 @@
     <listener>
         <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
     </listener>
-    
     <context-param>
         <param-name>org.apache.myfaces.trinidad.DISABLE_CONTENT_COMPRESSION</param-name>
         <param-value>true</param-value>

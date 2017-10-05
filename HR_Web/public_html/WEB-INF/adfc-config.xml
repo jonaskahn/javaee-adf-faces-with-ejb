@@ -6,4 +6,7 @@
   <view id="region">
     <page>/page/catalog/region/region.jsf</page>
   </view>
+  <view id="excelimporter">
+    <page>/page/component/excelimporter/excelimporter.jsf</page>
+  </view>
 </adfc-config>

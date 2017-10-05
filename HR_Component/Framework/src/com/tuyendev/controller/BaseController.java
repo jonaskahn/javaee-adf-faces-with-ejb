@@ -89,6 +89,11 @@ public class BaseController implements Serializable {
             baseLogger.severe(ex);
         }
     }
+    
+    public void refreshPage(FacesContext fc) {
+        String refreshpage = fc.getViewRoot().getViewId();
+        JSFUtil.redirectUrl(refreshpage.replaceAll("/", "") + "?faces-redirect=true");
+    }
 
     public void reportError(Exception e) {
         reportError(e, baseLogger);

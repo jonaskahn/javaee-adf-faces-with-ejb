@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="excel-importer">
+    <default-activity>excelimporter</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>excelImporterController</managed-bean-name>
+      <managed-bean-class>com.tuyendev.control.ExcelImportController</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="excelimporter">
+      <page>/page/component/excelimporter/excelimporter.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

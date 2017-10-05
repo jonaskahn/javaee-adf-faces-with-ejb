@@ -131,4 +131,8 @@
     <extension>amf</extension>
     <mime-type>application/x-amf</mime-type>
   </mime-mapping>
+  <mime-mapping>
+    <extension>xhtml</extension>
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
 </web-app>
