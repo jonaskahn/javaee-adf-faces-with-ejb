@@ -37,7 +37,7 @@
         <af:resource type="javascript" source="/resources/js/bootbox.min.js"/>
         <af:resource type="javascript" source="/resources/js/template.js"/>
     </af:group>
-    <af:form>
+    <af:form usesUpload="true">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">

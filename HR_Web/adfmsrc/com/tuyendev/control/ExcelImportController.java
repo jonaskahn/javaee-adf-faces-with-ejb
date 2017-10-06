@@ -1,14 +1,19 @@
 package com.tuyendev.control;
 
+
 import com.tuyendev.controller.BaseController;
 import com.tuyendev.dto.ExcelProperDTO;
 
 import com.tuyendev.fw.DataUtil;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import java.io.OutputStreamWriter;
 
 import java.util.*;
 
@@ -16,31 +21,39 @@ import java.util.function.Function;
 
 import javax.annotation.PostConstruct;
 
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import one.util.streamex.StreamEx;
 
 import oracle.adf.share.logging.ADFLogger;
 
-import org.apache.poi.hssf.usermodel.HSSFHeader;
+import org.apache.myfaces.trinidad.model.UploadedFile;
+import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.Header;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellUtil;
-import org.apache.poi.ss.util.WorkbookUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import org.omnifaces.util.Faces;
 
 public class ExcelImportController extends BaseController {
 
@@ -52,8 +65,10 @@ public class ExcelImportController extends BaseController {
     private String sortedValue;
     private String step;
     private String headerTitle;
-    private int rowCountSameple = 10;
-
+    private int rowCountSameple = 0;
+    private InputStream inputStream;
+    private UploadedFile file;
+    
     @PostConstruct
     private void init() {
         try {
@@ -101,17 +116,16 @@ public class ExcelImportController extends BaseController {
         return null;
     }
 
-    public String downloadTemplate() {
+    public void downloadTemplate(FacesContext context, OutputStream out) {
         lstOrders = new ArrayList<>();
         Map<String, ExcelProperDTO> mapSelected =
             StreamEx.of(lstSelected).toMap(x -> x.getId() + " - " + x.getName(), Function.identity());
         List<String> codes = Arrays.asList(sortedValue.split(","));
         codes.forEach(x -> { lstOrders.add(mapSelected.get(x)); });
-        createTemplate();
-        return null;
+        createTemplate(context, out);
     }
 
-    private void createTemplate() {
+    private void createTemplate(FacesContext context, OutputStream out) {
         try {
             //create new workbook
             String path = FacesContext.getCurrentInstance()
@@ -207,11 +221,61 @@ public class ExcelImportController extends BaseController {
             }
 
             //Create File
-            FileOutputStream fileOut = new FileOutputStream("workbook.xlsx");
-            wb.write(fileOut);
-            fileOut.close();
+            wb.write(out);
+            OutputStreamWriter w = new OutputStreamWriter(out, "UTF-8");
+            w.flush();
+            out.close();
         } catch (Exception e) {
             reportError(e);
+        }
+    }
+
+    public void onUploadFile(ActionEvent actionEvent) {
+        try {
+            XSSFWorkbook wb = (XSSFWorkbook) WorkbookFactory.create(inputStream);
+            XSSFSheet data = wb.getSheetAt(0);
+            XSSFRow header = data.getRow(0);
+            XSSFRow title = data.getRow(1);
+            Map<Integer,String> mapNameWithPosition = new HashMap<>();
+            final int[] i = { 0 };
+            StreamEx.of(title.cellIterator()).forEach(x -> {
+                String code = x.getStringCellValue()
+                               .substring(0, x.getStringCellValue().indexOf("-"))
+                               .trim();
+                mapNameWithPosition.put(++i[0],code);
+            });
+
+            Iterator<Row> rows = data.rowIterator();
+            while (rows.hasNext()) {
+                XSSFRow row = (XSSFRow)rows.next();
+                // display row number in the console.
+                System.out.println("Row No.: " + row.getRowNum());
+                if (row.getRowNum() != 0 && row.getRowNum() != 1) {
+                    Iterator<Cell> cells = row.cellIterator();
+                    int pos = 0;
+                    while(cells.hasNext()){
+                        XSSFCell cell = (XSSFCell) cells.next();
+                        System.out.println(" Ma thuoc tinh :" + mapNameWithPosition.get(++pos));
+                        System.out.println(" Du lieu :" + cell.getRawValue());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            reportError(e);
+        }
+    }
+
+    public void uploadFileVCE(ValueChangeEvent vce) {
+        System.out.println("invoked");
+        if (vce.getNewValue() != null) {
+            //Get File Object from VC Event
+            UploadedFile fileVal = (UploadedFile) vce.getNewValue();
+            try {
+                inputStream = fileVal.getInputStream();
+                
+            } catch (Exception e) {
+                reportError(e);
+            }
         }
     }
 
@@ -260,5 +324,14 @@ public class ExcelImportController extends BaseController {
 
     public String getHeaderTitle() {
         return headerTitle;
+    }
+
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    public UploadedFile getFile() {
+        return file;
     }
 }

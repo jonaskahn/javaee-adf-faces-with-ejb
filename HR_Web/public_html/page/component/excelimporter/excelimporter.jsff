@@ -121,17 +121,23 @@
                                     <af:panelGroupLayout id="download" class="container"
                                                          rendered="#{pageFlowScope.excelImporterController.step == '2'}">
                                         <h3>Arrange and Download</h3>
-                                        <af:inputText value="#{pageFlowScope.excelImporterController.headerTitle}" placeholder="Enter name of header" required="true"/>
+                                        <af:inputText value="#{pageFlowScope.excelImporterController.headerTitle}"
+                                                      autoSubmit="true" placeholder="Enter name of header"
+                                                      required="true"/>
                                         <ol class="dd-list wrapper">
                                             <af:forEach items="#{pageFlowScope.excelImporterController.lstSelected}"
                                                         var="row" varStatus="index" begin="0">
                                                 <li class="dd-item" data-id="#{index}">
                                                     <div class="dd-handle input-group">
-                                                        <span class="input-group-btn "><button class="btn btn-info" type="button"><af:outputText value="#{row.id} - #{row.name}"/></button></span>
+                                                        <span class="input-group-btn ">
+                                                            <button class="btn btn-info" type="button">
+                                                                <af:outputText value="#{row.id} - #{row.name}"/>
+                                                            </button></span>
                                                          
-                                                        <input id="msg" type="text" class="form-control bg-info " name="msg" value="#{row.refName}" title="#{row.refName}"
-                                                               placeholder="Additional Info">
-                                                        </input>
+                                                        <input id="msg" disabled="disabled" type="text"
+                                                               class="form-control bg-info " name="msg"
+                                                               value="#{row.refName}" title="#{row.refName}"
+                                                               placeholder="Additional Info"></input>
                                                     </div>
                                                 </li>
                                             </af:forEach>
@@ -139,16 +145,25 @@
                                         <div class="row">
                                             <div class="col text-left">
                                                 <af:link id="backStep" text="BACK" styleClass="btn btn-primary white "
-                                                 immediate="true" partialSubmit="true"
-                                                 action="#{pageFlowScope.excelImporterController.backStep}"/>
+                                                         immediate="true" partialSubmit="true"
+                                                         action="#{pageFlowScope.excelImporterController.backStep}"/>
                                             </div>
                                             <div class="col text-right">
-                                                <af:link id="downloadTemplate" text="DOWNLOAD" styleClass="btn btn-primary white "
-                                                  partialSubmit="true"
-                                                 action="#{pageFlowScope.excelImporterController.downloadTemplate}"/>
+                                                <af:link id="downloadTemplate" text="DOWNLOAD" immediate="true"
+                                                         styleClass="btn btn-primary white " partialSubmit="true">
+                                                    <af:fileDownloadActionListener filename="Template.xlsx"
+                                                                                   method="#{pageFlowScope.excelImporterController.downloadTemplate}"
+                                                                                   contentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=utf-8"/>
+                                                </af:link>
                                             </div>
                                         </div>
                                         
+                                        <af:inputFile id="upload" columns="20" autoSubmit="true" value="#{pageFlowScope.excelImporterController.file}"
+                                                      valueChangeListener="#{pageFlowScope.excelImporterController.uploadFileVCE}">
+                                            <?audit suppress oracle.adf.faces.compnotlabelled?>
+                                        </af:inputFile>
+                                        <af:commandButton text="Upload" id="cb1"
+                                                          actionListener="#{pageFlowScope.excelImporterController.onUploadFile}"/>
                                     </af:panelGroupLayout>
                                 </div>
                             </article>
