@@ -5,11 +5,10 @@ import com.tuyendev.controller.BaseController;
 import com.tuyendev.dto.ExcelProperDTO;
 
 import com.tuyendev.fw.DataUtil;
+import  org.apache.poi.ss.usermodel.*;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -21,7 +20,6 @@ import java.util.function.Function;
 
 import javax.annotation.PostConstruct;
 
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import javax.faces.event.ActionEvent;
@@ -32,18 +30,6 @@ import one.util.streamex.StreamEx;
 import oracle.adf.share.logging.ADFLogger;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.VerticalAlignment;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -52,8 +38,6 @@ import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import org.omnifaces.util.Faces;
 
 public class ExcelImportController extends BaseController {
 
@@ -68,7 +52,7 @@ public class ExcelImportController extends BaseController {
     private int rowCountSameple = 0;
     private InputStream inputStream;
     private UploadedFile file;
-    
+
     @PostConstruct
     private void init() {
         try {
@@ -232,31 +216,54 @@ public class ExcelImportController extends BaseController {
 
     public void onUploadFile(ActionEvent actionEvent) {
         try {
+
             XSSFWorkbook wb = (XSSFWorkbook) WorkbookFactory.create(inputStream);
+            FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
             XSSFSheet data = wb.getSheetAt(0);
             XSSFRow header = data.getRow(0);
             XSSFRow title = data.getRow(1);
-            Map<Integer,String> mapNameWithPosition = new HashMap<>();
+            Map<Integer, String> mapNameWithPosition = new HashMap<>();
             final int[] i = { 0 };
             StreamEx.of(title.cellIterator()).forEach(x -> {
                 String code = x.getStringCellValue()
                                .substring(0, x.getStringCellValue().indexOf("-"))
                                .trim();
-                mapNameWithPosition.put(++i[0],code);
+                mapNameWithPosition.put(++i[0], code);
             });
 
             Iterator<Row> rows = data.rowIterator();
             while (rows.hasNext()) {
-                XSSFRow row = (XSSFRow)rows.next();
+                XSSFRow row = (XSSFRow) rows.next();
                 // display row number in the console.
                 System.out.println("Row No.: " + row.getRowNum());
                 if (row.getRowNum() != 0 && row.getRowNum() != 1) {
                     Iterator<Cell> cells = row.cellIterator();
                     int pos = 0;
-                    while(cells.hasNext()){
+                    while (cells.hasNext()) {
                         XSSFCell cell = (XSSFCell) cells.next();
                         System.out.println(" Ma thuoc tinh :" + mapNameWithPosition.get(++pos));
-                        System.out.println(" Du lieu :" + cell.getRawValue());
+                        System.out.println(" Data type :" + cell.getCellTypeEnum().toString());
+                        CellType cellType = cell.getCellTypeEnum();
+                        switch (cellType) {
+                            case BOOLEAN:
+                                System.out.println(" Du lieu :" + cell.getBooleanCellValue());
+                                break;
+                            case NUMERIC:
+                                System.out.println(" Du lieu :" + cell.getNumericCellValue());
+                                break;
+                            case STRING:
+                                System.out.println(" Du lieu :" + cell.getStringCellValue());
+                                break;
+                            case BLANK:
+                                break;
+                            case ERROR:
+                                System.out.println(" Du lieu :" + cell.getErrorCellValue());
+                                break;
+                            case FORMULA:
+                                System.out.println(" Du lieu :" + cell.getRawValue());
+                                break;
+                        }
+
                     }
                 }
             }
@@ -272,7 +279,7 @@ public class ExcelImportController extends BaseController {
             UploadedFile fileVal = (UploadedFile) vce.getNewValue();
             try {
                 inputStream = fileVal.getInputStream();
-                
+
             } catch (Exception e) {
                 reportError(e);
             }
