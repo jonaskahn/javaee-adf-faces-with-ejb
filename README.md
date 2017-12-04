@@ -1,7 +1,7 @@
 # What did I do?
 
 > ***Why did I make it?***
-> *To help my new co-workers or it maybe also help you*
+> *To help my new co-workers*
 
 
 ### Dependency Injection
