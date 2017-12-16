@@ -1,9 +1,5 @@
 # What did I do?
 
-> ***Why did I make it?***
-> *To help my new co-workers*
-
-
 ### Dependency Injection
 ______
 - ***Concepts***
