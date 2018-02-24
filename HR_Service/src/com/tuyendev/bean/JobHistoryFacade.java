@@ -6,7 +6,7 @@
 package com.tuyendev.bean;
 
 import com.tuyendev.base.BaseFacade;
-import com.tuyendev.common.ServiceName;
+import com.tuyendev.common.Constant;
 import com.tuyendev.dto.JobHistoryDTO;
 import com.tuyendev.local.JobHistoryFacadeLocal;
 import com.tuyendev.entities.JobHistory;
@@ -20,7 +20,15 @@ import javax.persistence.PersistenceContext;
  *
  * @author tuyendev
  */
-@Stateless(name = ServiceName.EJB_NAME.JOB_HISTORY_FACADE,mappedName = ServiceName.EJB_MAPPED_NAME.JOB_HISTORY_FACADE)
+@Stateless(name = com.tuyendev
+                     .common
+                     .Constant
+                     .EJB_NAME
+                     .JOB_HISTORY_FACADE,mappedName = com.tuyendev
+                                                          .common
+                                                          .Constant
+                                                          .EJB_MAPPED_NAME
+                                                          .JOB_HISTORY_FACADE)
 public class JobHistoryFacade extends BaseFacade<JobHistory,JobHistoryDTO> implements JobHistoryFacadeLocal, com.tuyendev.remote.JobHistoryFacadeRemote {
 
     @PersistenceContext(unitName = "HR_Service")
@@ -40,5 +48,21 @@ public class JobHistoryFacade extends BaseFacade<JobHistory,JobHistoryDTO> imple
     @Override
     protected AdvanceMapper getMapper() {
         return mapper;
+    }
+
+    @Override
+    public void create(JobHistory entity) throws Exception {
+        // TODO Implement this method
+    }
+
+    @Override
+    public void save(JobHistoryDTO dto) throws Exception {
+        // TODO Implement this method
+    }
+
+    @Override
+    public String getSequenceName() {
+        // TODO Implement this method
+        return null;
     }
 }

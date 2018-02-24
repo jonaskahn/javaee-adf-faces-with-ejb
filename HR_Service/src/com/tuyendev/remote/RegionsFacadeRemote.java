@@ -20,4 +20,8 @@ import javax.ejb.Remote;
 @Remote
 public interface RegionsFacadeRemote extends BaseService<Regions, RegionsDTO> {
     public List<RegionsDTO> findByCondition(RegionsDTO searchDTO) throws Exception;
+    
+    public void doCreateOrUpdate(RegionsDTO searchDTO) throws Exception;
+    
+    public String doDelete(List<RegionsDTO> dtos) throws Exception;
 }

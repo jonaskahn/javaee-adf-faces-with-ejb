@@ -2,6 +2,8 @@ package com.tuyendev.base;
 
 import com.tuyendev.mapper.AdvanceMapper;
 
+import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +20,8 @@ public abstract class BaseFacade<Entity, DTO> implements BaseService<Entity,DTO>
     }
 
     protected abstract AdvanceMapper getMapper();
-
+    
     protected abstract EntityManager getEntityManager();
-
-    public void create(Entity entity) throws Exception {
-        getEntityManager().persist(entity);
-    }
-
-    public void save(DTO dto) throws Exception {
-        Entity entity = (Entity) getMapper().dtoToEntity(dto);
-        create(entity);
-    }
 
     public void edit(Entity entity) throws Exception {
         getEntityManager().merge(entity);
@@ -90,5 +83,11 @@ public abstract class BaseFacade<Entity, DTO> implements BaseService<Entity,DTO>
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
+    
+    protected Object getNextId(){
+        return getEntityManager().createQuery("select " + getSequenceName() + ".nextval from dual").getSingleResult();
+    }
+    
+    public abstract String getSequenceName();
 
 }

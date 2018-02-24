@@ -49,8 +49,8 @@
             </afc:component-extension>
         </afc:component>
     </af:xmlContent>
-    <af:popup animate="true" id="popup#{attrs.pId}" binding="#{attrs.bindingPn}">
-        <div id="detail#{attrs.id}" class="ntt-modal">
+    <af:popup animate="true" id="popup#{attrs.pId}" binding="#{attrs.bindingPn}" contentDelivery="lazyUncached" >
+        <div id="detail#{attrs.id}" class="ntt-modal" >
             <!-- ntt-modal content -->
             <af:resource type="css">
                 .AFZOrderLayerContainer, .AFZOrderLayer {
@@ -102,10 +102,10 @@
                             <af:facetRef facetName="body"/>
                         </af:panelGroupLayout>
                     </div>
-                    <div class="ntt-modal-footer">
+                    <div class="ntt-modal-footer " style="text-align: center!important">
                         <af:facetRef facetName="footer"/>
                          
-                        <af:link id="closeAction_01" inlineStyle="color: white" rendered="#{attrs.enableFooter}"
+                        <af:link id="closeAction_01" inlineStyle="color: white !important;margin: 0px 4px 0px 4px" rendered="#{attrs.enableFooter}"
                                  styleClass="btn btn-danger" text="Close" actionListener="#{extendedPopup.onClose}">
                             <f:attribute name="ppbd" value="#{attrs.bindingPn}"/>
                         </af:link>

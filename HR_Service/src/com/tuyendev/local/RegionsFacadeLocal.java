@@ -8,7 +8,9 @@ package com.tuyendev.local;
 import com.tuyendev.base.BaseService;
 import com.tuyendev.dto.RegionsDTO;
 import com.tuyendev.entities.Regions;
+
 import java.util.List;
+
 import javax.ejb.Local;
 
 /**
@@ -16,6 +18,10 @@ import javax.ejb.Local;
  * @author tuyendev
  */
 @Local
-public interface RegionsFacadeLocal extends BaseService<Regions,RegionsDTO> {
+public interface RegionsFacadeLocal extends BaseService<Regions, RegionsDTO> {
     public List<RegionsDTO> findByCondition(RegionsDTO searchDTO) throws Exception;
+
+    public void doCreateOrUpdate(RegionsDTO searchDTO) throws Exception;
+    
+    public String doDelete(List<RegionsDTO> dtos) throws Exception;
 }

@@ -6,7 +6,7 @@
 package com.tuyendev.bean;
 
 import com.tuyendev.base.BaseFacade;
-import com.tuyendev.common.ServiceName;
+import com.tuyendev.common.Constant;
 import com.tuyendev.dto.CountriesDTO;
 import com.tuyendev.mapper.AdvanceMapper;
 import com.tuyendev.remote.CountriesFacadeRemote;
@@ -20,7 +20,15 @@ import javax.persistence.PersistenceContext;
  *
  * @author tuyendev
  */
-@Stateless(name = ServiceName.EJB_NAME.COUNTRIES_FACADE,mappedName = ServiceName.EJB_MAPPED_NAME.COUNTRIES_FACADE)
+@Stateless(name = com.tuyendev
+                     .common
+                     .Constant
+                     .EJB_NAME
+                     .COUNTRIES_FACADE,mappedName = com.tuyendev
+                                                        .common
+                                                        .Constant
+                                                        .EJB_MAPPED_NAME
+                                                        .COUNTRIES_FACADE)
 public class CountriesFacade extends BaseFacade<Countries,CountriesDTO> implements CountriesFacadeLocal, CountriesFacadeRemote {
 
     @PersistenceContext(unitName = "HR_Service")
@@ -40,5 +48,21 @@ public class CountriesFacade extends BaseFacade<Countries,CountriesDTO> implemen
     @Override
     protected AdvanceMapper getMapper() {
         return mapper;
+    }
+
+    @Override
+    public void create(Countries entity) throws Exception {
+        // TODO Implement this method
+    }
+
+    @Override
+    public void save(CountriesDTO dto) throws Exception {
+        // TODO Implement this method
+    }
+
+    @Override
+    public String getSequenceName() {
+        // TODO Implement this method
+        return null;
     }
 }

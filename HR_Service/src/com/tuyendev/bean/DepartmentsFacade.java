@@ -6,7 +6,7 @@
 package com.tuyendev.bean;
 
 import com.tuyendev.base.BaseFacade;
-import com.tuyendev.common.ServiceName;
+import com.tuyendev.common.Constant;
 import com.tuyendev.dto.DepartmentsDTO;
 import com.tuyendev.local.DepartmentsFacadeLocal;
 import com.tuyendev.entities.Departments;
@@ -20,7 +20,15 @@ import javax.persistence.PersistenceContext;
  *
  * @author tuyendev
  */
-@Stateless(name = ServiceName.EJB_NAME.DEPARTMENTS_FACADE,mappedName = ServiceName.EJB_MAPPED_NAME.DEPARTMENTS_FACADE)
+@Stateless(name = com.tuyendev
+                     .common
+                     .Constant
+                     .EJB_NAME
+                     .DEPARTMENTS_FACADE,mappedName = com.tuyendev
+                                                          .common
+                                                          .Constant
+                                                          .EJB_MAPPED_NAME
+                                                          .DEPARTMENTS_FACADE)
 public class DepartmentsFacade extends BaseFacade<Departments,DepartmentsDTO> implements DepartmentsFacadeLocal, com.tuyendev.remote.DepartmentsFacadeRemote {
 
     @PersistenceContext(unitName = "HR_Service")
@@ -40,5 +48,21 @@ public class DepartmentsFacade extends BaseFacade<Departments,DepartmentsDTO> im
     @Override
     protected AdvanceMapper getMapper() {
         return mapper;
+    }
+
+    @Override
+    public void create(Departments entity) throws Exception {
+        // TODO Implement this method
+    }
+
+    @Override
+    public void save(DepartmentsDTO dto) throws Exception {
+        // TODO Implement this method
+    }
+
+    @Override
+    public String getSequenceName() {
+        
+        return null;
     }
 }

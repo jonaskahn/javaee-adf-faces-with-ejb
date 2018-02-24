@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:panelGroupLayout id="addOrEdit" clientComponent="true">
+        <div class="row  mt-5">
+            <div class="col-sm-12">
+                <label for="regionNameView">
+                    <af:outputText value="#{lang['com.tuyendev.region.label.search.regionName']}"/>
+                </label>
+            </div>
+        </div>
+        <div class="row  mt-5 ">
+            <div class="col-sm-12">
+                <af:inputText styleClass="w-100" id="regionNameView"
+                              value="#{pageFlowScope.regionController.editDTO.regionName}" maximumLength="100"
+                              simple="true" contentStyle="width:100%;"/>
+            </div>
+        </div>
+        <div class="row  mt-5">
+            <div class="col-sm-12">
+                <label for="regionIdView">
+                    <af:outputText value="#{lang['com.tuyendev.region.label.search.regionId']}"/>
+                </label>
+            </div>
+        </div>
+        <div class="row  mt-5 ">
+            <div class="col-sm-12">
+                <af:inputText styleClass="w-100" id="regionIdView"
+                              value="#{pageFlowScope.regionController.editDTO.regionId}" maximumLength="100"
+                              simple="true" contentStyle="width:100%;"/>
+            </div>
+        </div>
+        <div class="row mt-10">
+            <div class="col-sm-12 " style="text-align: center;">
+                <af:link styleClass="btn btn-success " id="btnSave" inlineStyle="color: White;"
+                         text="#{pageFlowScope.regionController.mode eq 'add' ? lang['com.tuyendev.template.btn.save']:lang['com.tuyendev.template.btn.update']}"
+                         partialSubmit="true" action="#{pageFlowScope.regionController.onAddOrUpdate}">
+                    <af:target render="::regionResultId ::addOrEdit"/>
+                    <i class="fas fa-save fa-sm white"></i>
+                </af:link>
+                 <af:spacer width="20"/>
+                <af:link styleClass="btn btn-warning" id="btnSaveAndClose" inlineStyle="color: White;"
+                         text="#{pageFlowScope.regionController.mode eq 'add' ? lang['com.tuyendev.template.btn.savenclose']:lang['com.tuyendev.template.btn.updatenclose']}"
+                         partialSubmit="true" action="#{pageFlowScope.regionController.onAddOrUpdateClose}">
+                    <af:target render="::regionResultId ::addOrEdit"/>
+                    <i class="fas fa-save fa-sm red"></i>
+                </af:link>
+            </div>
+        </div>
+    </af:panelGroupLayout>
+</ui:composition>

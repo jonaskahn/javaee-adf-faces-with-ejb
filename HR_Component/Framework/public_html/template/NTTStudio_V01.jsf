@@ -24,7 +24,7 @@
     </af:xmlContent>
     <af:group>
         <af:resource type="css" source="/resources/css/bootstrap.min.css"/>
-        <af:resource type="css" source="/resources/css/font-awesome.css"/>
+        <af:resource type="css" source="/resources/css/fontawesome-all.min.css"/>
         <af:resource type="css" source="/resources/css/animate.css"/>
         <af:resource type="css" source="/resources/css/bootstrap-dialog.min.css"/>
         <af:resource type="css" source="/resources/css/template.css"/>
@@ -36,6 +36,7 @@
         <af:resource type="javascript" source="/resources/js/bootstrap-confirmation.js"/>
         <af:resource type="javascript" source="/resources/js/bootbox.min.js"/>
         <af:resource type="javascript" source="/resources/js/template.js"/>
+       
     </af:group>
     <af:form usesUpload="true">
         <nav class="navbar navbar-inverse">
