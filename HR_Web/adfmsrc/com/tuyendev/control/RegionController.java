@@ -127,8 +127,8 @@ public class RegionController extends BaseController {
             if(DataUtil.isNullOrZero(editDTO.getRegionId())){
                 //do create
                 regionsService.doCreateOrUpdate(editDTO);
-                editDTO = new RegionsDTO();
                 reportSuccess("com.tuyendev.country.message.create.success", editDTO.getRegionName());
+                editDTO = new RegionsDTO();
             }else {
                 //do update
                 regionsService.doCreateOrUpdate(editDTO);
