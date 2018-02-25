@@ -30,6 +30,99 @@ ______
 - *Dashboard* 
 ![alt text](https://i.imgur.com/WRbzsFg.png "My Dashboard")
 ______
+### Quick  Guide
+- ***Use injection***	
+	-	Inject remote service 
+		-	Declare in controller
+		```
+		@Autoinjector(mappedName = [mapped-name], injectType = InjectorType.REMOTE)
+		```
+	 -	Inject local service
+		 - [Configure](https://docs.oracle.com/cd/E16439_01/doc.1013/e13981/servjndi004.htm) EJB Local in web.xml
+		 ```
+		 <ejb-local-ref>
+			 <ejb-ref-name>myBeans/BeanA</ejb-ref-name>
+			 <ejb-ref-type>Session</ejb-ref-type>
+			 <local-home>myBeans.BeanAHome</home>
+			 <local>myBeans.BeanA</remote>
+		</ejb-ref>
+		```
+		-	Declear in Controller
+		```
+		@Autoinjector(refName= [ref-name], injectType = InjectorType.LOCAL)
+		```
+	-	Example
+		```
+		    // Use remote service
+		    @Autoinjector(mappedName = Constant.EJB_MAPPED_NAME.REGIONS_FACADE, injectType = InjectorType.REMOTE) 
+		    private RegionsFacadeRemote regionsService;
+		    . . .
+		    public String doSearch() {
+			    try {
+				    lstRegions = regionsService.findByCondition(searchDTO);
+				    reportSuccess("com.tuyendev.region.label.search.result", lstRegions.size());
+				} catch (Exception e) {
+					reportError(e);
+				}
+				return null;
+			}
+	
+-	***Send notifications***
+		![alt_text](https://preview.ibb.co/je5FXc/Untitled.png)
+	-	**Error**
+		```
+		public void reportError(Exception e)
+		....
+		public void reportError(Exception e, ADFLogger logger)
+		....
+		public void reportError(String keyMess, Object... params)
+		```
+	-	**Success**
+		```
+		public void reportSuccess(String key, Object... params)
+		```
+	-	**Warm**
+		```
+		public void reportWarm(String keyMess, Object... params)
+		.....
+		private void reportWarm(LogicException e, ADFLogger logger) 
+		```
+	- **Configure time-out display**
+		![alt_text](https://preview.ibb.co/kL6uQx/222.png)
+		```
+		package com.tuyendev.common;
+		
+		public class Constant {
+			.....
+			// millisecond
+			public final static class DEFAULT_TIMEOUT_MESSAGE {
+		        public final static long ERROR = 50000L;
+		        public final static long SUCCESS = 20000L;
+		        public final static long WARNING = 25000L;
+		        public final static long INFO = 10000L;
+		    }
+		   ....
 
-### Note
-I didn't write everything I make, so let discover and tell me anything make you confused.
+	-	**Change server weblogic ip address**
+		```
+		package com.tuyendev.common;
+		
+		public class ContextUtil {
+			@SuppressWarnings("unchecked")
+			public static Context getRemoteContext() throws NamingException {
+				Hashtable env = new Hashtable();
+			    env.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
+				env.put(Context.PROVIDER_URL, Constant.PROVIDER_URL);
+				return new InitialContext(env);
+			}
+				....
+		}
+		```
+		```
+		package com.tuyendev.common;
+		
+		public class Constant {
+			public final static String PROVIDER_URL = "t3://127.0.0.1:7101";
+			....
+		}
+		```

@@ -9,6 +9,7 @@ import com.tuyendev.dto.RegionsDTO;
 import com.tuyendev.exception.LogicException;
 import com.tuyendev.inject.Autoinjector;
 
+import com.tuyendev.inject.InjectorType;
 import com.tuyendev.remote.RegionsFacadeRemote;
 
 import java.math.BigDecimal;
@@ -41,7 +42,8 @@ public class RegionController extends BaseController {
     private List<RegionsDTO> lstRegions;
     private List<RegionsDTO> lstRegionsDel;
 
-    @Autoinjector(mappedName = Constant.EJB_MAPPED_NAME.REGIONS_FACADE)
+    // Use remote service
+    @Autoinjector(mappedName = Constant.EJB_MAPPED_NAME.REGIONS_FACADE, injectType = InjectorType.REMOTE) 
     private RegionsFacadeRemote regionsService;
 
     /*Bindings*/
