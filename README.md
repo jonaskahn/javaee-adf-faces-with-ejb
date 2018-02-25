@@ -65,9 +65,10 @@ ______
 					reportError(e);
 				}
 				return null;
-			}
+		    }
 	
 -	***Send notifications***
+	-	Support 3 types of notification
 		![alt_text](https://preview.ibb.co/je5FXc/Untitled.png)
 	-	**Error**
 		```
