@@ -1,5 +1,5 @@
 
-# Free sample Oracle ADF Faces with EJB
+# A template for Oracle ADF Faces/ EJB
 
 ### Getting started
 ______
