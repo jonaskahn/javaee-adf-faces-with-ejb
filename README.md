@@ -47,7 +47,7 @@ ______
 			 <local>myBeans.BeanA</remote>
 		</ejb-ref>
 		```
-		-	Declear in Controller
+		-	Declare in Controller
 		```
 		@Autoinjector(refName= [ref-name], injectType = InjectorType.LOCAL)
 		```
