@@ -24,7 +24,7 @@ Yep, when I started working in the new company, started working with ADF Faces, 
 	![alt text](https://preview.ibb.co/bJEVyH/Untitled_1.png)
 ______
 ### Support Bootstrap 4 And JQuery
-- It's a web project, you can integrate  Bootstrap 4 And JQuery, I tried to integrate  *Region function*, you can take a look and consult. Howerver, I'm not Front-end developer, so I didn't make it beautiful. 
+- It's a web project, you can integrate  Bootstrap 4 And JQuery, I tried to integrate  *Region function*, you can take a look and consult. Howerver, I'm not Front-end developer, so I could not make it beautiful as you thought. 
 ______
 ### Screenshots
 - *Dashboard* 
