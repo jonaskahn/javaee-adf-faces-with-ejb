@@ -1,4 +1,3 @@
-https://tuyendev.github.io/javaee-adf-faces-with-ejb/
 
 # A template for Oracle ADF Faces/ EJB
 
